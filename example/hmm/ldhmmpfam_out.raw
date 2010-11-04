@@ -1,0 +1,2687 @@
+hmmpfam - search one or more sequences against HMM database
+CLC_PROFILE_HMM 1.02.37033
+Copyright (C) 2007 CLC bio A/S
+Read the license in the manual
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+HMM file:                 PFAM_HMM
+Sequence file:            FastaFileNode for HmmpfamTask
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query sequence: JCVI_PEP_1113087382759
+Accession:      [none]
+Description:    /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc
+
+Scores for sequence family classification (score includes all domains):
+Model    Description                                    Score    E-value  N 
+-------- -----------                                    -----    ------- ---
+PF00295  Glyco_hydro_28: Polygalacturonase (pectinase  -172.0        1.9   1
+PF00544  Pec_lyase_C: Pectate lyase                    -117.4        8.8   1
+
+Parsed for domains:
+Model    Domain  seq-f seq-t    hmm-f hmm-t      score  E-value
+-------- ------- ----- -----    ----- -----      -----  -------
+PF00295    1/1      34   295 ..     1   362 []  -172.0      1.9
+PF00544    1/1     179   298 ..     1   250 []  -117.4      8.8
+
+Alignments of top-scoring domains:
+PF00295: domain 1 of 1, from 34 to 295: score -172.0, E = 1.9
+                   *->CssivlstilVPknggflLgltslsGPCKsgatvtfq..Gtttas..
+                       + +   +++VP  g  l g++ l+    s + + +++++ + +s++
+  JCVI_PEP_1    34    -KGGG--KLVVPR-GMWLTGPIVLK----SNINLHVEegAMIIFSkd 72   
+
+                   .............CGykesqgkkdrliwisgekitvlgasGggtiDGqGa
+                   +++ +  + + ++  +++ q +      is+++ t+++++G+g+iDG G 
+  JCVI_PEP_1    73 kndyplvdvsfegLNTTRCQSP------ISAKNATNIAITGKGIIDGSGD 116  
+
+                   a.................................................
+                   a +  ++++ ++++ ++  ++++  ++++++  ++++ +++ +++++ + 
+  JCVI_PEP_1   117 Awraikkskvsesewkeivksggivssdgknwypsesykkglesssnfnv 166  
+
+                   ..aWwdgsckkkksnscKkkPkflrfhkldnstitglnikNspvfhfsvq
+                   +++ +++   + k +   ++ +++  +k+    + g + +Nsp       
+  JCVI_PEP_1   167 pdKISKEELITVKDFLRPVMVSLVECDKVL---LDGPTFQNSPAWNLHPL 213  
+
+                   dcknltasditIdapagssaGGpNTDGidvgsSsgvtIsnttigtGDDCi
+                    c+n+ ++++tI++p  s     N DG+d  s+++v I ++t+ +GDD i
+  JCVI_PEP_1   214 MCSNVILRNLTIRNPWFS----QNGDGLDLESCKNVLIYDNTFDVGDDAI 259  
+
+                   aIgsGskREtRnilitnitCgpGHGGNISIGSvGgrsdEntVsgVtVknc
+                    I+sG+                                            
+  JCVI_PEP_1   260 CIKSGK-------------------------------------------- 265  
+
+                   tvtgsdNGVRIKTPwpvagatGtVsnItfeNIemsnvakypIvIdqdYcd
+                                 ++                                 d
+  JCVI_PEP_1   266 --------------DK---------------------------------D 268  
+
+                   rgkpcgkpltsgVkisdvtfknItGTsassataVkllCskgsPCsgvtws
+                                               +        +++g+P ++v+++
+  JCVI_PEP_1   269 ----------------------------G--------RKRGMPTENVIIK 282  
+
+                   dvditgsGkggkktssCeNvppslkGkqspasc<-*
+                   + +i++ G            +        + +    
+  JCVI_PEP_1   283 N-NIVYHG------------H-------GGFVI    295  
+
+PF00544: domain 1 of 1, from 179 to 298: score -117.4, E = 8.8
+                   *->kqpl..VitsnktiDisggaAytnicdQkartkvnvgankTiiGITi
+                      k+ l++V+ s    D                       +  + G   
+  JCVI_PEP_1   179    KDFLrpVMVSLVECD-----------------------KVLLDG--P 200  
+
+                   rGanvklaNiGiliidIknssNVIirNlrihdcktsagGnirvnphyegg
+                    ++n    N ++l       sNVI+rNl i +                  
+  JCVI_PEP_1   201 TFQNSPAWNLHPLMC-----SNVILRNLTIRN------------------ 227  
+
+                   pggakDGDaIsidLnstkniWIDHcslsnsnfsdddgsdkDgekYVQhDG
+                   p+  + GD++ +   s kn+ I  +++  +                  D 
+  JCVI_PEP_1   228 PWFSQNGDGLDLE--SCKNVLIYDNTFDVG------------------DD 257  
+
+                   LvDikegStyVTISNclFtnHkKvmLlGHPsDsnnsqDkGkmrvTlahNv
+                   ++ ik g +                 +G          +G m        
+  JCVI_PEP_1   258 AICIKSGKDK----------------DGR-K-------RG-MP------- 275  
+
+                   FGnnvteRmPGRcRyGyfHvyNNvYkGDvKdsvnweqYafGgsqngtILS
+                    ++nv              + NN         v+  + +f +++      
+  JCVI_PEP_1   276 -TENVI-------------IKNN-I-------VYHGHGGFVIGSE----- 298  
+
+                   EgNsF<-*
+                           
+  JCVI_PEP_1     - -----    -    
+
+//
+
+Query sequence: JCVI_PEP_1113087382761
+Accession:      [none]
+Description:    /orf_id=JCVI_ORF_1113087382760 /read_id=BEARPAW_READ_1646937542 /begin=477 /end=930 /orientation=-1 /5_prime_stop=0 /5_prime_lo
+
+Scores for sequence family classification (score includes all domains):
+Model    Description                                    Score    E-value  N 
+-------- -----------                                    -----    ------- ---
+PF07516  SecA_SW: SecA Wing and Scaffold domain         -24.0    4.9e-08   1
+PF05672  MAP7: E-MAP-115 family                        -114.8        6.8   1
+
+Parsed for domains:
+Model    Domain  seq-f seq-t    hmm-f hmm-t      score  E-value
+-------- ------- ----- -----    ----- -----      -----  -------
+PF07516    1/1       1    98 [.     1   220 []   -24.0  4.9e-08
+PF05672    1/1       2   149 ..     1   193 []  -114.8      6.8
+
+Alignments of top-scoring domains:
+PF07516: domain 1 of 1, from 1 to 98: score -24.0, E = 4.9e-08
+                   *->PIESkmvtkaLesAQKrVEgrNFDiRKqLleYDdVlNsQRkaIYaeR
+                                                                     
+  JCVI_PEP_1     -    ----------------------------------------------- -    
+
+                   rrvLesedlseiIleyledtiddivdayipfpenleEeWDlegLiekikq
+                    r L s+ ++              v + i       Ee            
+  JCVI_PEP_1     1 -RALGSSVFR--------------VLK-IL------EE------------ 16   
+
+                   llnleltleewlleilnkdsedlkeflleqlkiaYdlKeaqleqilgpel
+                                                        K+ q     g+ l
+  JCVI_PEP_1    17 -------------------------------------KKGQW----GEAL 25   
+
+                   mrefERyvlLqsIDrkWrEHLqkMdyLRegIgLRgYaQkDPLvEYKkEgf
+                   ++e+ + + L++ D++WrEHL  +d LRegI+LRgYa +DPLvEYKkE+f
+  JCVI_PEP_1    26 FKEILKTIALSNXDHLWREHLHILDRLREGIYLRGYAARDPLVEYKKEAF 75   
+
+                   nlFeeMledIreeviytlfksei<-*
+                    lFe+Ml  ++e v + l +++i   
+  JCVI_PEP_1    76 LLFENMLFTLKERVLQDLIRVQI    98   
+
+PF05672: domain 1 of 1, from 2 to 149: score -114.8, E = 6.8
+                   *->APgkaensaAlsKptAGTTDaeEAtrLLAEKRRqAReQrEkEEqERr
+                      A g+ +  +                ++L EK  q  e   kE     
+  JCVI_PEP_1     2    ALGSSVFRV---------------LKILEEKKGQWGEALFKEILKTI 33   
+
+                   eqeErdrrkREEl..krraaEeRtlrrEeEARrrEeeraRekeekKKqEG
+                        d + RE l+ + r  E     r   AR    e + e         
+  JCVI_PEP_1    34 ALSNXDHLWREHLhiLDRLREGI-YLRGYAARDPLVEYKKEAFLL----- 77   
+
+                   EEKRKAGEElkRkAEEeLLLKekrEqEeqErAmiqkQ...KEeAEaraR.
+                                  E  +L  ++E+  q    i  Q  + Ee E  +R+
+  JCVI_PEP_1    78 --------------FEN-MLFTLKERVLQDL--IRVQiasQEEVEEQVRk 110  
+
+                   EeAErvRlEREkhfqqeE.QERlERkKRLeEIMKRTRksevsekVKkeDs
+                   Ee Er Rl    +f   E+     R+K L E  K  Rks           
+  JCVI_PEP_1   111 EEEERERLLKSAIFSGAEgKADKPRRKTLKERLKEKRKS----------- 149  
+
+                   keG<-*
+                         
+  JCVI_PEP_1     - ---    -    
+
+//
+
+Query sequence: JCVI_PEP_1113087382763
+Accession:      [none]
+Description:    /orf_id=JCVI_ORF_1113087382762 /read_id=BEARPAW_READ_1646937542 /begin=105 /end=516 /orientation=1 /5_prime_stop=TGA /5_prime_l
+
+Scores for sequence family classification (score includes all domains):
+Model     Description                                   Score    E-value  N 
+--------  -----------                                   -----    ------- ---
+TIGR00057 TIGR00057: Sua5/YciO/YrdC/YwlC family prote   -43.8    0.00027   1
+PF01300   Sua5_yciO_yrdC: yrdC domain                   -62.8        0.4   1
+
+Parsed for domains:
+Model     Domain  seq-f seq-t    hmm-f hmm-t      score  E-value
+--------  ------- ----- -----    ----- -----      -----  -------
+TIGR00057   1/1       1   111 [.     1   215 []   -43.8  0.00027
+PF01300     1/1       3   102 ..     1   191 []   -62.8      0.4
+
+Alignments of top-scoring domains:
+TIGR00057: domain 1 of 1, from 1 to 111: score -43.8, E = 0.00027
+                   *->ihpenpsqrkkvIeqAvkiLrkGgiVvyPTDTvYGiGadAtnedAVk
+                                                                     
+  JCVI_PEP_1     -    ----------------------------------------------- -    
+
+                   rlyeiKgRpsnkPlivlvsdlseieklaedvpddAkkLmkkflPGpLTlv
+                                                                  T++
+  JCVI_PEP_1     1 ----------------------------I------------------TVI 4    
+
+                   LkktpDAliPrlvsgGskrgTvgiRvPdhp.ialeLleelgkPivapSAN
+                   + k     iP +++    r+ +++RvP  ++++  L++ +g P+vapSAN
+  JCVI_PEP_1     5 FQKRT--TIPTYLTR--WRKSLALRVPIQGtFITKLMKKFGGPVVAPSAN 50   
+
+                   lSGkpsatmsdvEeivdeLdklVDliIDgGpnkDclggepSTivDLTedt
+                   ++G p+a   dv  + d+++ +VDl++ g      l g+pSTiv++  d+
+  JCVI_PEP_1    51 PEGLPPAR--DVKDAMDYFGDKVDLYVRGA----KLEGKPSTIVKFVSDK 94   
+
+                   .pkvLReGkvsKeeiekvlg<-*
+                    +k++ReG v   + ek+l+   
+  JCVI_PEP_1    95 aIKIVREGNV---PREKILQ    111  
+
+PF01300: domain 1 of 1, from 3 to 102: score -62.8, E = 0.4
+                   *->aallkgGeIVAypTdtgYgLgCdArnedAVarLrrlKqRpadKPlav
+                      ++ +k                                   +      
+  JCVI_PEP_1     3    VIFQK-----------------------------------R------ 8    
+
+                   mvrdldqieryadafervndaareLlsafwPGPlTlvLpakpklpsiLad
+                         +i +y         ++r+ l a++             +p     
+  JCVI_PEP_1     9 -----TTIPTYL-------TRWRKSL-ALR-------------VP----- 27   
+
+                   liapgldtiGvrlPdhplallLlhealgfPlvmTSANLSGePpvtdneea
+                    i++ +            +  L+ +++g P+v++SAN+ G Pp++d+ +a
+  JCVI_PEP_1    28 -IQGTF------------ITKLM-KKFGGPVVAPSANPEGLPPARDVKDA 63   
+
+                   rerLggivDlflllHrddgeiadrvdstVvWdlt.dnpprvlRrG<-*
+                    +++g +vDl ++     g+ + +++st+v ++++d++++++R+G   
+  JCVI_PEP_1    64 MDYFGDKVDL-YV----RGAKLEGKPSTIV-KFVsDKAIKIVREG    102  
+
+//
+
+Query sequence: JCVI_PEP_1113087382775
+Accession:      [none]
+Description:    /orf_id=JCVI_ORF_1113087382774 /read_id=BEARPAW_READ_1646937495 /begin=11 /end=911 /orientation=-1 /5_prime_stop=TAA /5_prime_l
+
+Scores for sequence family classification (score includes all domains):
+Model     Description                                   Score    E-value  N 
+--------  -----------                                   -----    ------- ---
+PF00171   Aldedh: aldehyde dehydrogenase (NAD) family   125.6      2e-34   1
+TIGR02299 HpaE: 5-carboxymethyl-2-hydroxymuconate sem   -87.5    3.5e-15   1
+TIGR01804 BADH: betaine aldehyde dehydrogenase          -10.1    3.9e-13   1
+TIGR01780 SSADH: succinate-semialdehyde dehydrogenase  -176.6    7.6e-12   1
+TIGR03374 ABALDH: 1-pyrroline dehydrogenase             -34.6    1.1e-07   1
+TIGR03240 arg_catab_astD: succinylglutamic semialdehy  -270.8      2e-06   1
+TIGR01237 D1pyr5carbox2: delta-1-pyrroline-5-carboxyl  -239.1    3.7e-06   1
+TIGR01238 D1pyr5carbox3: delta-1-pyrroline-5-carboxyl  -282.9    0.00017   1
+TIGR01722 MMSDH: methylmalonate-semialdehyde dehydrog  -276.1     0.0022   1
+TIGR03250 PhnAcAld_DH: putative phosphonoacetaldehyde  -278.7     0.0024   1
+TIGR03216 OH_muco_semi_DH: 2-hydroxymuconic semialdeh   -68.6      0.013   1
+TIGR01236 D1pyr5carbox1: 1-pyrroline-5-carboxylate de  -422.2      0.079   1
+PF08946   Osmo_CC: Osmosensory transporter coiled coi     5.5        2.8   1
+PF04416   DUF509: Protein of unknown function (DUF509   -57.4        6.7   1
+TIGR00407 proA: glutamate-5-semialdehyde dehydrogenas  -282.0        8.3   1
+PF09177   Syntaxin-6_N: Syntaxin 6, N-terminal          -32.6        8.6   1
+
+Parsed for domains:
+Model     Domain  seq-f seq-t    hmm-f hmm-t      score  E-value
+--------  ------- ----- -----    ----- -----      -----  -------
+TIGR01238   1/1       4   300 .]     1   525 []  -282.9  0.00017
+TIGR01236   1/1       5   300 .]     1   551 []  -422.2    0.079
+TIGR03250   1/1      19   300 .]     1   476 []  -278.7   0.0024
+TIGR03374   1/1      21   300 .]     1   472 []   -34.6  1.1e-07
+TIGR03216   1/1      22   299 ..     1   481 []   -68.6    0.013
+TIGR01237   1/1      22   300 .]     1   518 []  -239.1  3.7e-06
+TIGR01722   1/1      27   297 ..     1   478 []  -276.1   0.0022
+TIGR01804   1/1      27   298 ..     1   471 []   -10.1  3.9e-13
+TIGR02299   1/1      28   299 ..     1   494 []   -87.5  3.5e-15
+TIGR03240   1/1      29   299 ..     1   484 []  -270.8    2e-06
+PF00171     1/1      30   300 .]     1   479 []   125.6    2e-34
+PF04416     1/1      36   164 ..     1   159 []   -57.4      6.7
+TIGR01780   1/1      41   298 ..     1   454 []  -176.6  7.6e-12
+PF09177     1/1      55   139 ..     1    99 []   -32.6      8.6
+TIGR00407   1/1      68   298 ..     1   415 []  -282.0      8.3
+PF08946     1/1      78   126 ..     1    46 []     5.5      2.8
+
+Alignments of top-scoring domains:
+TIGR01238: domain 1 of 1, from 4 to 300: score -282.9, E = 0.00017
+                   *->dLYgegRkNSlGvdLdnEselksLeeqllkaaakkwqAapivgGeka
+                              NS  +      +   +     +    ++ A   v+Ge  
+  JCVI_PEP_1     4    ---TH-HNNSGTL-----CKWPEFKKRYDNTSXGQFTAP--VNGEYF 39   
+
+                   YESmikaegeaqPVknPadrkdiVGqVseAdaaevqeAvdSAvaafpeWs
+                                V+ P d k    q  + +      Av +A  af +W 
+  JCVI_PEP_1    40 ------------DVVSPIDGKNFT-QAAHSSKEDLELAVNAAEKAFQTWK 76   
+
+                   AtpAkERAAiLerlAdLLElhmPeLmaLlvrEAGKTlsnAI.aEVREAVD
+                    t   ER  iL  +Ad +E+       +     GK   +   a +  A+D
+  JCVI_PEP_1    77 NTSSTERSIILNKIADRIEQNLEYIATVETIDNGKAVRETLaADIPLAID 126  
+
+                   FcrYYAkqvr......dvLdeesvkaSFDGStRRVSRqGlGavVcISPWN
+                     rY+A  +r +++++  Ld ++v          +    lG++  I PWN
+  JCVI_PEP_1   127 HFRYFASVIRaeegshNELDKDTVSL--------IVHEPLGVIAQIIPWN 168  
+
+                   FPLAIFtGqiaAALaAGNtViAKPAEQTSLIAarAVeLmqEAGvPagviQ
+                   FP        a ALaAGN V+ KPAE T+       eL+     Pagv+ 
+  JCVI_PEP_1   169 FPILMAVWKLAPALAAGNCVVLKPAESTPISIMVLMELIGDL-LPAGVVN 217  
+
+                   LLpGrGedVGAALTsderiaGViFTGSTevArlinkaLAkRedapGRPvp
+                    + G G++ G AL   + +a  +FTGST++ rl+ +  A     p   v 
+  JCVI_PEP_1   218 IVNGFGAELGRALVTNPKVAKAAFTGSTATGRLVMQY-ATENIIP---VT 263  
+
+                   LIAETGGqNAMIVDStALaEQVvaDVLrSAFdSAGQRCSALRVLcvQedV
+                   L  E GG                    +  F S                 
+  JCVI_PEP_1   264 L--ELGGKSP-----------------NVFFNS----------------- 277  
+
+                   ADrvLtmikGAMdELkvgkPirltTDVGPVIDaeAkqnLlaHIekMkaka
+                                                V Da A               
+  JCVI_PEP_1   278 -----------------------------VMDAAA--------------- 283  
+
+                   kkvaqvkldddEDAvesrhgtFVaPtlfELddldeLkkEvFGPVLHVVRY
+                     +      ++                                       
+  JCVI_PEP_1   284 -CIWSSMDPNS--------------------------------------- 293  
+
+                   kadeLdkvVdqINakGYGLTlGVHsRieeTvrqiekrakvGNvYVNRniV
+                    ++ L                                             
+  JCVI_PEP_1   294 -RRSL--------------------------------------------- 297  
+
+                   GAVVGVQPFGGeGLSGTGPKAGGpfYLyrLtrvre<-*
+                                                   ++    
+  JCVI_PEP_1   298 --------------------------------SPX    300  
+
+TIGR01236: domain 1 of 1, from 5 to 300: score -422.2, E = 0.079
+                   *->aNEPvleFrpgslkerdlLrkeLkelkskvveiPlvIGGkevvksnE
+                           +    g+l  +   +k            P          ++E
+  JCVI_PEP_1     5    -----HHNNSGTLCKWPEFKKRYDNTSXGQFTAPV---------NGE 37   
+
+                   RAlieqvaPhdHqavlAkatnAteedakkAVEAAldAkkdWselPfydRA
+                      +++v+P d +     a    +ed+  AV AA  A   W +    +R+
+  JCVI_PEP_1    38 --YFDVVSPID-GKNFTQAAHSSKEDLELAVNAAEKAFQTWKNTSSTERS 84   
+
+                   aiFLKAADLLSGpYRee.....ilAvTMLGQSKtVyQ...AEIDavAELi
+                    i  K AD      R e++ + i+ v     +K V ++  A I  +A  i
+  JCVI_PEP_1    85 IILNKIAD------RIEqnleyIATVETIDNGKAVREtlaADIP-LA--I 125  
+
+                   DFfRFnvkYAreLyeQQPiseSapGewNr........teYRPLEGFVyAi
+                   D fR+   +A+ +     +     G+ N  ++++ + ++  PL G  + i
+  JCVI_PEP_1   126 DHFRY---FASVI-----RA--EEGSHNEldkdtvslIVHEPL-GVIAQI 164  
+
+                   sPFNFTAIAGNLaGAPAL.MGNtVvWKPSqTavLSnYlvmriLeEAG..L
+                    P NF    +    APAL  GN Vv KP      S   +m ++e  G+ L
+  JCVI_PEP_1   165 IPWNFPILMAVWKLAPALaAGNCVVLKPAESTPIS---IMVLMELIGdlL 211  
+
+                   PpGVINFVPgdgvkvsdvVlAdpdLAGihFTGStstFkhLwkkVasnldr
+                   P+GV+N V g g+  + +    p  A   FTGSt+t     +    n+  
+  JCVI_PEP_1   212 PAGVVNIVNGFGAELGRALVTNPKVAKAAFTGSTATGRLVMQYATENIIP 261  
+
+                   GKYhnFPRivGETGGKDFhlVHpSAdvehvvvaTiRGAFEYQGQKCSAaS
+                              E GGK                                  
+  JCVI_PEP_1   262 --------VTLELGGK---------------------------------- 269  
+
+                   RLYvPhSlWprfkeeLlaelkkvkvGdpntsAsPisadDfssFmGAvIde
+                                              p             +F+  v d+
+  JCVI_PEP_1   270 --------------------------SP------------NVFFNSVMDA 281  
+
+                   ksFaKivkyIErAKkdpeeleIlaGGkYDdSkGYFVePTVveskdPkepl
+                                   +                     ++  s dP    
+  JCVI_PEP_1   282 A---------------A---------------------CIWSSMDPN--- 292  
+
+                   MkeEiFGPVLtVYVYPDdKPGkYkEiLdvVDstskYGLTGAVFAkDReai
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   leAdkkLRyAAGNFYiNDKpTGAVVgqQPFGGARlSGTNDKAGgpqnllR
+                                                   +R S              
+  JCVI_PEP_1   293 --------------------------------SRRS-------------- 296  
+
+                   wvSaRsIKEtfvpltdwsYPyma<-*
+                    +S+                      
+  JCVI_PEP_1   297 -LSP------------------X    300  
+
+TIGR03250: domain 1 of 1, from 19 to 300: score -278.7, E = 0.0024
+                   *->iRaeALRiaGekv..srdrvieVryPYngtvVgtvPkasvdDvRrAf
+                       ++      G+ + ++ ++  +V  P +g     +   s +D   A 
+  JCVI_PEP_1    19    KKRYDNTSXGQFTapVNGEYFDVVSPIDGKNFTQAAHSSKEDLELAV 65   
+
+                   aiA.aaYRs..tLTRYERsaILerAaalLaaRkeEiSdLITLESGLskkD
+                     A++a++  +  +  ERs IL++ a+ + +  e i+++ T   G  ++ 
+  JCVI_PEP_1    66 NAAeKAFQTwkNTSSTERSIILNKIADRIEQNLEYIATVETIDNGKAVRE 115  
+
+                   sl.YEvGRvaDVLtfAaaealrDDGqiFSCDLTPHGKrRkvfTqRePLlG
+                   +l   +  ++D +   a  +    G          +K      + ePL  
+  JCVI_PEP_1   116 TLaADIPLAIDHFRYFASVIRAEEGSH-----NELDKDTVSLIVHEPLG- 159  
+
+                   vIsAITPFNHPmNqVAHKvaPAIATNNRvVlKPSEKtPLsAlyLADlLYE
+                   vI  I P N P+ + + K aPA A  N+vVlKP E tP+s   L  l   
+  JCVI_PEP_1   160 VIAQIIPWNFPILMAVWKLAPALAAGNCVVLKPAESTPISIMVLMELIGD 209  
+
+                   AGLPpqMLqVvtGdPreIadELiTnphVdLvTFTGgVaiGKlIAakAg..
+                     LP     +v G  +e++ +L+Tnp V   +FTG+ a G l+ + A ++
+  JCVI_PEP_1   210 L-LPAGVVNIVNGFGAELGRALVTNPKVAKAAFTGSTATGRLVMQYATen 258  
+
+                   YkRqVLELGGNDPLIVleDlsdADLdrAadLAvkGSYKNSGQRCTAVKRm
+                      + LELGG  P +  +                                
+  JCVI_PEP_1   259 IIPVTLELGGKSPNVFFNS------------------------------- 277  
+
+                   LVqesVAdrFtELlVEktrawkyGDPmDpsvDmGTVIDeaAAilfEarVn
+                                                      V D+aA i       
+  JCVI_PEP_1   278 -----------------------------------VMDAAACI------- 285  
+
+                   eAvaqGARlLlGnvRdGAlYaPtVlDrVdPsmtlVreETFGPVSPvirFk
+                                                                    +
+  JCVI_PEP_1   286 ------------------------------------------------WS 287  
+
+                   diDdAtIriSNsTayGLSSGVCTNrldyitrfiaeLqVGTVNvwEVPGYR
+                    +D          +  LS                                
+  JCVI_PEP_1   288 SMDPN-------SRRSLS-------------------------------- 298  
+
+                   lEltPFGGiKDSGLGYKEGVqEAmKSFTNlKTySLPW<-*
+                                                      P    
+  JCVI_PEP_1   299 -----------------------------------PX    300  
+
+TIGR03374: domain 1 of 1, from 21 to 300: score -34.6, E = 1.1e-07
+                   *->qdkLLinGkLva.GeGEkqavynPAtGevileiaeAsleqvdAAvrA
+                      ++     G+  a+ +GE   v  P  G    + a+ s e ++ Av A
+  JCVI_PEP_1    21    RYDNTSXGQFTApVNGEYFDVVSPIDGKNFTQAAHSSKEDLELAVNA 67   
+
+                   AdsAFAeWGqttPKaRAelLLKlADaiEenaevFAkLEsrnCGKPlHavl
+                   A+ AF  W  t    R  +L K+AD iE+n e  A +E    GK +   l
+  JCVI_PEP_1    68 AEKAFQTWKNTSSTERSIILNKIADRIEQNLEYIATVETIDNGKAVRETL 117  
+
+                   nDEiPAivDvFRFFAGAARCLsGlAAGEYLEGHtsmiRRDPvGvvAsiAP
+                     +iP  +D FR+FA   R  +G+   E      s+i  +P+Gv+A i P
+  JCVI_PEP_1   118 AADIPLAIDHFRYFASVIRAEEGSHN-ELDKDTVSLIVHEPLGVIAQIIP 166  
+
+                   WnYPLmmAaWKLAPALAAGnCvvlKPsEitPLtalkLAeLakDilPaGvv
+                   Wn+P++mA WKLAPALAAGnCvvlKP+E tP+  + L eL+ D+lPaGvv
+  JCVI_PEP_1   167 WNFPILMAVWKLAPALAAGNCVVLKPAESTPISIMVLMELIGDLLPAGVV 216  
+
+                   nvlFGRGktvGDaLtGHeKvrmvsLtGsiAtGeHilaHtApsiKRtHmEL
+                   n++ G G+++G aL   +Kv   + tGs AtG  +++     i    +EL
+  JCVI_PEP_1   217 NIVNGFGAELGRALVTNPKVAKAAFTGSTATGRLVMQYATENIIPVTLEL 266  
+
+                   GGKAPvivFDDADidavvdGvRtFGfYnAGqDCtAACRiYaqrgiYDelv
+                   GGK P +                  f+n   D  A               
+  JCVI_PEP_1   267 GGKSPNV------------------FFNSVMDAAA--------------- 283  
+
+                   EkLGkAvatLKiGdPeDEstELGPLsslahLeRvskavEeAKAlsHikvi
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   tGGekvkGkGyYfaPtlLAgAkqdDaivqkEvFGPvvsitvFDdEeqvir
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   WAndsrYGLAssvWtkDvGRAHRlsArLqYGCtWvntHFmLvsEmPHGGq
+                                                  C W        s m     
+  JCVI_PEP_1   284 -------------------------------CIW--------SSM----- 289  
+
+                   KlsGYGKDmslYGLEDYtivRHimvk<-*
+                                  D    R +      
+  JCVI_PEP_1   290 ---------------DPNSRRSLSPX    300  
+
+TIGR03216: domain 1 of 1, from 22 to 299: score -68.6, E = 0.013
+                   *->lknfinGafv..esektFedinPvdgrviaevhEAgkaevdaAvaAa
+                      + n   G+f+ + ++  F+ ++P+dg+ +++ +  +k++ + Av+Aa
+  JCVI_PEP_1    22    YDNTSXGQFTapVNGEYFDVVSPIDGKNFTQAAHSSKEDLELAVNAA 68   
+
+                   raAlkgpWgklsvaeRaellykvAdeierRfddFlaAEvaDtGkPkslas
+                    +A +  W ++s  eR  +l+k+Ad ie+  +   + E  D Gk +    
+  JCVI_PEP_1    69 EKAFQT-WKNTSSTERSIILNKIADRIEQNLEYIATVETIDNGKAVRETL 117  
+
+                   hldipRgaanFrvFAdvvknaateaFematpdGkealnYavRkPlGvvgv
+                     dip ++  Fr FA v++       e +    k++++  v +PlGv++ 
+  JCVI_PEP_1   118 AADIPLAIDHFRYFASVIRAEEGSHNELD----KDTVSLIVHEPLGVIAQ 163  
+
+                   isPWnlPlLLltWKvgPALAcGntvvvKPsEEtPatatLLgEvmnavGvP
+                   i PWn+P+L+  WK +PALA Gn+vv KP+E tP +  +L E + +  +P
+  JCVI_PEP_1   164 IIPWNFPILMAVWKLAPALAAGNCVVLKPAESTPISIMVLMELIGDL-LP 212  
+
+                   kGvynvvhGfGpdsAGefltrhpgvdaitFtGEtrtGeaimkaaAdgvkp
+                   +Gv n+v+GfG +  G  l+++p v    FtG t tG+ +m+ a + + p
+  JCVI_PEP_1   213 AGVVNIVNGFGAE-LGRALVTNPKVAKAAFTGSTATGRLVMQYATENIIP 261  
+
+                   vsfElGGKnaaivFADadldaavagvlrsaFlntGqvCLgtERvyveRpi
+                   v +ElGGK + + F                                    
+  JCVI_PEP_1   262 VTLELGGKSPNVFF------------------------------------ 275  
+
+                   fdrfvaalkakaeslklGvpeddaaelGpliskeHrdKvLsYyklAveeG
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   AtvvtGGGvPelgdelaeGayvqPtiwtglpdsarvvrEEiFGPvchiaP
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   FDseeEviarandtaYGLaasvwtedlsraHRvakrlevGvvWvnsWflR
+                               +++   aa +w +    + R                  
+  JCVI_PEP_1   276 ------------NSVMDAAACIWSSMDPNSRR------------------ 295  
+
+                   DLRtpFGGsklsGiGREGGvhsLeFYtelknvcikl<-*
+                                                    +     
+  JCVI_PEP_1   296 --------------------------------SLSP    299  
+
+TIGR01237: domain 1 of 1, from 22 to 300: score -239.1, E = 3.7e-06
+                   *->YknePfTdFadedlvqaykkALAkVRkelLGKdYpLvInGeeVeTea
+                      Y n     F+            A V             nGe+ +   
+  JCVI_PEP_1    22    YDNTSXGQFT------------APV-------------NGEYFDVVS 43   
+
+                   kIdSiNPcdksevVGkvakasvedAeqALqaAkkAFeeWkktdveeRAai
+                    Id  N         + a  s ed e A+ aA kAF  Wk t+  eR  i
+  JCVI_PEP_1    44 PIDGKN-------FTQAAHSSKEDLELAVNAAEKAFQTWKNTSSTERSII 86   
+
+                   LlkAAailkrRrhElsALl.vlEvGKiyaeA.DaevAEAIDFleYYArem
+                   L k A+ ++   +E  A  + +  GK   e   a++  AID  +Y+A + 
+  JCVI_PEP_1    87 LNKIADRIEQ-NLEYIATVeTIDNGKAVRETlAADIPLAIDHFRYFA-SV 134  
+
+                   iklaGFkskevldieGEkNry.vyiPlGVavvISPWNFpmAIavGmtvAp
+                   i+      +  +     +  + v  PlGV   I PWNFp+  av   + +
+  JCVI_PEP_1   135 IRAE---EGSHNELDKDTVSLiVHEPLGVIAQIIPWNFPILMAVWKLAPA 181  
+
+                   iVtGNcvvlKPAeaatvIAAkiveiLeeAGlPkGVlqFvPGkGseVGeYL
+                   + +GNcvvlKPAe +++    + e L+   lP+GV++ v G G e G  L
+  JCVI_PEP_1   182 LAAGNCVVLKPAESTPISIMVLME-LIGDLLPAGVVNIVNGFGAELGRAL 230  
+
+                   vdHpktrLItFTGSReVGlrIyedAAkVQPGQkhLKRVIaEmGGKdaviV
+                   v+ pk+   +FTGS + G  +   A         +  V  E+GGK     
+  JCVI_PEP_1   231 VTNPKVAKAAFTGSTATGRLVMQYAT------ENIIPVTLELGGK----- 269  
+
+                   DEsADieqAvaaavtSAFGFaGQKCSAgSRvVVlekVYDevveRfVEatk
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   SlkvGktddadvqvgpVidqksydkIkeYiElGkaEGklvlgGEAtGedd
+                           +++v    V d+ +                            
+  JCVI_PEP_1   270 --------SPNVFFNSVMDAAA-------------------C-------- 284  
+
+                   dskGYFikPTifkdvDrkArLaQEEIFGPVVAvlraadFdeALeiANsTe
+                             i   +D+++r                              
+  JCVI_PEP_1   285 ----------IWSSMDPNSR------------------------------ 294  
+
+                   YgLTGGvisnsrehierAkaEFeVGNLYfNRkiTGAIVgvqPFGGFkMSG
+                           s s+                                      
+  JCVI_PEP_1   295 -------RSLSPX------------------------------------- 300  
+
+                   tDSKAGGPDYLaqFmqaktVtErf<-*
+                                              
+  JCVI_PEP_1     - ------------------------    -    
+
+TIGR01722: domain 1 of 1, from 27 to 297: score -276.1, E = 0.0022
+                   *->VkhlIdGkfvEgkSdkyipVsNPatnevlakVAfAsveevdaAVAsA
+                            G f     + y +V  P ++   ++ A +s+e+ + AV +A
+  JCVI_PEP_1    27    -----XGQFTAPVNGEYFDVVSPIDGKNFTQAAHSSKEDLELAVNAA 68   
+
+                   retFlaWketSvaeRarVLLRYqaLLkehrdEiAkLisaElGKtfeDAkG
+                    ++F +Wk tS  eR  +L      +  +++ iA + +   GK     + 
+  JCVI_PEP_1    69 EKAFQTWKNTSSTERSIILNKIADRIEQNLEYIATVETIDNGKAVRETL- 117  
+
+                   dVfRGLeV.VehACsVtslLlGetvesVAkdvDvyS..irqPLGVcaGIt
+                     +  +   ++h     s +  e       d D+ S     PLGV+a I 
+  JCVI_PEP_1   118 --AADIPLaIDHFRYFASVIRAEEGSHNELDKDTVSliVHEPLGVIAQII 165  
+
+                   PFNFPAMiPLWMFPlAiaCGNtFvLKPSEkvPsAavklAeLfseAGaPdG
+                   P NFP     W    A+a GN  vLKP E  P   + l eL  +  +P G
+  JCVI_PEP_1   166 PWNFPILMAVWKLAPALAAGNCVVLKPAESTPISIMVLMELIGDL-LPAG 214  
+
+                   vLnVVHG.dkeaVdrLLeHPdVKAVSFVGSvavgrYiyetgsahgKRVQA
+                   v n+V G + e    L   P V    F GS+a gr + + ++ +      
+  JCVI_PEP_1   215 VVNIVNGfGAELGRALVTNPKVAKAAFTGSTATGRLVMQYATEN------ 258  
+
+                   laGAKNHmvVmPDAdkeaaldalVgAAyGAAGqRCMAiSaaVlVGaaGke
+                            ++P                                  +   
+  JCVI_PEP_1   259 ---------IIP----------------------------------V--- 262  
+
+                   wvpeireraeKvrvgpGddpgAelGPlItpqakerVaslidsgakEGAev
+                                                                    +
+  JCVI_PEP_1   263 ------------------------------------------------TL 264  
+
+                   lLDGrgykVeGYeeGnwVGptLlerVkpdmkiYkeEiFGPVLcvleaDtl
+                    L G++  V             +  V   +++                  
+  JCVI_PEP_1   265 ELGGKSPNV------------FFNSVMDAAAC------------------ 284  
+
+                   eeAikLiNesPYGNGTAIFTsdGAAARkFqheievGqVGVNVPIPVPlPy
+                                    I  s     R+                      
+  JCVI_PEP_1   285 -----------------IWSSMDPNSRR---------------------- 295  
+
+                   FSFtGwkdSffGDlhiYGkqGvrFYTrlKtVTarW<-*
+                           S+                            
+  JCVI_PEP_1   296 --------SL-------------------------    297  
+
+TIGR01804: domain 1 of 1, from 27 to 298: score -10.1, E = 3.9e-13
+                   *->FIdGeyveaeagktreiInPanqEvIAtvaeatredvekAiaAArrA
+                         G ++   +g+ + ++ P  +    + a    ed e A+ AA +A
+  JCVI_PEP_1    27    --XGQFTAPVNGEYFDVVSPIDGKNFTQAAHSSKEDLELAVNAAEKA 71   
+
+                   qedgeWAsltpleRGrilrriaellRerneELakLETLDTGKaleEtlvA
+                   +    W + +++eR+ il +ia+ + + +e  a  ET D GKa  Etl A
+  JCVI_PEP_1    72 F--QTWKNTSSTERSIILNKIADRIEQNLEYIATVETIDNGKAVRETLAA 119  
+
+                   DmddiAdvfeffaGladklgGeiIplpipdsfsytrRePlGVcvgIgaWN
+                   D+  + d f +fa ++ + +G+  +l   d+ s +  ePlGV+++I +WN
+  JCVI_PEP_1   120 DIPLAIDHFRYFASVIRAEEGSHNELDK-DTVSLIVHEPLGVIAQIIPWN 168  
+
+                   YPlqiAsWKsAPALAaGNalvfKPSEiTPLtalkvaelmeEAGlPdGvfN
+                   +P++ A WK APALAaGN  v+KP E TP + + + el     lP Gv+N
+  JCVI_PEP_1   169 FPILMAVWKLAPALAAGNCVVLKPAESTPISIMVLMELIGDL-LPAGVVN 217  
+
+                   vvlGkGaevGeeLvnHkdvakVSfTGgvpTGKkimanaAaeelKhvtlEL
+                   +v G Gae G +Lv ++ vak  fTG+ +TG+ +m+  A e++  vtlEL
+  JCVI_PEP_1   218 IVNGFGAELGRALVTNPKVAKAAFTGSTATGRLVMQ-YATENIIPVTLEL 266  
+
+                   GGKsPlIVFDDADLelAvdqAllgnFFsaGQVCSnGtRvfVhkkIkekFl
+                   GGKsP+                  +FF +                     
+  JCVI_PEP_1   267 GGKSPN------------------VFFNS--------------------- 277  
+
+                   arLveRvkrIklGdgFDeaTemGPliSAehRdKVlsYiekGkeEGArlat
+                                 ++D+                                
+  JCVI_PEP_1   278 --------------VMDA-------------------------------- 281  
+
+                   GGkvPedegldnGffiePTVFtDctddMtIvrEEiFGPVmsvltFssEdE
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   VIarANDteYGLAaGVfTaDlerahRVaarLkaGtvWINdfnlypaeaPf
+                               Aa +++                                
+  JCVI_PEP_1   282 ------------AACIWSS------------------------------- 288  
+
+                   GGYKqSGiGREnGvaaLaeYtevK<-*
+                                 +  ++   +    
+  JCVI_PEP_1   289 --------------MDPNSRRSLS    298  
+
+TIGR02299: domain 1 of 1, from 28 to 299: score -87.5, E = 3.5e-15
+                   *->igHfIdGefvpsesGETFetlsPatnevLasVArGgaadVDrAvkAA
+                            G f++   GE+F+ +sP ++    ++A    +d   Av AA
+  JCVI_PEP_1    28    ------GQFTAPVNGEYFDVVSPIDGKNFTQAAHSSKEDLELAVNAA 68   
+
+                   kkAFkGkWaelkaaERkrllhkiaDlIEqhadEIAvlEslDtGQplrqtr
+                    kAF+  W +++  ER  +l kiaD IEq+ + IA +E++D G + r t 
+  JCVI_PEP_1    69 EKAFQ-TWKNTSSTERSIILNKIADRIEQNLEYIATVETIDNGKAVRETL 117  
+
+                   kkqviRAAeNFrFFAdkckeamdGetypvDdehlNYTvRvPvGpvGlITP
+                    + ++ A + Fr+FA     a +G     D++ +   v  P G+++ I P
+  JCVI_PEP_1   118 AADIPLAIDHFRYFASVIR-AEEGSHNELDKDTVSLIVHEPLGVIAQIIP 166  
+
+                   WNaPFMLsTWKIAPALAfGNTVVLKPAEwSPlTAarLAElakEAGlPdGV
+                   WN P   + WK APALA+GN VVLKPAE  P     L El+    lP GV
+  JCVI_PEP_1   167 WNFPILMAVWKLAPALAAGNCVVLKPAESTPISIMVLMELIGDL-LPAGV 215  
+
+                   lNlVhGFGEeAGkaLvaHPdVkavsFtGETaTGsiImrnGAdtLKRfsmE
+                    N+V+GFG e G aLv  P V   +FtG+TaTG  +m+ +      +  E
+  JCVI_PEP_1   216 VNIVNGFGAELGRALVTNPKVAKAAFTGSTATGRLVMQYATENIIPVTLE 265  
+
+                   LGGKsPviVFdDADLeRALDAvvFmIFSfNGeRCTAsSRLLvqesIaedF
+                   LGGKsP + F                                        
+  JCVI_PEP_1   266 LGGKSPNVFFN--------------------------------------- 276  
+
+                   veKlveRvrairVGhPLDpeTeVGPLIhpeHlakVlgYleaaekeGAtil
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   vGGkkapsyaPvldkelgrGNYvlPTvftdadNkMriAQEEIFGPVltvi
+                           +                  + da                ++i
+  JCVI_PEP_1   277 --------S------------------VMDAA---------------ACI 285  
+
+                   pFkDEaeAiEkANDirYGLagYVWTndvgRAhRvAaaiEAGMiwvNSqNV
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   RdLptPFGGvKaSGiGReGGtYsfdFYtEtKnvavalgnHhiPkfGk<-*
+                                        +s            ++++     +     
+  JCVI_PEP_1   286 ---------------------WS------------SMDPNSRRSLSP    299  
+
+TIGR03240: domain 1 of 1, from 29 to 299: score -270.8, E = 2e-06
+                   *->lFIdGkWraGqGesfeslnPatqevlWqGaaAsaaqVeaAvaAARaA
+                      +F +      +Ge f   +P+++    q+a  s+ + e Av AA +A
+  JCVI_PEP_1    29    QFTAPV----NGEYFDVVSPIDGKNFTQAAHSSKEDLELAVNAAEKA 71   
+
+                   FpaWArlsleeRiavvqrFaelLeerKeaLArvIarETGKPlWEtrTEva
+                   F  W + s  eR  ++ + a++ e++ e  A+v     GK++ Et     
+  JCVI_PEP_1    72 FQTWKNTSSTERSIILNKIADRIEQNLEYIATVETIDNGKAVRETL---- 117  
+
+                   sMigKVaISikAYheRTGesenpmp.......dgkAvLRHrPHGVvAVFG
+                     ++ + + i  ++    + +++ +++++ ++d  +++ H P GV+A   
+  JCVI_PEP_1   118 --AADIPLAIDHFRYFASVIRAEEGshneldkDTVSLIVHEPLGVIAQII 165  
+
+                   PYNFPGHLPNGHIVPALlAGNTvVFKPSELTPwvAeetVklWekAGLPaG
+                   P+NFP         PAL AGN+vV KP E TP +    ++l  +  LPaG
+  JCVI_PEP_1   166 PWNFPILMAVWKLAPALAAGNCVVLKPAESTPISIMVLMELIGDL-LPAG 214  
+
+                   VLNLVQG.areTGvALaahedIDGLlFTGSsnTGhlLHrqFaGrPekILA
+                   V+N V G + e G AL  ++ +    FTGS +TG l  ++          
+  JCVI_PEP_1   215 VVNIVNGfGAELGRALVTNPKVAKAAFTGSTATGRLVMQY---------- 254  
+
+                   LEMGGNNPLiVdevaDiDAAVhliiQSAFisAGQRCTCARRLLVpdgAqG
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   dAflarLveVaerLtvgayDaePqPFmGavISlqAAqqllaAqakLlalG
+                            ++e++ +                            + l+lG
+  JCVI_PEP_1   255 ---------ATENIIP----------------------------VTLELG 267  
+
+                   GksLLemrqleegaalLtPGIiDVTgVaevPDEEyFGPLLqViRYadFDe
+                   Gks                      +V       +F         + +D+
+  JCVI_PEP_1   268 GKS---------------------PNV-------FFN--------SVMDA 281  
+
+                   AiaiANnTrFGLsaGLlSddrelydrflleiRAGIVNWNKPlTGASSaAP
+                   A  i                                 W       SS  P
+  JCVI_PEP_1   282 AACI---------------------------------W-------SSMDP 291  
+
+                   FGGiGASGNHRPSAYYAADYCAYPvASlEadsltlPatLsPGlkf<-*
+                           N R S                         LsP       
+  JCVI_PEP_1   292 --------NSRRS-------------------------LSP----    299  
+
+PF00171: domain 1 of 1, from 30 to 300: score 125.6, E = 2e-34
+                   *->WvdsssGsetievinPathgeviatvpaataeDvdaAvaAAraAfks
+                      ++++ +G e ++v++P + g+  ++ +++++eD + Av+AA++Af+ 
+  JCVI_PEP_1    30    FTAPVNG-EYFDVVSPID-GKNFTQAAHSSKEDLELAVNAAEKAFQ- 73   
+
+                   GaWaktppaeRariLrkaAdlleeradeLAeletlEtGKplaeargaevp
+                    +W++t+  eR+ iL k+Ad +e++ + +A +et+++GK ++e+++a++p
+  JCVI_PEP_1    74 -TWKNTSSTERSIILNKIADRIEQNLEYIATVETIDNGKAVRETLAADIP 122  
+
+                   raidtlryyAglarkleGetipsdtdapggpgrlaytrRePvGVVgaItP
+                    aid++ry+A+ +r  eG + + d      +++++++++eP+GV+++I+P
+  JCVI_PEP_1   123 LAIDHFRYFASVIRAEEGSHNELD------KDTVSLIVHEPLGVIAQIIP 166  
+
+                   WNFPlllaawKiAPALAaGNtVVlKPaElTPlsalllAelfeeAGlPaGV
+                   WNFP+l+a+wK+APALAaGN+VVlKPaE TP s ++l+el+ +  lPaGV
+  JCVI_PEP_1   167 WNFPILMAVWKLAPALAAGNCVVLKPAESTPISIMVLMELIGD-LLPAGV 215  
+
+                   lNvVtGsGsevGdaLveHpdvdkvsFTGSTavGrrIaeaAalknlKrvtL
+                   +N+V G+G+e G aLv++p+v+k +FTGSTa+Gr+++++A  +n+++vtL
+  JCVI_PEP_1   216 VNIVNGFGAELGRALVTNPKVAKAAFTGSTATGRLVMQYAT-ENIIPVTL 264  
+
+                   ELGGKsPlIVfdDA.DLdkAvegavfgaFfnaGQvCtAgsRllVhesiyD
+                   ELGGKsP++ f+   D                                  
+  JCVI_PEP_1   265 ELGGKSPNVFFNSVmD---------------------------------- 280  
+
+                   eFverlverakklkvGdPlDpdtdiGPliskkqlervlsyiedAkeeGAk
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   lltGGerrpeeaglekGyfvePTvladVtpdmriaqEEiFGPVlsvipFk
+                     +                                               
+  JCVI_PEP_1   281 --A----------------------------------------------- 281  
+
+                   deeEAIelANdteYGLaagVfTrDldrAlrvarrleaGtVwiNdyttgdp
+                                   aa++++                          dp
+  JCVI_PEP_1   282 ----------------AACIWS------------------------SMDP 291  
+
+                   eaaqPFGGfKqSGiGgREgGkegleeYtetKtV<-*
+                   +++             R +++               
+  JCVI_PEP_1   292 NSR-------------RSLSPX-----------    300  
+
+PF04416: domain 1 of 1, from 36 to 164: score -57.4, E = 6.7
+                   *->iRgkfGeiciakvkLdeskvlkllaqlldacqVvsaKCkEhViFAai
+                           Ge  +      ++++   + +        s   kE  + A +
+  JCVI_PEP_1    36    -----GEYFDV---VSPIDGKNFTQAAHS-----S---KEDLELAVN 66   
+
+                   lAlKafesGRNIakslkiEILLRlAGvRQIkdAiKllGaKkGeNeicav.
+                    A Kaf+  +N++++ +  IL + A      d i+       +  i+ v+
+  JCVI_PEP_1    67 AAEKAFQTWKNTSSTERSIILNKIA------DRIE-----QNLEYIATVe 105  
+
+                   lvDesKm..EGFKEiEFRPcdelrkflesiGGirDdellecdeeklrriv
+                    +D++K  +E          d +r f + i    + + +e d + + +iv
+  JCVI_PEP_1   106 TIDNGKAvrETLAADIPLAIDHFRYFASVIR-AEEGSHNELDKDTVSLIV 154  
+
+                   elfkiaErvavvEAl<-*
+                         E  +v++     
+  JCVI_PEP_1   155 H-----EPLGVIAQI    164  
+
+TIGR01780: domain 1 of 1, from 41 to 298: score -176.6, E = 7.6e-12
+                   *->VyNPAtGEkIgtVPdqgveEveeAIdaAneAFktWkntTakeRsslL
+                      V+ P  G      +  + e  e A+ aA+ AF tWknt+  eRs +L
+  JCVI_PEP_1    41    VVSPIDGKNFTQAAHSSKEDLELAVNAAEKAFQTWKNTSSTERSIIL 87   
+
+                   rkWyeLmlenkDDLAkliTlEnGKPLkEA.kGEvlYaAsylEWFAEEAkR
+                    k ++ + +n++  A+  T  nGK+  E     +  a   +  FA     
+  JCVI_PEP_1    88 NKIADRIEQNLEYIATVETIDNGKAVRETlAADIPLAIDHFRYFA----- 132  
+
+                   vYGdtipsslqsdkRl......lvikQPVGVcAaITPWNFPaAMITRKaG
+                       +i +   s++ l++++ +l + +P GV A I PWNFP  M   K +
+  JCVI_PEP_1   133 ---SVIRAEEGSHNELdkdtvsLIVHEPLGVIAQIIPWNFPILMAVWKLA 179  
+
+                   aALAAGCTviiKPAeqTPlSALaLArLAeeAGiPkGVlNVitgsandAee
+                   +ALAAG  v++KPAe TP S   L +L      P+GV N + g    + e
+  JCVI_PEP_1   180 PALAAGNCVVLKPAESTPISIMVLMELIGDL-LPAGVVNIVNGF---GAE 225  
+
+                   vGkvLttsPlVRKvSFTGSTnvGKILMkqsAsTvKKVSmELGGnAPFIVF
+                   +G  L t+P+V K  FTGST++G++ M+ +   +  V +ELGG  P   F
+  JCVI_PEP_1   226 LGRALVTNPKVAKAAFTGSTATGRLVMQYATENIIPVTLELGGKSPNVFF 275  
+
+                   dDADiDqAVEgamAsKFRnaGQTCVCANRlyVHdsvyDeFAkKLaeaVkk
+                                                     sv D  A   ++    
+  JCVI_PEP_1   276 ---------------------------------NSVMDAAACIWSS---- 288  
+
+                   LkvGdGlDegvtvGPLInekAveKVekHIaDAveKGAkVvtGGtYdrrhe
+                         +D+ +                                   rr+ 
+  JCVI_PEP_1   289 ------MDPNS-----------------------------------RRSL 297  
+
+                   sGGnFFePTvLsdVtadMlVakEETFGPLAPvfkFddeeEVialANDTev
+                   s                                                 
+  JCVI_PEP_1   298 S------------------------------------------------- 298  
+
+                   GLAAYfFsrnlsriirVaeaLEyGmVGiNtGliSnvvaPFGGvKqSGlGR
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   EGSkyGIeeYLevK<-*
+                                    
+  JCVI_PEP_1     - --------------    -    
+
+PF09177: domain 1 of 1, from 55 to 139: score -32.6, E = 8.6
+                   *->DPFfvvkeEVqeSldkmrslyrrWlqllsdsnspsskEldqltkELr
+                         ++ ke+ + +++ +++++++W+++ s+  s     l ++ + ++
+  JCVI_PEP_1    55    ---HSSKEDLELAVNAAEKAFQTWKNTSSTERSI---ILNKIADRIE 95   
+
+                   talgsiewdLedLeeais........avernPskfgldeeElqrRrrFvt
+                   + l+ i++      e+i +++  +++++++        + +++ +r F++
+  JCVI_PEP_1    96 QNLEYIAT-----VETIDngkavretLAADI-------PLAIDHFRYFAS 133  
+
+                   evrnqvknvk<-*
+                    +r +    +   
+  JCVI_PEP_1   134 VIRAE----E    139  
+
+TIGR00407: domain 1 of 1, from 68 to 298: score -282.0, E = 8.3
+                   *->AkqAAliLaqlstaEkneaLskIAdgLeaqaplILaaNakDiaaAke
+                      A +A    +  s+ E++ +L kIAd  e++++ I     +D   A  
+  JCVI_PEP_1    68    AEKAFQTWKNTSSTERSIILNKIADRIEQNLEYIATVETIDNGKAVR 114  
+
+                   nGLadaLldRLlLtekDrLkgiadgVkdVieLaDPvGkvidgreLDsGLv
+                     La ++     L     ++  a  ++  +           + eLD   v
+  JCVI_PEP_1   115 ETLAADI----PLAID-HFRYFASVIRAEEG---------SHNELDKDTV 150  
+
+                   LervrvPLGVlGvIYEARPnVtvdiasL..clKtGNAVILrGGkEavrsn
+                      v  PLGV+  I      ++  +  L ++l  GN V+L+   ++  s 
+  JCVI_PEP_1   151 SLIVHEPLGVIAQIIPWNFPILMAVWKLapALAAGNCVVLKPAESTPISI 200  
+
+                   kalveViqdALeqFqsetglPvgAVQlIedpdRelvseLLkldeYvDliI
+                    +l e i d          lP+g V+ +                      
+  JCVI_PEP_1   201 MVLMELIGD---L------LPAGVVNIVNG-------------------- 221  
+
+                   PRGgngLvklikqestIPVLghgdGiCHiYlDesAdlskAikvivnAKTQ
+                      g++L +  + + ++                    +kA +    A T 
+  JCVI_PEP_1   222 --FGAELGRALVTNPKV--------------------AKAAFTGSTA-TG 248  
+
+                   rPstCNAiETLLvnkaiAeeflpeLakqleekGVtlhatkDLkdalalkL
+                   r          Lv +       +     ++e G    +     ++     
+  JCVI_PEP_1   249 R----------LVMQYAT----ENIIPVTLELG----G-----KSPNVFF 275  
+
+                   lelgpateaevckevDaDeeqdfdkEFlsLdLsvKiVesleaAIkHInqY
+                   +    a  ++++                                      
+  JCVI_PEP_1   276 NSVMDAAACIWSSM------------------------------------ 289  
+
+                   GtqHsdAIlTedkknAeqFvneVDsAaVYhNASTRFtDGFrfGfGAEVGI
+                               + n ++                                
+  JCVI_PEP_1   290 ------------DPNSRR-------------------------------- 295  
+
+                   STQKLHARGPmGLeaLtsYK<-*
+                                    s     
+  JCVI_PEP_1   296 -----------------SLS    298  
+
+PF08946: domain 1 of 1, from 78 to 126: score 5.5, E = 2.8
+                   *->sDieEAkElLqehydniEqKiedid..eqiaeLeaKRekLakqHP.r
+                        ++E   +L++  d iEq +e i + e i++ +a Re La+  P  
+  JCVI_PEP_1    78    TSSTERSIILNKIADRIEQNLEYIAtvETIDNGKAVRETLAADIPlA 124  
+
+                   ie<-*
+                   i+   
+  JCVI_PEP_1   125 ID    126  
+
+//
+
+Query sequence: JCVI_PEP_1113087382779
+Accession:      [none]
+Description:    /orf_id=JCVI_ORF_1113087382778 /read_id=BEARPAW_READ_1646937509 /begin=150 /end=846 /orientation=1 /5_prime_stop=TGA /5_prime_l
+
+Scores for sequence family classification (score includes all domains):
+Model    Description                                    Score    E-value  N 
+-------- -----------                                    -----    ------- ---
+PF01636  APH: Phosphotransferase enzyme family           37.9      5e-08   1
+
+Parsed for domains:
+Model    Domain  seq-f seq-t    hmm-f hmm-t      score  E-value
+-------- ------- ----- -----    ----- -----      -----  -------
+PF01636    1/1      48   232 .]     1   256 []    37.9    5e-08
+
+Alignments of top-scoring domains:
+PF01636: domain 1 of 1, from 48 to 232: score 37.9, E = 5e-08
+                   *->elrplsgGasnrtylvttgdgdapryvlrlarpgelaeelerEaavl
+                      ++ + + G+s++t ++++g+ dap+++l+    + +a ++ +E+  l
+  JCVI_PEP_1    48    KWARDNVGQSGATIYRLYGKPDAPELFLKHGKGS-VANDVTDEMVRL 93   
+
+                   rhLaalgipvpvpvPrvlaggtdgeglglpfllleglpGevlsrpdalsp
+                    +L +       p P + ++ +++++++l++++++g ++ +      ++p
+  JCVI_PEP_1    94 NWLTEF-M----PLPTIKHFIRTPDDAWLLTTAIPGKTAFQVLE---EYP 135  
+
+                   aerpallealarlLarLHqvdppacplarrlerrlkllrqlaaalarlva
+                   +  +++++ala +L+rLH++++ +cp+ +++ +rl++++ +++   +lv 
+  JCVI_PEP_1   136 DSGENIVDALAVFLRRLHSIPVCNCPFNGDRVFRLAQAQSRMNN--GLVG 183  
+
+                   aelldeerglllelaerllaaleallp...ppvlvHGDlhpgNvlvddap
+                   a ++d+er   ++ +e+++ ++++llp +++ v++HGD+ ++N+++d   
+  JCVI_PEP_1   184 ASDFDDER--NGWPVEQVWKEMHKLLPfspDSVVTHGDFSLDNLIFD--- 228  
+
+                   dggrvsGvIDfedaglGdpayDlAmllrslfgeefdpeflaaylaaygrq
+                    +g                                               
+  JCVI_PEP_1   229 -EGN------------------------*--------------------- 232  
+
+                   faapgyerlrel<-*
+                                  
+  JCVI_PEP_1     - ------------    -    
+
+//
+
+Query sequence: JCVI_PEP_1113087382789
+Accession:      [none]
+Description:    /orf_id=JCVI_ORF_1113087382788 /read_id=BEARPAW_READ_1646937496 /begin=207 /end=645 /orientation=1 /5_prime_stop=TAA /5_prime_l
+
+Scores for sequence family classification (score includes all domains):
+Model     Description                                   Score    E-value  N 
+--------  -----------                                   -----    ------- ---
+TIGR01071 rplO_bact: ribosomal protein L15              199.1    1.5e-56   1
+PF01305   Ribosomal_L15: ribosomal protein L15 amino    168.0    3.5e-47   1
+PF00256   L15: ribosomal protein L15                     31.5    4.2e-06   1
+
+Parsed for domains:
+Model     Domain  seq-f seq-t    hmm-f hmm-t      score  E-value
+--------  ------- ----- -----    ----- -----      -----  -------
+PF01305     1/1       1   101 [.     1   110 []   168.0  3.5e-47
+TIGR01071   1/1       2   144 ..     1   155 []   199.1  1.5e-56
+PF00256     1/1     109   141 ..     1    33 []    31.5  4.2e-06
+
+Alignments of top-scoring domains:
+PF01305: domain 1 of 1, from 1 to 101: score 168.0, E = 3.5e-47
+                   *->mkLhqLkDPspGSrnKkrKRVGRGpgSGlGKTaGRGhKGQKARSGGk
+                      mkL++L+ P+pGSr     R GRG+gSGlGKT+GRGhKGQ++RSGG 
+  JCVI_PEP_1     1    MKLNDLS-PAPGSR-REKHRPGRGIGSGLGKTGGRGHKGQTSRSGGT 45   
+
+                   vrrGrFEGGQtPLYRRLPKrkGFtgknikrkeyavvNlkkiealfdkeGd
+                   + +G FEGGQ+PL+RRLPK+ GF    +++++  ++++ ++ a +  eGd
+  JCVI_PEP_1    46 IAPG-FEGGQQPLHRRLPKF-GFV---SLKAMDRAEVRLSELAKV--EGD 88   
+
+                   eVtletLkekkvi<-*
+                    Vt+ tLk+++vi   
+  JCVI_PEP_1    89 IVTVQTLKDANVI    101  
+
+TIGR01071: domain 1 of 1, from 2 to 144: score 199.1, E = 1.5e-56
+                   *->kLheLkPVakGakKrrKrVGRGiGSGlGKTsGRGhKGQkARsGgkvr
+                      kL++L+P a G+++++ r GRGiGSGlGKT+GRGhKGQ++RsGg   
+  JCVI_PEP_1     2    KLNDLSP-APGSRREKHRPGRGIGSGLGKTGGRGHKGQTSRSGGTIA 47   
+
+                   rGFEGGQtPLYRRLPKrGFsnkrafkkeyavvNlgklaklfkdGRLslqe
+                   +GFEGGQ+PL+RRLPK+GF     ++   a+v+l +lak+++d       
+  JCVI_PEP_1    48 PGFEGGQQPLHRRLPKFGFVSL--KAMDRAEVRLSELAKVEGD------- 88   
+
+                   vVtletLlekglitkkiklpVKvLgnGkfdLtkklvv.kahrvSksAkak
+                   +Vt++tL+ +++i+ ++++ VK+ ++G+  +t +++++k+  ++k+A+++
+  JCVI_PEP_1    89 IVTVQTLKDANVINVNVQR-VKIMLSGE--VTRAVTIgKGIGATKGARSA 135  
+
+                   IeaaGGsve<-*
+                   IeaaGG++e   
+  JCVI_PEP_1   136 IEAAGGKFE    144  
+
+PF00256: domain 1 of 1, from 109 to 141: score 31.5, E = 4.2e-06
+                   *->KvLGsGkLtkkpvtv.kadkfSkgAiekIeaaGG<-*
+                      K++ sG++t+ +vt++k++ ++kgA+++IeaaGG   
+  JCVI_PEP_1   109    KIMLSGEVTR-AVTIgKGIGATKGARSAIEAAGG    141  
+
+//
+
+Query sequence: JCVI_PEP_1113087384395
+Accession:      [none]
+Description:    /orf_id=JCVI_ORF_1113087382794 /read_id=BEARPAW_READ_1646937496 /begin=645 /end=970 /orientation=1 /5_prime_stop=TAA /5_prime_l
+
+Scores for sequence family classification (score includes all domains):
+Model    Description                                    Score    E-value  N 
+-------- -----------                                    -----    ------- ---
+	[no hits above thresholds]
+
+Parsed for domains:
+Model    Domain  seq-f seq-t    hmm-f hmm-t      score  E-value
+-------- ------- ----- -----    ----- -----      -----  -------
+	[no hits above thresholds]
+
+Alignments of top-scoring domains:
+	[no hits above thresholds]
+//
+
+Query sequence: JCVI_PEP_1113087384397
+Accession:      [none]
+Description:    /orf_id=JCVI_ORF_1113087384396 /read_id=BEARPAW_READ_1646937554 /begin=243 /end=987 /orientation=-1 /5_prime_stop=0 /5_prime_lo
+
+Scores for sequence family classification (score includes all domains):
+Model     Description                                   Score    E-value  N 
+--------  -----------                                   -----    ------- ---
+PF00271   Helicase_C: Helicase conserved C-terminal d    36.4    1.4e-07   1
+PF07710   P53_tetramer: P53 tetramerisation motif        -9.7        3.6   1
+TIGR02668 moaA_archaeal: probable molybdenum cofactor  -231.6          4   1
+TIGR02675 tape_meas_nterm: tape measure domain          -28.2        7.7   1
+PF01798   Nop: Putative snoRNA binding domain           -93.9        9.3   1
+
+Parsed for domains:
+Model     Domain  seq-f seq-t    hmm-f hmm-t      score  E-value
+--------  ------- ----- -----    ----- -----      -----  -------
+TIGR02668   1/1      59   242 ..     1   324 []  -231.6        4
+TIGR02675   1/1      88   152 ..     1    79 []   -28.2      7.7
+PF00271     1/1     129   205 ..     1    76 []    36.4  1.4e-07
+PF07710     1/1     130   170 ..     1    46 []    -9.7      3.6
+PF01798     1/1     136   238 ..     1   153 []   -93.9      9.3
+
+Alignments of top-scoring domains:
+TIGR02668: domain 1 of 1, from 59 to 242: score -231.6, E = 4
+                   *->liDrfGRpVtsLRIsvTdeCNlsCfYCHrEGedesrgrqgpggneLS
+                             pV+  RI+   +CN+         ++ +  r  +g     
+  JCVI_PEP_1    59    -------PVE-IRIVTAXRCNY---------QEKC--RGTSG----- 81   
+
+                   pEeIerivrvasefGVrkvKlTGGEPLLRkDlieIIrrikdygikdvSmT
+                   + e+  i ++ +e                        + ++ +       
+  JCVI_PEP_1    82 ASEYTCIRKALAE------------------------CEERNR------- 100  
+
+                   TNGiLLeklAkkLkeAGLdRVNVSLDtlDpekYkkITGqsrdaldrVieG
+                           lA  L+             ++++ +  IT q +   + V + 
+  JCVI_PEP_1   101 --------LAVQLAQ------------MSEKPFLVIT-QLVEHAKLVGKM 129  
+
+                   IesAvdaGLtPVKlNmV..vlkGiNdneeipdmmefaadyeggaiLQLIE
+                    ++   +GL    + +V+++ kG+++ e i + +++    ++g +     
+  JCVI_PEP_1   130 MKA---VGLN---VEVVtgAVKGETRYE-IYNKLRHGG--LDGIV----- 165  
+
+                   lmppgeGenSkelkkyhididpiEeelekrAdrvetRremHnRkkYfipg
+                     ++        l +   di+++   ++ ++ + +tR       + ++ g
+  JCVI_PEP_1   166 --ATQ-------LADEGLDIKELRSGIFLLSGKSRTR------IRQRV-G 199  
+
+                   gdgiveVEvVkPmdNpvFCahCtRlRLTsDGKLKtCLlRnDnlvDildal
+                   +       +V+P  +         + + +D      ++ +D  + ++d  
+  JCVI_PEP_1   200 R-------FVRPANG-------KSIAVVYD------IYDKDVPF-FKD-- 226  
+
+                   rgekSngedderLreafreAVarRePYfk<-*
+                        ++          r  + + eP ++   
+  JCVI_PEP_1   227 -----HFQQ--------RFEIYKTEPEWR    242  
+
+TIGR02675: domain 1 of 1, from 88 to 152: score -28.2, E = 7.7
+                   *->indagaasGaSaeeadgaliQlsQalasGklrgeEfNsllEaGlPga
+                      i +a+a      ee ++ ++Ql+Q+  ++ l    +++l+E  +  +
+  JCVI_PEP_1    88    IRKALAEC----EERNRLAVQLAQMSEKPFLV---ITQLVEH-AK-L 125  
+
+                   lqaLAkamGvtrgeLrDLykmlsdGkltadvi<-*
+                   + ++ ka G++++ +      + +G  t+ +i   
+  JCVI_PEP_1   126 VGKMMKAVGLNVEVVT----GAVKGE-TRYEI    152  
+
+PF00271: domain 1 of 1, from 129 to 205: score 36.4, E = 1.4e-07
+                   *->llk.pgikvarlhGglsqeeReeilekFrngkskvLvaTdvagrGiD
+                      ++k  g++v +++G  + e R ei +k r+g  + +vaT +a +G+D
+  JCVI_PEP_1   129    MMKaVGLNVEVVTGAVKGETRYEIYNKLRHGGLDGIVATQLADEGLD 175  
+
+                   ipdvnlVInydlpwnpesyiQRiGRaGRaG<-*
+                   i++++  I++ + ++ +   QR+GR  R     
+  JCVI_PEP_1   176 IKELRSGIFLLSGKSRTRIRQRVGRFVRPA    205  
+
+PF07710: domain 1 of 1, from 130 to 170: score -9.7, E = 3.6
+                   *->KKrksgeeedDeEiFTLqVRGRERYEiLkKLNdaLELaeavpkakn<
+                       K+ ++    + E+ T  V+G  RYEi  KL+ +  L   v+ + + 
+  JCVI_PEP_1   130    MKAVGL----NVEVVTGAVKGETRYEIYNKLRHG-GLDGIVATQLA  170  
+
+                   -*
+                     
+  JCVI_PEP_1     -    -    
+
+PF01798: domain 1 of 1, from 136 to 238: score -93.9, E = 9.3
+                   *->nilelaervlsLaeyRkqleeYieskMskiAPNLtaLVGelVGARLI
+                      n++ +  +v    e R ++++ ++                       
+  JCVI_PEP_1   136    NVEVVTGAVK--GETRYEIYNKLRH---------------------- 158  
+
+                   shAGSLtnLAKlPASTIQvLGAeKaLfraLkttkaktPKyGlIYhsplIq
+                      G+L   +         L  e    ++L+ ++        I+  +  +
+  JCVI_PEP_1   159 ---GGLDGIVAT------QLADEGLDIKELR-SG--------IFLLS--G 188  
+
+                   kaPpkvrGKiaRmL..AAKlaLAaRiDafseepdssetvfGielreelek
+                   k+   +r +++R++++A+  ++A+ +D + ++           ++  + +
+  JCVI_PEP_1   189 KSRTRIRQRVGRFVrpANGKSIAVVYDIYDKDVPF--------FKDHFQQ 230  
+
+                   Rlekleek<-*
+                   R+e ++++   
+  JCVI_PEP_1   231 RFEIYKTE    238  
+
+//
+
+Query sequence: JCVI_PEP_1113087384421
+Accession:      [none]
+Description:    /orf_id=JCVI_ORF_1113087384420 /read_id=BEARPAW_READ_1646937516 /begin=19 /end=973 /orientation=1 /5_prime_stop=NNN /5_prime_lo
+
+Scores for sequence family classification (score includes all domains):
+Model     Description                                   Score    E-value  N 
+--------  -----------                                   -----    ------- ---
+PF07690   MFS_1: transporter, major facilitator famil    66.3    1.4e-16   1
+TIGR00880 2_A_01_02: Multidrug resistance protein        -4.0     0.0025   1
+PF03595   C4dic_mal_tran: C4-dicarboxylate transporte   -77.2      0.018   1
+TIGR00886 2A0108: nitrite transporter                  -207.2      0.051   1
+TIGR00893 2A0114: d-galactonate transporter            -189.2       0.36   1
+PF09678   Caa3_CtaG: Cytochrome c oxidase caa3 assemb  -146.4       0.81   1
+TIGR03062 pip_yhgE_Cterm: YhgE/Pip C-terminal domain   -143.8        1.1   1
+TIGR00900 2A0121: H+ Antiporter protein                -193.0        1.4   1
+PF00892   DUF6: Integral membrane protein DUF6          -22.2        1.8   1
+PF01790   LGT: prolipoprotein diacylglyceryl transfer  -166.1        3.1   1
+PF02654   CobS: cobalamin-5-phosphate synthase         -128.4        3.2   1
+TIGR01140 L_thr_O3P_dcar: threonine-phosphate decarbo  -243.2        3.3   1
+PF01318   Bromo_coat: bromovirus coat protein           -89.9        3.4   1
+TIGR02426 protocat_pcaB: 3-carboxy-cis,cis-muconate c  -263.8        3.5   1
+PF01478   Peptidase_A24: peptidase, A24 (type IV prep   -18.3        3.5   1
+PF02588   DUF161: Uncharacterized BCR, YitT family CO   -18.9        3.6   1
+PF04713   Pox_I5: Poxvirus protein I5                   -31.3        3.7   1
+PF01578   Cytochrom_C_asm: cytochrome C assembly prot   -91.1        4.2   1
+TIGR01191 ccmC: heme exporter protein CcmC             -134.3        4.3   1
+PF07695   7TMR-DISM_7TM: 7TM diverse intracellular si   -68.7        4.3   1
+PF02653   BPD_transp_2: amino acid or sugar ABC trans  -118.6        4.5   1
+TIGR00895 2A0115: MFS transporter, aromatic acid:H+ s  -264.6        4.7   1
+PF06182   DUF990: Protein of unknown function (DUF990  -115.1        4.9   1
+PF01040   UbiA: prenyltransferase, UbiA family         -102.9        5.1   1
+TIGR00786 dctM: TRAP transporter, DctM subunit         -323.7        5.3   1
+PF00499   Oxidored_q3: NADH-ubiquinone/plastoquinone    -60.7        5.4   1
+PF01757   Acyl_transf_3: putative acyltransferase      -118.2        5.4   1
+TIGR03082 Gneg_AbrB_dup: membrane protein AbrB duplic   -84.4        5.4   1
+PF01384   PHO4: Phosphate transporter family           -225.4        5.5   1
+PF01925   DUF81: Domain of unknown function            -106.2        5.5   1
+TIGR02138 phosphate_pstC: phosphate ABC transporter,   -216.9          6   1
+PF04854   DUF624: Protein of unknown function, DUF624   -32.3        6.1   1
+TIGR02210 rodA_shape: rod shape-determining protein R  -309.2        6.2   1
+TIGR02112 cyd_oper_ybgE: cyd operon protein YbgE        -52.5        6.2   1
+PF03845   Spore_permease: Spore germination protein    -219.3        6.5   1
+PF03006   HlyIII: Haemolysin-III related                -91.3        6.6   1
+PF04474   DUF554: Protein of unknown function (DUF554  -170.8        6.8   1
+PF01988   DUF125: Integral membrane protein             -78.9        6.9   1
+PF01001   HCV_NS4b: hepatitis C virus non-structural    -85.8        7.1   1
+PF01032   FecCD: ABC transporter,  iron chelate uptak  -246.4        7.4   1
+TIGR00897 2A0118: polyol permease                      -326.6        7.5   1
+PF03203   MerC: MerC mercury resistance protein         -95.3        7.5   1
+PF02378   PTS_EIIC: Phosphotransferase system, EIIC    -127.2        7.8   1
+PF03591   AzlC: AzlC protein                            -96.4        8.3   1
+TIGR00947 2A73: probable bicarbonate transporter, Ict  -379.4        8.3   1
+PF04241   DUF423: Protein of unknown function (DUF423   -70.1        8.4   1
+TIGR02831 spo_II_M: stage II sporulation protein M     -144.4        8.4   1
+PF07331   DUF1468: Protein of unknown function (DUF14   -82.0        8.4   1
+PF01970   DUF112: Integral membrane protein            -266.2        8.5   1
+PF08449   UAA: UAA transporter family                  -209.2        8.5   1
+PF07907   YibE_F: YibE/F-like protein                  -183.0        8.6   1
+PF02283   CobU: Cobinamide kinase / cobinamide phosph  -107.3        8.7   1
+PF00654   Voltage_CLC: chloride transporter, chloride  -219.5        8.7   1
+PF01569   PAP2: PAP2 superfamily                        -38.6        8.9   1
+TIGR00804 nupC: nucleoside transporter, NupC family    -325.7        9.1   1
+PF02308   MgtC: putative Mg2+ transporter-C (MgtC) fa   -77.7        9.7   1
+PF05317   Thermopsin: Thermopsin                       -167.9        9.8   1
+TIGR01473 cyoE_ctaB: protoheme IX farnesyltransferase  -219.1        9.9   1
+
+Parsed for domains:
+Model     Domain  seq-f seq-t    hmm-f hmm-t      score  E-value
+--------  ------- ----- -----    ----- -----      -----  -------
+PF01970     1/1       1   289 [.     1   437 []  -266.2      8.5
+TIGR03062   1/1       5   156 ..     1   210 []  -143.8      1.1
+PF05317     1/1       6   152 ..     1   302 []  -167.9      9.8
+TIGR02426   1/1      12   282 ..     1   351 []  -263.8      3.5
+PF01040     1/1      14   232 ..     1   292 []  -102.9      5.1
+TIGR00895   1/1      21   318 .]     1   413 []  -264.6      4.7
+PF02654     1/1      23   228 ..     1   250 []  -128.4      3.2
+TIGR00786   1/1      24   306 ..     1   421 []  -323.7      5.3
+TIGR00897   1/1      27   318 .]     1   411 []  -326.6      7.5
+TIGR01140   1/1      28   236 ..     1   357 []  -243.2      3.3
+TIGR02138   1/1      31   244 ..     1   317 []  -216.9        6
+PF01790     1/1      33   237 ..     1   314 []  -166.1      3.1
+TIGR02831   1/1      34   177 ..     1   201 []  -144.4      8.4
+PF07907     1/1      35   229 ..     1   245 []  -183.0      8.6
+PF02653     1/1      36   268 ..     1   319 []  -118.6      4.5
+TIGR00900   1/1      36   318 .]     1   387 []  -193.0      1.4
+PF04474     1/1      37   240 ..     1   250 []  -170.8      6.8
+PF01578     1/1      37   248 ..     1   260 []   -91.1      4.2
+TIGR00804   1/1      37   318 .]     1   425 []  -325.7      9.1
+PF07695     1/1      38   238 ..     1   212 []   -68.7      4.3
+TIGR00886   1/1      38   301 ..     1   472 []  -207.2    0.051
+PF07690     1/1      38   318 .]     1   389 []    66.3  1.4e-16
+PF03845     1/1      39   309 ..     1   330 []  -219.3      6.5
+PF03203     1/1      40   147 ..     1   131 []   -95.3      7.5
+PF02378     1/1      40   272 ..     1   377 []  -127.2      7.8
+PF04241     1/1      43   125 ..     1   123 []   -70.1      8.4
+PF00654     1/1      43   304 ..     1   369 []  -219.5      8.7
+TIGR00893   1/1      49   318 .]     1   427 []  -189.2     0.36
+TIGR00947   1/1      56   276 ..     1   426 []  -379.4      8.3
+TIGR01473   1/1      58   232 ..     1   297 []  -219.1      9.9
+PF01384     1/1      63   311 ..     1   471 []  -225.4      5.5
+TIGR02210   1/1      69   272 ..     1   426 []  -309.2      6.2
+TIGR00880   1/1      71   209 ..     1   148 []    -4.0   0.0025
+PF01318     1/1      71   266 ..     1   190 []   -89.9      3.4
+PF04713     1/1      72   153 ..     1    78 []   -31.3      3.7
+PF03006     1/1      72   231 ..     1   230 []   -91.3      6.6
+PF00892     1/1      75   204 ..     1   128 []   -22.2      1.8
+PF01925     1/1      76   283 ..     1   292 []  -106.2      5.5
+PF01757     1/1      78   313 ..     1   456 []  -118.2      5.4
+PF00499     1/1      80   241 ..     1   142 []   -60.7      5.4
+PF03595     1/1      94   318 .]     1   318 []   -77.2    0.018
+PF08449     1/1      95   307 ..     1   348 []  -209.2      8.5
+PF06182     1/1      97   281 ..     1   254 []  -115.1      4.9
+PF03591     1/1      99   202 ..     1   143 []   -96.4      8.3
+PF01032     1/1     100   303 ..     1   325 []  -246.4      7.4
+PF07331     1/1     101   211 ..     1   147 []   -82.0      8.4
+TIGR02112   1/1     118   206 ..     1    93 []   -52.5      6.2
+PF02588     1/1     120   201 ..     1    84 []   -18.9      3.6
+TIGR01191   1/1     131   278 ..     1   185 []  -134.3      4.3
+PF01001     1/1     131   314 ..     1   199 []   -85.8      7.1
+TIGR03082   1/1     135   303 ..     1   157 []   -84.4      5.4
+PF09678     1/1     137   307 ..     1   281 []  -146.4     0.81
+PF04854     1/1     157   230 ..     1    77 []   -32.3      6.1
+PF02308     1/1     164   256 ..     1   142 []   -77.7      9.7
+PF02283     1/1     169   303 ..     1   181 []  -107.3      8.7
+PF01988     1/1     169   304 ..     1   220 []   -78.9      6.9
+PF01569     1/1     187   307 ..     1   177 []   -38.6      8.9
+PF01478     1/1     225   304 ..     1   123 []   -18.3      3.5
+
+Alignments of top-scoring domains:
+PF01970: domain 1 of 1, from 1 to 289: score -266.2, E = 8.5
+                   *->nLlylllGvllGtlvGlLPGLgpnngvALlLPiTfsLdeGvpPesal
+                      +L ++++                n+            d    P    
+  JCVI_PEP_1     1    ILRLAAA----------------NS------------D----P---- 11   
+
+                   ilLaGiYvgatfgGsIpSILLgvPGeastavtaldGypMaleGrageALr
+                   ++ a++                 PG++     + dG +++l+      L+
+  JCVI_PEP_1    12 LMTAAA---------------SPPGCP----GMGDGGRLTLN---DWLLN 39   
+
+                   laaigSflGglvsillLallapalakfAlkFgppeyFalmvfgltivagl
+                   l    S+l  +vs l++a   p+l+ +A + g+ e+          v++l
+  JCVI_PEP_1    40 L----STLLYVVSLLGVA---PYLPRYAISLGASELE---------VSML 73   
+
+                   sggAKsllKallsallGLlLatVGiDaisGvvpRftFgvpeLpdGipflp
+                   + +       +++++ +L  ++VG     G   R   gv+ ++ G+ + +
+  JCVI_PEP_1    74 ATS-------YAITAVALR-FAVG-----GLNDRGYAGVLMVLGGL-LNA 109  
+
+                   lliGLFgiselLnnldeayvrpgesvkikvgrlalskkdlkrilksvlrG
+                   l  +L +ise L +l             + grl+ +              
+  JCVI_PEP_1   110 LSLALYSISESLSML-------------YAGRLLQG-------------- 132  
+
+                   sliGflvGiLPGvGatiAaflayllekklsKkp.....eeFGkGdieGva
+                       + + ++P      A+  + ++++ ++ +    ++ ++G G+   v 
+  JCVI_PEP_1   133 ---VSVALFIP------ASLYSASVTGARAQRVivwrsTMWGLGS---VL 170  
+
+                   ApeaaNnAaasfsLvPLltLGiPgsgvtAvmlgaLliqGLqP.......G
+                   +p          s  P++ L  ++s+      +aLl +   P++ + ++G
+  JCVI_PEP_1   171 GPAVLGLTLQRLSWQPMFYLAAATSAL-----SALLAMQFKPerfeagdG 215  
+
+                   PqLFteqpdlvwgliaslvianlmllilglpllglfaKllripysvLipg
+                     ++t  p l+++l++ +    ++  +  l+++ +  +l  +     +  
+  JCVI_PEP_1   216 GSILTR-PFLLASLTLLT----YVIAYQSLTYFLP--SLHEVEGLPTAET 258  
+
+                   IllflaigaYsvyngvfdVflmlvfGliGylaPlwgvrRvrkmgvplaPl
+                    ++f ++    + + +    +++++G                 ++ +  +
+  JCVI_PEP_1   259 AAFFTVMALANLASRT----VLAIAG-----------------EFNPGDT 287  
+
+                   lL<-*
+                    L   
+  JCVI_PEP_1   288 AL    289  
+
+TIGR03062: domain 1 of 1, from 5 to 156: score -143.8, E = 1.1
+                   *->akmvAePVklkhsdydkVpnYGtGLAPYFlSLALfvGAlvlnliipp
+                      a + ++P+ +   +    p +G G            G l+ln  +  
+  JCVI_PEP_1     5    AAANSDPLMTAAASPPGCPGMGDG------------GRLTLNDWLLN 39   
+
+                   lsrralpksarswrialaKllvgalvgvlQAiilygvlilglGLdpahpl
+                   ls    + s   +    a +l+ ++++++ + +++  l            
+  JCVI_PEP_1    40 LSTLLYVVSLLGV----APYLPRYAISLGASELEVSMLAT---------- 75   
+
+                   atfgfaiLtSltFmaiiqfLvalfGpnvGrflalvLLvLQLgsSGGTfPi
+                            ++t +a+ ++  +l +    r  a vL+vL           
+  JCVI_PEP_1    76 -------SYAITAVALRFAVGGLND----RGYAGVLMVL----------- 103  
+
+                   EllpaFFqaiHpfLPMTYSVnGlRelIsgGlndgtlwqavaVLllilvvf
+                      ++ ++a++  L   YS++   e++s+  ++g+l+q v V l+i +  
+  JCVI_PEP_1   104 ---GGLLNALSLAL---YSIS---ESLSML-YAGRLLQGVSVALFIPASL 143  
+
+                   lalsllsarrkrr<-*
+                      s  +ar +r    
+  JCVI_PEP_1   144 YSASVTGARAQRV    156  
+
+PF05317: domain 1 of 1, from 6 to 152: score -167.9, E = 9.8
+                   *->vlyniglvsllslnltyttsPaYPmGIAdyGLennsGqltPYvittn
+                      + ++++l +         ++P    G++d G       lt       
+  JCVI_PEP_1     6    AANSDPLMTA------AASPPG-CPGMGDGG------RLT------- 32   
+
+                   evlGyvnItsLsayNltasylgdgpYsaSlQLNaVLqnntigGnssYsfW
+                          +++                   l+L++ L +++++G       
+  JCVI_PEP_1    33 -------LNDW-----L------------LNLSTLLYVVSLLG------- 51   
+
+                   lQNViqFHQIsTNtheltFiDNiWNfTspfanlnsnsglhGnGlvysdgs
+                      V+ +                     ++a+  + s             
+  JCVI_PEP_1    52 ---VAPY-------------------LPRYAISLGAS------------- 66   
+
+                   gnvgvYYayGptFntvtlPftlyLfiNvSyisgnvyvyFGYsIlqnGnis
+                      +           v+        + +S           Y I       
+  JCVI_PEP_1    67 ---E--------LE-VSM-------LATS-----------YAI------- 79   
+
+                   sGtvvfYDtVTfnipnleSPgykAppayflvdGynPS..yTplGLlHYDA
+                     t      V                 +f v+G+n  ++y  +G l    
+  JCVI_PEP_1    80 --T-----AV---------------ALRFAVGGLN-DrgY--AGVL---- 100  
+
+                   ELViGGpGgGsnTtfysiNgtlaLyYQins...Q.TtgtytpVpsaYdfG
+                     V+GG  +  + + ysi+  l+++Y   ++  Q+ + ++ ++ s+Y+  
+  JCVI_PEP_1   101 -MVLGGLLNALSLALYSISESLSMLY--AGrllQgVSVALFIPASLYSA- 146  
+
+                   fDTaEssynVa<-*
+                        s+++ +   
+  JCVI_PEP_1   147 -----SVTGAR    152  
+
+TIGR02426: domain 1 of 1, from 12 to 282: score -263.8, E = 3.5
+                   *->LldglfGdpaalelfSDrAfl...rAMLdfEAALArAqAdvGAliPa
+                      L ++ +  p+    ++D ++l+ ++ +L   + L+     +G ++P 
+  JCVI_PEP_1    12    LMTAAA-SPPGCPGMGDGGRLtlnDWLLNL-STLLYVVSLLG-VAPY 55   
+
+                   eAAeaIeaacaeaapDleaLaeaaAeaGNpvIPLVkaLrkavAe.hdpea
+                     + aI  +++e++  +  La   A  ++       aLr av++  d  +
+  JCVI_PEP_1    56 LPRYAISLGASELE--VSMLATSYAITAV-------ALRFAVGGlNDRGY 96   
+
+                   AryVHrGATSQDviDTaLMLqLrdAldllladLgrLadaLadLAarHrdT
+                   A               +  ++L   l +l   L   ++ L+ L a     
+  JCVI_PEP_1    97 A---------------GVLMVLGGLLNALSLALYSISESLSMLYA----- 126  
+
+                   PmtgRTLlQ...qAvPtTfGlKaAGWLaavlrardRLaalrtealplQfG
+                      gR LlQ+ + A+ + + l  A++ +a  ra++ +   r         
+  JCVI_PEP_1   127 ---GR-LLQgvsVALFIPASLYSASVTGA--RAQRVIVW-RS-------- 161  
+
+                   GAAGTLAalletrGatDalavaaaLAarLGLplPalpWHtqRdriadfga
+                       T+ + l+++     ++      a LGL+l +l+W+     +a + +
+  JCVI_PEP_1   162 ----TMWG-LGSVL----GP------AVLGLTLQRLSWQPM-FYLAAATS 195  
+
+                   aLAlvaGaLGKiAgDvaLlsqtEvgEvfEPaggGKGGSSAMPHKrNPVga
+                   aL+             aLl+     E+fE ag   GGS         ++ 
+  JCVI_PEP_1   196 ALS-------------ALLAMQFKPERFE-AGD--GGSIL-------TRP 222  
+
+                   vlllaAArRaPgLaATLfaAA....LaqehERslGgWhAEWetLrelvrl
+                    ll+++ +   + a   ++ + +  L++ hE   G   AE ++  ++ +l
+  JCVI_PEP_1   223 FLLASLTLLTYVIA---YQ-SltyfLPSLHE-VEGLPTAETAAFFTVMAL 267  
+
+                   TagALrqaaelaeGL<-*
+                   +  A r   ++a      
+  JCVI_PEP_1   268 ANLASRTVLAIAGEF    282  
+
+PF01040: domain 1 of 1, from 14 to 232: score -102.9, E = 5.1
+                   *->tllvlipvlaglalAaggvnltfeadllllllallgvflaraagnai
+                      t  +++p + g++ + +    t++ +ll l   l +v l+  a ++ 
+  JCVI_PEP_1    14    TAAASPPGCPGMGDGGRL---TLNDWLLNLSTLLYVVSLLGVAPYL- 56   
+
+                   NdyfDrdiDaineRrgpsTpnRPlpsGrisprealtfailllalglalal
+                               +R     +    +s +     a  +ai ++al +a++ 
+  JCVI_PEP_1    57 ------------PR----YAISLGASELEVSMLATSYAITAVALRFAVGG 90   
+
+                   llnnlafllallglalaflYsyvYtrlLKRytplgtvvlgaagalpplmG
+                   l ++   ++++l++++++l ++                 +++  l  l++
+  JCVI_PEP_1    91 LNDR--GYAGVLMVLGGLLNALS-----LALY-------SISESLSMLYA 126  
+
+                   wvAvtgpltpslslvallLflalflwtaphdiayaledvedDrkaGiksl
+                   + +++g     +s+++++ +++ ++ + +       +             
+  JCVI_PEP_1   127 GRLLQG-----VSVALFIPASLYSASVTGA----RAQ------------- 154  
+
+                   PvvfGeerakriavlliavllalllllgllgglgllgalylivvlllgal
+                         ++ +++   + + +++ +++lgl++     + l +  ++ l+a+
+  JCVI_PEP_1   155 ------RVIVWRSTMWGLGSVLGPAVLGLTL-----QRLSWQPMFYLAAA 193  
+
+                   llylaiklvrrgpdpekiekrrrllTfvasiilllvlfaalllaf<-*
+                     +l + l ++  +pe+ e+        +si++ ++l+a l l+    
+  JCVI_PEP_1   194 TSALSALLAMQ-FKPERFEAG-----DGGSILTRPFLLASLTLLT    232  
+
+TIGR00895: domain 1 of 1, from 21 to 318: score -264.6, E = 4.7
+                   *->DvqnlirkqplsryqwraiilsfLimlvDGlDLaalgfa..aPalsa
+                          + +   l+   w ++ ls+L++ v      +lg+a+ +P  + 
+  JCVI_PEP_1    21    GCPGMGDGGRLTLNDW-LLNLSTLLYVV-----SLLGVApyLPRYAI 61   
+
+                   eWgldpvqlGfllSagLiGmafGalffGplADriGHLGvsRkrvllwsil
+                   ++g +  +  +l ++  i +++  +  G l Dr G  Gv     ++++ l
+  JCVI_PEP_1    62 SLGASELEVSMLATSYAITAVALRFAVGGLNDR-GYAGVL----MVLGGL 106  
+
+                   lFsvfTllcalAtnvtqLlilRflAGlGlGGlmpnliaLvSEYaPkrfRg
+                   l ++  +l  +++++  L + R+l G+   +l++ +    +  +++r   
+  JCVI_PEP_1   107 LNALSLALYSISESLSMLYAGRLLQGVSV-ALFIPASLYSASVTGARAQR 155  
+
+                   tav..glmfcGyaiGaavggflagwLiPafGWrslFyvGGiiPllLllll
+                    +v +++m   + +G  +g +  g+ +  + W+ +Fy++++ ++l +ll 
+  JCVI_PEP_1   156 VIVwrSTM---WGLGSVLGPAVLGLTLQRLSWQPMFYLAAATSALSALLA 202  
+
+                   mrfLPESidflvekGkrpekvrrivnaIapqlqaeaqsRFVlalpeqksa
+                   m f PE       +                           +++    s 
+  JCVI_PEP_1   203 MQFKPE-------R---------------------------FEAGDGGS- 217  
+
+                   qktkrsvvklLFqgktakiTvlLWllyfGmllvgvYfltnWlPskLmvel
+                             +++   + +++ L l+y+    +++  lt  lP  L    
+  JCVI_PEP_1   218 ----------ILTRPFLLASLTL-LTYV----IAYQSLTYFLP-SLHEVE 251  
+
+                   GfslskaaivgalfnfGGviGsiifGwLaDrlgprfvtalllLlgavfav
+                   G +  + a++                         f++++l+ l++  + 
+  JCVI_PEP_1   252 GLPTAETAAF-------------------------FTVMALANLASRTVL 276  
+
+                   lvgsstlfsptlllllgaiaGlfvnGgqsglyalmaefYPtaiRATGvGW
+                   ++++   f+p   +l+g++a   +++g++   ++ +e             
+  JCVI_PEP_1   277 AIAG--EFNPGDTALAGVVA---SIAGYT-IVTIRPE------------- 307  
+
+                   aigiGRlGaiiGPilaGvLL<-*
+                            ++ +++a++L+   
+  JCVI_PEP_1   308 ---------GLEALVAATLV    318  
+
+PF02654: domain 1 of 1, from 23 to 228: score -128.4, E = 3.2
+                   *->lraalsFlTrLPvkgreSqsaDfEvirrnlwafPlvGallGalvali
+                                 P  g +   ++  +   nl ++ +v  llG+++ l+
+  JCVI_PEP_1    23    -----------PGMG-DGGRLTLNDWLLNLSTLLYVVSLLGVAPYLP 57   
+
+                   lvigsfvfGmdnpLaalLavllllaltGglHlDGLADtgDGlmapgdrkR
+                    ++ s+  G + + +++La + ++ +  +            +++ g  +R
+  JCVI_PEP_1    58 RYAISL--GASELEVSMLATSYAITAVALR-----------FAVGGLNDR 94   
+
+                   kLeaMkDsntGtgGvvavvvVll.lkilaLaslsdrglflgillaevsAK
+                             G +Gv+ v+  ll+++ laL+s+s     + +  + ++ +
+  JCVI_PEP_1    95 ----------GYAGVLMVLGGLLnALSLALYSISE--SLSMLYAGRLLQG 132  
+
+                   vsmlLllltsrPRyaleeGlGayfmekldsRpdlliglilllllavplgY
+                   vs  L   +s     + + +Ga+  + +   + +  gl+ ++l+ ++lg 
+  JCVI_PEP_1   133 VSVALFIPASLY---SASVTGARAQRVIVW-RSTMWGLG-SVLGPAVLGL 177  
+
+                   ALaiErwp..gviAvlvavliglalgkiakrnFGGvtGDVlGAanEltrv
+                    L +  w++   +A ++++l++l++ +   ++F    GD  G ++ ltr 
+  JCVI_PEP_1   178 TLQRLSWQpmFYLAAATSALSALLAMQFKPERF--EAGD--GGSI-LTRP 222  
+
+                   vsLLaL<-*
+                     L +L   
+  JCVI_PEP_1   223 FLLASL    228  
+
+TIGR00786: domain 1 of 1, from 24 to 306: score -323.7, E = 5.3
+                   *->GvPVafaLgisallglmflldrgdvdtialAmlqklfggtdsFtLLA
+                      G+  +  L +  +  l+ l++  +v+++                   
+  JCVI_PEP_1    24    GMGDGGRLTLNDW--LLNLSTLLYVVSLL------------------ 50   
+
+                   iPFFiLAGnllnrGGlarRLlnfakalVGHlrGGLghvnvvasalFaAvS
+                                         ++++ + ++  +Lg +   +s+l     
+  JCVI_PEP_1    51 ----------------------GVAPYLPRYAISLGASELEVSML----- 73   
+
+                   GSsvAtaaAlGslliPamtkaGYPkafaaGviaaSGiIGlLIPPSIvmIi
+                       At  A++++ +   ++   ++++a+ + + +G++  L     ++ +
+  JCVI_PEP_1    74 ----ATSYAITAVALRFAVGGLNDRGYAGVLMVLGGLLNAL-----SLAL 114  
+
+                   YGvasiagvSIakLFiAGilPGlLlalslMltiwfvAkrlgypraeadaE
+                   Y+ +    +S + L ++ +l G+  al++ +  +  +++  ++ra+    
+  JCVI_PEP_1   115 YSIS----ESLSMLYAGRLLQGVSVALFIPASLYSASVT--GARAQ---- 154  
+
+                   VRrkaslrqrlrafrksiwaLlLPvliIGGifsGiFTPTEAAavaavYAl
+                            r  + r+  w+L                       ++++  
+  JCVI_PEP_1   155 ---------RVIVWRSTMWGLG----------------------SVLGPA 173  
+
+                   ilstfvyreLtlkslcdvlleslrttsmVllIiagatvfswlltheqiPq
+                   +l+      Ltl +l +            +++ a+  ++s ll+    P+
+  JCVI_PEP_1   174 VLG------LTLQRLSWQPM---------FYLAAATSALSALLAMQFKPE 208  
+
+                   rladllaaaisspivfLiiinilLlivGmfmDltpaiLiltPil....lP
+                   r  + + + i    +++++ +++Ll    ++   ++   l  +++ ++lP
+  JCVI_PEP_1   209 RFEAGDGGSIL--TRPFLLASLTLLT--YVIAYQSLTYFLPSLHevegLP 254  
+
+                   vAehlGIDPVhFGvvfvlNleiGllTPPvGtnLFvasgvakmsltTGevt
+                    Ae+++    +F v+ ++Nl+              ++ v+ +  +     
+  JCVI_PEP_1   255 TAETAA----FFTVMALANLA--------------SRTVLAIAGE----- 281  
+
+                   rallPFLlaqflvLllvtyfPalslflP<-*
+                       P   +++++ ++ +  + +++  P   
+  JCVI_PEP_1   282 --FNP-GDTALAGVVASIAGYTIVTIRP    306  
+
+TIGR00897: domain 1 of 1, from 27 to 318: score -326.6, E = 7.5
+                   *->mntvHasiNvldkiGiPkrLlW..GYigvvvFMvGDGLEqgwLSpFL
+                       +      N  d++   + Ll     +gv+           +L  + 
+  JCVI_PEP_1    27    -DGGRLTLN--DWLLNLSTLLYvvSLLGVA----------PYLPRYA 60   
+
+                   velGLSvqqsaslFtlYGi.AvAiSAWlSGvvveiigpkkTMmiGLllyv
+                   + lG S  + + l t Y i+AvA+     G     + +   M  G ll  
+  JCVI_PEP_1    61 ISLGASELEVSMLATSYAItAVALRFAVGGLNDRGY-AGVLMVLGGLLNA 109  
+
+                   vgsaaFivFGlehlnypllLlfYairGLgYPLFaYSFLvwvvY..ntkqd
+                   +  a+   + +    + +l+    + G    L    F+ +  Y+ ++   
+  JCVI_PEP_1   110 LSLAL---YSISES-LSMLYAGRLLQGVSVAL----FIPASLYsaSVTGA 151  
+
+                   klSsAvGWFWivYsiGlgVfGsyysSYaipafGelnTLWsALlFvltGGv
+                    +   + W   ++ +G  V+G+     +   +       +A +  ++ + 
+  JCVI_PEP_1   152 RAQRVIVWRSTMWGLG-SVLGPAVLGLTLQRLSWQPMFYLAAATSALSAL 200  
+
+                   lALfinkdkftpkkkqNLTtrekfeELgkAvTiLFtNpkvLlggvVriIN
+                   lA  +   +f+      + tr+    L+   T+L           V    
+  JCVI_PEP_1   201 LAMQFKPERFEAGDGGSILTRPF---LLASLTLL---------TYVIAYQ 238  
+
+                   tiglFGFAVfLPmmflaelGfStseWLQiWgtlFftnIvfNviFGivGdK
+                   ++  F     LP       G  t e      ++ + n  +  +  i G+ 
+  JCVI_PEP_1   239 SLTYF-----LP-SLHEVEGLPTAETAAFFTVMALANLASRTVLAIAGE- 281  
+
+                   LGWkntViWFGGvGcgiftLaLYYiPqfiGHsfavvliiAiiyGillAgY
+                                              f  +  a + ++A i     AgY
+  JCVI_PEP_1   282 ---------------------------FNPGDTALAGVVASI-----AGY 299  
+
+                   VPLaAvlPtLaPkdKGAAmSVlNLsaGLSaFvAPAiavlfiGllgaiGVV
+                        ++ t+ P              GL a                    
+  JCVI_PEP_1   300 ----TIV-TIRPE-------------GLEA-------------------- 311  
+
+                   wiFaALYlvsafLtkfiri<-*
+                          lv+a L     +   
+  JCVI_PEP_1   312 -------LVAATL-----V    318  
+
+TIGR01140: domain 1 of 1, from 28 to 236: score -243.2, E = 3.3
+                   *->HGGnLraAaaryGippedw.lDLStgINPlgpPewlrevppipasaw
+                       GG+L+          +dw l+LSt                  + + 
+  JCVI_PEP_1    28    -GGRLT---------LNDWlLNLST------LL-----YVVSLLGVA 53   
+
+                   arLPdpeaydeLraAAAayyGlpaasvlpvnGaqeaIqLLPrllapg...
+                     LP           +A   G+ +  v   + +  aI +++  +a+g+ +
+  JCVI_PEP_1    54 PYLPR----------YAISLGASELEVSMLA-TSYAITAVALRFAVGgln 92   
+
+                   .rvVlvlaPtYaEYArAwraaGheVvelsLseeeGFaLdldrlpaalaee
+                   +r           YA  +   G   ++lsL        +l  +     e 
+  JCVI_PEP_1    93 dRG----------YAGVLMVLGGLLNALSL--------ALYSIS----ES 120  
+
+                   adllvvvNPNNPTGrlippdtLlalaarlrarGgwLVVDEAFiDftpaap
+                   + +l            ++   L+++  +l            Fi +   ++
+  JCVI_PEP_1   121 LSML------------YAGRLLQGVSVAL------------FIPASLYSA 146  
+
+                   SlaalaeaaafpgLvVLRSlGKFFGLAGLRLGFvvAspallarLrealgP
+                   S+++ +++    +++V RS   ++G     LG v++++ l   L+++   
+  JCVI_PEP_1   147 SVTGARAQ----RVIVWRST--MWG-----LGSVLGPAVLGLTLQRL--- 182  
+
+                   WtVngpAlaaGraALaDtawqaatRarlaaerarLaalLarigllrvvgg
+                                      wq   + +laa+  +L alLa + + ++   
+  JCVI_PEP_1   183 ------------------SWQ--PMFYLAAATSALSALLA-MQF-KP--- 207  
+
+                   talFllLvrtpdaaltvdaLheaLarrhGILiRdfdnFpGLdprylRfGl
+                      F    +  d+                IL+R f        ++     
+  JCVI_PEP_1   208 -ERF----EAGDGG--------------SILTRPFLL-----ASL----- 228  
+
+                   ptdeenWdRLlaALa<-*
+                            L+ ++a   
+  JCVI_PEP_1   229 -------TLLTYVIA    236  
+
+TIGR02138: domain 1 of 1, from 31 to 244: score -216.9, E = 6
+                   *->ekifkgllliaaviivlvlllivlfllieaipafeknGisllnFltg
+                        +  +ll ++ ++ v++ll++         p + ++    +  l  
+  JCVI_PEP_1    31    LTLNDWLLNLSTLLYVVSLLGV--------APYLPRY---AI-SLGA 65   
+
+                   tvWdpdskgaeadtpvqeqyGaLplIvGTlitsliAilIAvPvgigiAIF
+                   ++                      +++ +  ++++A+ +Av    g    
+  JCVI_PEP_1    66 SELE------------------VSMLATSYAITAVALRFAV----GG--- 90   
+
+                   lsE..iAPkrvksvlkpvvELLAGIPSVVYGfwGlfvlvPflkdhfqpfl
+                   l+++++A+                          l+vl+ +l + +   l
+  JCVI_PEP_1    91 LNDrgYAGV-------------------------LMVLGGLLNA-LSLAL 114  
+
+                   gsnfgwiPlfgqlfsgppnGyglLtAgiVLaIMIlPtiasiSrDalraVP
+                   +s               + + ++L Ag +L          +S   +  +P
+  JCVI_PEP_1   115 YSI--------------SESLSMLYAGRLL--------QGVSVALF--IP 140  
+
+                   rsykEAslALGATkWEtI..rkViLPaarsGIvgavvLGlGRAlGETMAV
+                    s+ +As   GA    +I  r+ +  +++  ++g +vLGl          
+  JCVI_PEP_1   141 ASLYSASVT-GARAQRVIvwRSTM--WGLGSVLGPAVLGLT--------- 178  
+
+                   aMviGnaPslnrpiplnlfspygtTitslIAnefg....eAsggnsvhvs
+                     +     s + p  + l+++ +  +++l+A++f +++ eA++g+s+ + 
+  JCVI_PEP_1   179 --LQRL--SWQ-P-MFYLAAA-TSALSALLAMQFKperfEAGDGGSILT- 220  
+
+                   ALfalGLVLFvitllvNilaryivrrrk<-*
+                         ++L  +tll+ ++a+  + ++    
+  JCVI_PEP_1   221 ----RPFLLASLTLLTYVIAYQSLTYFL    244  
+
+PF01790: domain 1 of 1, from 33 to 237: score -166.1, E = 3.1
+                   *->idPvafsiGkPlairWYGlmyalGillAywlarkrakkpkLrginkd
+                      ++ +++ +   l       +y++  l    ++ + a+    +g ++ 
+  JCVI_PEP_1    33    LNDWLLNLS-TL-------LYVVSLLGVAPYLPRYAIS---LGASEL 68   
+
+                   dlddlllwavlggiiGARlyYVlFgYew.......syYlqtgnPleifki
+                   +++ l++  ++ +        V     +  ++ ++  Y++      ++++
+  JCVI_PEP_1    69 EVSMLATSYAITA--------VAL--RFavgglndRGYAG------VLMV 102  
+
+                   WeGweFvGirGmsiHGGlIGgilaallfslrkkklsflqlaDliAPsvpl
+                     G               ++ +l ++l+s     ls+l            
+  JCVI_PEP_1   103 LGG---------------LLNALSLALYS-ISESLSMLYA---------- 126  
+
+                   GqaiGRwGNFiNgElyGrptgfnttlwLiMtlpwltdlpwaviFPpdgsr
+                                   Gr                                
+  JCVI_PEP_1   127 ----------------GRLL------------------------------ 130  
+
+                   ednfaklpefiinqmyigglpRHPtQLYEsilegivffiilwlvrrrkkk
+                                 ++ + + ++P  LY +   g  +  ++ + r   + 
+  JCVI_PEP_1   131 --------------QGVSVALFIPASLYSASVTGARAQRVIVW-RSTMW- 164  
+
+                   lkrGevfglYligYGlgRf.fiEffRepdlqlgllalgyl.e.p.al.el
+                    + G+v g  ++g  l R+++       + ++      yl   ++al+ l
+  JCVI_PEP_1   165 -GLGSVLGPAVLGLTLQRLsW-------QPMF------YLaAaTsALsAL 200  
+
+                   llgglrm........gQiLSipmIllGiiliiyarrk<-*
+                   l+  +  ++ + +++g iL  p+ l+++ l+ y   +   
+  JCVI_PEP_1   201 LAMQFKPerfeagdgGSILTRPFLLASLTLLTYVIAY    237  
+
+TIGR02831: domain 1 of 1, from 34 to 177: score -144.4, E = 8.4
+                   *->eglmeHlkEnfwLYifvlllflvGivfGAytVnsmsivqkedLyfYl
+                               n wL  +++ll +v  ++G+              + Yl
+  JCVI_PEP_1    34    ---------NDWLLNLSTLLYVV-SLLGV--------------APYL 56   
+
+                   snFfgqlsgGesasyteilrQSlfnnikyvgLiWiLGlsiIGlPiIlild
+                    +  + l g ++++ +++l  S+             +++++         
+  JCVI_PEP_1    57 PRYAISL-GASELE-VSMLATSY-------------AITAV--------- 82   
+
+                   llKGfvvGFTvgFLVnqlGmkGvlLallgvLPQNliiIPiiLiasviAis
+                         + F+vg L n  G  Gvl++l g+L  N + +  + i  ++++ 
+  JCVI_PEP_1    83 -----ALRFAVGGL-NDRGYAGVLMVLGGLL--NALSLALYSISESLSML 124  
+
+                   FSlkllrsgfvkrrineglsqaf...irYsllllviavlialgsliEaYv
+                   ++ +ll    v  +i  +l++a  +++r + +++  +   +lgs     +
+  JCVI_PEP_1   125 YAGRLLQGVSVALFIPASLYSASvtgARAQRVIVWRSTMWGLGSV----L 170  
+
+                   sPnLmrl<-*
+                    P ++ l   
+  JCVI_PEP_1   171 GPAVLGL    177  
+
+PF07907: domain 1 of 1, from 35 to 229: score -183.0, E = 8.6
+                   *->nalviLavlFillviivgrkkGlksllgLvlNlfviviiliplisnG
+                       +l+ L  l+ ++ ++                  v  ++   +is G
+  JCVI_PEP_1    35    DWLLNLSTLLYVVSLL-----------------GVAPYLPRYAISLG 64   
+
+                   fnpilvaivlav.iiliitL.ylvhGlnkkTlaAllgTligvllaalisl
+                   ++ + v+ ++++ +i++++L++ v Gln + +a +l +l+g+l a++++l
+  JCVI_PEP_1    65 ASELEVSMLATSyAITAVALrFAVGGLNDRGYAGVLMVLGGLLNALSLAL 114  
+
+                   ivikltnlqGlsdEeleeLinlslnvtisfsglflagiiIGsL......G
+                    +i         +E l     l  + ++ ++g+ +a +i +sL + + +G
+  JCVI_PEP_1   115 YSI---------SESLS---ML--YAGRLLQGVSVALFIPASLysasvtG 150  
+
+                   AvmDvtvsIaSslfELarqnPnittkqLfkSGinIGrDiiGTmvNTLllA
+                   A +  +++  S++++L                      ++G+       A
+  JCVI_PEP_1   151 ARAQRVIVWRSTMWGL--------------------GSVLGP-------A 173  
+
+                   YagssL......PLfLlllrnnyslgeilNskilalEllrsllGgIGivL
+                    +g +L++ + +P+f +l ++   l+ +l ++ +  E   ++ G  G +L
+  JCVI_PEP_1   174 VLGLTLqrlswqPMF-YLAAATSALSALLAMQ-FKPERFEAGDG--GSIL 219  
+
+                   aVPlTtlfaall<-*
+                   + P  +l+a+l+   
+  JCVI_PEP_1   220 TRP--FLLASLT    229  
+
+PF02653: domain 1 of 1, from 36 to 268: score -118.6, E = 4.5
+                   *->nlfniltqaaplgiaALGltlvfGiaGvinLgvg....gqmalGgay
+                      +l+n+ t+  + ++++++ +l+  +a  i Lg+++ + +++a +  +
+  JCVI_PEP_1    36    WLLNLSTLLYVVSLLGVAPYLPR-YA--ISLGASelevSMLATS-YA 78   
+
+                   vaalllalggsngdlaflglwlallagllvgaavGllnGlLvvrlkvnev
+                    +a++l +   +++        a ++++l+g++ +l ++       + ++
+  JCVI_PEP_1    79 ITAVALRFAVGGLND----RGYAGVLMVLGGLLNALSLA-------LYSI 117  
+
+                   ivtlllnfilrgltlflltgilggpagsstsvallgfpgallsfgfgvif
+                     +l +++++r l                 ++++l++p+ l s ++    
+  JCVI_PEP_1   118 SESLSMLYAGRLLQG---------------VSVALFIPASLYSASVTGAR 152  
+
+                   fklilvalagipwagflgvgipvpillalllallvwllLrrTrfGralrA
+                                                   +  ++++r T +G+    
+  JCVI_PEP_1   153 --------------------------------AQRVIVWRSTMWGL---- 166  
+
+                   vGenpraAryaGinvkrtkilafvlsGalAGlAGallvlslgsadpesna
+                     +++    ++G+   r+ +  ++  +a      all++++    +e++ 
+  JCVI_PEP_1   167 --GSVLGPAVLGLTLQRLSWQPMFYLAAATSALSALLAMQFKPERFEAGD 214  
+
+                   glglgfdaiaavvlGGasLgGGrGspiGvivGaliigllqslgltllgii
+                   g +++  +++ + l ++                 ++++++++++++l + 
+  JCVI_PEP_1   215 GGSILTRPFLLASLTLL-----------------TYVIAYQSLTYFLPS- 246  
+
+                   flgtnlpv.g.g.pelsllvqGailiavl<-*
+                           +   + +++    +  ++a +   
+  JCVI_PEP_1   247 -------LhEvEgLPTAETAAFFTVMALA    268  
+
+TIGR00900: domain 1 of 1, from 36 to 318: score -193.0, E = 1.4
+                   *->FrlLlaaqli...SllGsa..itqVAlpLlAyvlagtgsasvlslaa
+                       +lL ++ l+   SllG a+ +  +A+ L        +s++  s+ a
+  JCVI_PEP_1    36    -WLLNLSTLLyvvSLLGVApyLPRYAISL-------GASELEVSMLA 74   
+
+                   lagllPyvvlsPiaGvlvDRydRKkvmigaDliravlvavlpfvallgGV
+                   + + +  v+l  ++G l DR     +m+   l++a+++a+ ++       
+  JCVI_PEP_1    75 TSYAITAVALRFAVGGLNDRGYAGVLMVLGGLLNALSLALYSISE----- 119  
+
+                   dvleiwmvyvvafIlaiaqaFFtPayqamlPdlvpeEkWqLtrAnslsql
+                      ++ m+y+  ++ ++  a F Pa  +++ + v  +  +  r++   + 
+  JCVI_PEP_1   120 ---SLSMLYAGRLLQGVSVALFIPA--SLYSASVTGA--RAQRVIVWRST 162  
+
+                   vrslfyRiVGPgiGGllyatlgikwailvdavgFliSallivsvRiPeka
+                      l++ ++GP++ Gl ++ l+    + + a ++++Sall    +++  +
+  JCVI_PEP_1   163 MWGLGS-VLGPAVLGLTLQRLSWQPMFYLAAATSALSALLAMQFKPERFE 211  
+
+                   aseieplseRKtSlkavlRdilEGlkfvlknkvLrtLlllallfnlvfap
+                   a                    ++G +++ +  +L++L+ll  + +  ++ 
+  JCVI_PEP_1   212 A--------------------GDGGSILTRPFLLASLTLLTYVIAYQSLT 241  
+
+                   iivvlfPyvtskylnrtsvhvGwvlaaFglGaLlGaLllgsiLrrllgry
+                    +   +P    +    + + +  + a+F++ ++l++L+            
+  JCVI_PEP_1   242 YF---LPSLHEV----EGLPTAETAAFFTV-MALANLASR---------- 273  
+
+                   fkriaLitgAvlviglailvvgllpprnsgfllllvlafaiGvgvglinv
+                        ++++          ++g ++p+          ++ +Gv+ ++   
+  JCVI_PEP_1   274 -----TVLA----------IAGEFNPGD---------TALAGVVASIAGY 299  
+
+                   pigtllQrsvpaellGRVfglqfslssaAgPLglilaGpLadklG<-*
+                    i+t++++                          +l +++a++l+   
+  JCVI_PEP_1   300 TIVTIRPE--------------------------GLEALVAATLV    318  
+
+PF04474: domain 1 of 1, from 37 to 240: score -170.8, E = 6.8
+                   *->liGtliNalaVv.lGsliGll..fkkrlPerikdtLmqvlGLAvlgi
+                          l+N ++ +   sl+G ++ + +            +++L +  +
+  JCVI_PEP_1    37    ----LLNLSTLLyVVSLLGVApyLPR-----------YAISLGASEL 68   
+
+                   GIsmatvsllqsknfllvilsLViGgv.....iGEilnLEkrlnklGdkl
+                    +sm       s    +v l  + Gg+++++  G ++ L++ ln l   l
+  JCVI_PEP_1    69 EVSML----ATSYAITAVALRFAVGGLndrgyAGVLMVLGGLLNALSLAL 114  
+
+                   eKPivkrfrGskkglanesFaegFVTatLLFcvGpmgIlGalneGLTGDh
+                      i  ++    + l  +++ +g + a  +    p + +    +  TG  
+  JCVI_PEP_1   115 Y-SISESL----SMLYAGRLLQGVSVALFI----PASLY---SASVTGAR 152  
+
+                   s..vLltKslLDGftAiiLAstLGiGVafsAIpvllyQGliaLfAk..qi
+                    ++v++  s+  G     L s LG +V+  ++  l++Q  ++L+A+++ +
+  JCVI_PEP_1   153 AqrVIVWRSTMWG-----LGSVLGPAVLGLTLQRLSWQPMFYLAAAtsAL 197  
+
+                   eslvpilttdsfIae.ftatGGlLIlaiGlnlLLGGLGmkikkfkVgNlL
+                   ++    l+  +f  e+f a       + G ++L        + f    lL
+  JCVI_PEP_1   198 SA----LLAMQFKPErFEA-------GDGGSIL-------TRPF----LL 225  
+
+                   PALllvpvlvwlvykl<-*
+                    +L l    v++  +l   
+  JCVI_PEP_1   226 ASLTLLTY-VIAYQSL    240  
+
+PF01578: domain 1 of 1, from 37 to 248: score -91.1, E = 4.2
+                   *->lsnlyesllllawglsllpllledktrglnlsflgavslpasllilg
+                      l+nl    l+++ +l+++p l       + +s++++ + +++l +++
+  JCVI_PEP_1    37    LLNLSTL-LYVVSLLGVAPYLP-----RYAISLGASELEVSMLATSY 77   
+
+                   falfsfriplwfLllLlySnpflrlLpaemqqgadlvpalqspwLmlHVp
+                     ++                  ++         ++ v +l++++++  V 
+  JCVI_PEP_1    78 AITA------------------VA--------LRFAVGGLNDRGYAG-VL 100  
+
+                   lal......lSYatliigallsialLiilkneylnkssdqllks.ksv.r
+                   ++l++  + lS a+++i  +ls+++                +   + v++
+  JCVI_PEP_1   101 MVLggllnaLSLALYSISESLSMLYA---------------GRLlQGVsV 135  
+
+                   lqdraLkkkkkknsnnlpllktldrlsyriiliGfpfLTigiitGsvWAY
+                       aL+++ +  s +++   +   +++r++  G    +   ++G     
+  JCVI_PEP_1   136 ----ALFIPASLYSASVTGARAQRVIVWRSTMWGLGSVLGPAVLGLTLQ- 180  
+
+                   yneaWGtyWsWDPKetwsLilWlvyaayLhsri......atekrgwrgkk
+                    ++ W + ++  +  t++L       a+L++++++++ +a +  g    +
+  JCVI_PEP_1   181 -RLSW-QPMFYLAAATSAL------SALLAMQFkperfeAGDG-GSILTR 221  
+
+                   aailailGFvllliayFgVnllgeglh<-*
+                   + +la+l++++ +iay +  + +  lh   
+  JCVI_PEP_1   222 PFLLASLTLLTYVIAYQSLTYFLPSLH    248  
+
+TIGR00804: domain 1 of 1, from 37 to 318: score -325.7, E = 9.1
+                   *->LisfvGlvVfiliaflfSsnkk.kIswRtV...vsaLvLqfllgllv
+                      L+++  l  ++ ++ ++   ++ +Is+ + + +vs+L+  +++++ +
+  JCVI_PEP_1    37    LLNLSTLLYVVSLLGVAPYLPRyAISLGASeleVSMLATSYAITAVA 83   
+
+                   LytpvGkwafqgladgiqklLsYaneGinFVFGfLAGppnvkdlapaGfv
+                   L++     a++gl d        +++G+  V G   G +n+ +la     
+  JCVI_PEP_1    84 LRF-----AVGGLNDR-------GYAGVLMVLG---GLLNALSLA----- 113  
+
+                   FafqVLpiIIFfSalisiLyYlGimq...wvIrkiGwalqkalGttklES
+                        L  I   S   s Ly  +++q+ ++++ + +++ +      ++  
+  JCVI_PEP_1   114 -----LYSI---SESLSMLYAGRLLQgvsVALFIPASLYSASVTGARAQR 155  
+
+                   fsAaaniF..LGqTEAPLvikPyLgkmtdsElftvmtsGmAtiAGSvlgA
+                   + ++ ++  +LG    P+v+   L +++ + +f +++      A S l A
+  JCVI_PEP_1   156 VIVWRSTMwgLGSVLGPAVLGLTLQRLSWQPMFYLAA------ATSALSA 199  
+
+                   YasMGvpatYLiaASvlaaPggLafakLiyPeteeskekseedvkleegd
+                    ++M                                ++k +e+++   g 
+  JCVI_PEP_1   200 LLAM--------------------------------QFK-PERFEAGDG- 215  
+
+                   eknffEalsngalaGvkva.inVaAmLIaFvAllAlINgiLsvvGglfGy
+                           ++  +  + +a++  ++ +Ia+ +l+ ++  + +v  +    
+  JCVI_PEP_1   216 --------GSILTRPFLLAsLTLLTYVIAYQSLTYFLPSLHEV--E---- 251  
+
+                   gglSFQlIfGYvfrPlAFlmGVpdNwsdAllVaqlmGtKlavNEFVAYld
+                                       G+p   +++               F   + 
+  JCVI_PEP_1   252 --------------------GLP--TAETAA-------------FFTVMA 266  
+
+                   LsqylktgsaGaEEWigeKQwLspkteaIiTfALCGFANFSSIGIiiGgl
+                   L++++++                    aI+  +     N +  + ++G++
+  JCVI_PEP_1   267 LANLASRTV-----------------LAIAGEF-----NPGDTA-LAGVV 293  
+
+                   gglvPGkrksvisrlvLkALyaGtlvslmSAtIAGllf<-*
+                    +++      +i   +L AL+a+tlv               
+  JCVI_PEP_1   294 ASIAG-YTIVTIRPEGLEALVAATLV------------    318  
+
+PF07695: domain 1 of 1, from 38 to 238: score -68.7, E = 4.3
+                   *->ralifglllGillllgfYnLflylsrrkdksyL.......yyalyil
+                       +l  +l  ++ll  + Y     +s++  +s L+ +   ++ya+ ++
+  JCVI_PEP_1    38    LNLSTLLYVVSLLGVAPYLPRYAISLG--ASELevsmlatSYAITAV 82   
+
+                   lfllyqlslsglafeylDwpnipffaqkklaylllvllalffllFlrsfl
+                   ++   +  l++ +++   ++ +  + ++ l   l++++  ++ l++  +l
+  JCVI_PEP_1    83 ALRFAVGGLNDRGYAGV-LMVLGGLLNA-LSLALYSISESLSMLYAGRLL 130  
+
+                   ylksssrrldrllgilalllflaillalfltdylvanriaqvlvllfili
+                   +  s    l+  + ++++ + ++++     + ++v+++  +   l ++l 
+  JCVI_PEP_1   131 QGVSVA--LF--IPASLYSASVTGA-----RAQRVIVWRSTMWGLGSVLG 171  
+
+                   llllgikawrkgyrdArlfliaflvflvgglvSdllgllglipnnitlts
+                     +lg+++ r   ++ +++  a +++    ++ + + ++ + +++     
+  JCVI_PEP_1   172 PAVLGLTLQRLSWQPMFYLAAATSALSALLAMQFKPERFEAGDGGS---- 217  
+
+                   yalllglvlevlllslaLadER<-*
+                    ++  +l+ +  ll++++a+ +   
+  JCVI_PEP_1   218 ILTRPFLLASLTLLTYVIAY-Q    238  
+
+TIGR00886: domain 1 of 1, from 38 to 301: score -207.2, E = 0.051
+                   *->RnLffSwfgFflsFlvWfafspLavqiikGkddlgLStaQlgnlvav
+                        L +S++   +s l    ++p +++ +    +lg S  ++ +l+  
+  JCVI_PEP_1    38    --LNLSTLLYVVSLL---GVAPYLPRYA---ISLGASELEVSMLATS 76   
+
+                   pvlagavlRiilGfLvDkfGPRktttlsllllaIPcllaglavqdpstsy
+                     + +++lR+ +G L+D+    ++++l+ ll a  ++l   +      s 
+  JCVI_PEP_1    77 YAITAVALRFAVGGLNDRGYAGVLMVLGGLLNALSLALYSISE-----SL 121  
+
+                   svLlllrlfiGiaGgsFascmpwiSfFFPkkiqGtAlGLaAGwGNmGggv
+                   s L++ rl+ G++ + F+++                 +L+       ++v
+  JCVI_PEP_1   122 SMLYAGRLLQGVSVALFIPA-----------------SLYS------ASV 148  
+
+                   aqfvmPAlfaiiaslikgafgGlPqtFdahlawgwafvivpalilllial
+                   +   +    ++i           +    +   wg   v++pa   +l ++
+  JCVI_PEP_1   149 TGARAQ---RVIV--------WRS----T--MWGLGSVLGPA---VLGLT 178  
+
+                   liffvvadtppgkWSeRhksARGlevttlkddyfllimnlpataklsvks
+                   l   +++  ++                              at +ls   
+  JCVI_PEP_1   179 LQRLSWQPMFYLA---------------------------AATSALS--- 198  
+
+                   arlskiaflvaalkvvvepllgtealatyniwvlnaiieslslkeqlkvf
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   rdkhTWilallYsvTFGsFlgvssifamvFllfkdqfglskvqAGayasl
+                                          + +am       qf     +AG+ +s+
+  JCVI_PEP_1   199 -----------------------ALLAM-------QFKPERFEAGDGGSI 218  
+
+                   ggllGllaRPlGGllSDrlGgrfgtraRkllmsflgvamgaalvv..lgl
+                         l+RP       +l++        +l++++++ ++  +++++l+ 
+  JCVI_PEP_1   219 ------LTRPF------LLAS-------LTLLTYVIAYQSLTYFLpsLHE 249  
+
+                   vgpgssgsLavfivlfvalfffvgaGnGstFalvPhifrktaskvkaeGg
+                   v ++ +   a+f++++ ++++ ++     + a+    ++           
+  JCVI_PEP_1   250 VEGLPTAETAAFFTVMALANLASRT----VLAIAGEFNP----------- 284  
+
+                   deeAmrnarratGavsGliGAgGnlGG<-*
+                             +t+ + G++++++++     
+  JCVI_PEP_1   285 ---------GDTALA-GVVASIAGYTI    301  
+
+PF07690: domain 1 of 1, from 38 to 318: score 66.3, E = 1.4e-16
+                   *->lflaaflaglgrsllgpalpylassledsslgqtdllspteiglllt
+                      l l+++l+  +  +++p lp +a    +  lg    +s+ e+++l+t
+  JCVI_PEP_1    38    LNLSTLLYVVSLLGVAPYLPRYA---IS--LG----ASELEVSMLAT 75   
+
+                   afalgyalaqplaGrlsDrfGrrtyirlkpvlllglllfalgslllafas
+                   ++a++++++ + +G l Dr  +        +++lg ll al+++l+  + 
+  JCVI_PEP_1    76 SYAITAVALRFAVGGLNDRGYAG---V---LMVLGGLLNALSLALYSISE 119  
+
+                   stslwllliarvllqGlgagllapaaaaliadwfppeergralgivsagf
+                     sl +l+++r+l qG+  +l++pa+   ++  + + +  r++ + s+++
+  JCVI_PEP_1   120 --SLSMLYAGRLL-QGVSVALFIPASLYSAS--VTGARAQRVIVWRSTMW 164  
+
+                   glGaalggpllggllaalgwwwssgtfWraaFlllailallaavlllvlf
+                   glG++lg+++lg  l +l+w        + +F+l+a+ ++l+a+l  ++ 
+  JCVI_PEP_1   165 GLGSVLGPAVLGLTLQRLSW--------QPMFYLAAATSALSALL--AMQ 204  
+
+                   llpeppakksgkpdeeeagialr.lll.p.llllllallllllaflallt
+                   + pe+ ++            +  + +l++++ll+ l+ll +++a+  l+ 
+  JCVI_PEP_1   205 FKPERFEA------------GDGgSILtRpFLLASLTLLTYVIAYQSLTY 242  
+
+                   flplylllpllls.saglslsalaagllllalglggllgglllggrlsdr
+                   flp++  + +l + + + +++         +++l+ l ++ +l       
+  JCVI_PEP_1   243 FLPSLHEVEGLPTaETAAFFT---------VMALANLASRTVL------- 276  
+
+                   lgrglarkgeaeaerrrllllgllllalgllllafapslsiallllalvl
+                                                 ++ + +++     +l+++v 
+  JCVI_PEP_1   277 ------------------------------AIAGEFNPGD--TALAGVVA 294  
+
+                   lGlgfggvfpllnalasdlappeaqerGtvsGlyntagslggalgp<-*
+                     +g+ +v          ++ pe             + +l +a      
+  JCVI_PEP_1   295 SIAGYTIV----------TIRPE------------GLEALVAATLV    318  
+
+PF03845: domain 1 of 1, from 39 to 309: score -219.3, E = 6.5
+                   *->kiStsQtfvLIvlfqlGsGi......LtlprslAkqantpDGWIavL
+                       +St     L v+++lG+++  ++  ++l +s+ +            
+  JCVI_PEP_1    39    NLSTL----LYVVSLLGVAPylpryaISLGASELEVS---------M 72   
+
+                   lggliilllvllyykLlkkfpektlieyskkilGKwLGsllsfl.falYF
+                   l+  +++ +v l      +f  + l +    ++  +LG+ll+ l+ alY 
+  JCVI_PEP_1    73 LATSYAITAVAL------RFAVGGLNDRGYAGVLMVLGGLLNALsLALY- 115  
+
+                   lylagrvlRdfsEvlqtfllpdtPtwiiilllllvsiYliskGievlaRl
+                            ++sE l +    ++ + + ++l++  s+Y +s    + aR 
+  JCVI_PEP_1   116 ---------SISESLSMLYAGRLLQGVSVALFIPASLYSAS---VTGAR- 152  
+
+                   gefcfiipilliillfilifslkqaeikNLrPvlgnGispvLkgaLlktt
+                   +  ++++  +   l+ +l + +    +  L       ++p +  a + t 
+  JCVI_PEP_1   153 AQRVIVWRSTMWGLGSVLGPAVLGLTLQRL------SWQPMFYLA-AATS 195  
+
+                   slpFtGfEilLmlypfmkdkKkvkkaallgvgisgllYtlttiivIgvLg
+                    l+       L+ + f  +++++      ++++  +l++ +t+++++   
+  JCVI_PEP_1   196 ALS------ALLAMQF--KPERFEAGDGGSILTRPFLLASLTLLTYVI-- 235  
+
+                   vdqtktltWPtLsLlkvievpGefIERleyflisvWilviFftiaiylya
+                   + q+ t   P L      ev+          ++ +   + Fft+    + 
+  JCVI_PEP_1   236 AYQSLTYFLPSLH-----EVE----------GLPTAETAAFFTVMALANL 270  
+
+                   aslglseiFkkknkssayllviligiifiissipknsnfv<-*
+                   as+ +  i + +n+     l+ +++ i  ++++++ +      
+  JCVI_PEP_1   271 ASRTVLAIAGEFNPG-DTALAGVVASIAGYTIVTIRPEGL    309  
+
+PF03203: domain 1 of 1, from 40 to 147: score -95.3, E = 7.5
+                   *->iTRIaDKtGvlGsvVSAmGCAmCFPAlA.SLGAAIGLGFLSqwEGLF
+                              + l  vVS +G A   P  A SLGA       S+ E   
+  JCVI_PEP_1    40    -------LSTLLYVVSLLGVAPYLPRYAiSLGA-------SELE--- 69   
+
+                   istLLPlFAvvAL.LaNaLGWFSHRQWqRsaLGviGPvlvLaavfllfqh
+                   +s L    A  A  L  a G ++ R       G +G   vL +++  +  
+  JCVI_PEP_1    70 VSMLATSYAITAVaLRFAVGGLNDR-------GYAGVLMVLGGLLNALSL 112  
+
+                   fL.dkwwsavLlYtGLalMvgVSIWDlvsPAhRRCap<-*
+                    L     s  +lY G  l  gVS+  l+ PA    a+   
+  JCVI_PEP_1   113 ALySISESLSMLYAG-RLLQGVSV-ALFIPASLYSAS    147  
+
+PF02378: domain 1 of 1, from 40 to 272: score -127.2, E = 7.8
+                   *->gdgfmppiPlliagGlllglgnallpngdlkglasflktaggqtgls
+                       +++ + + ll ++  l   ++                     + ++
+  JCVI_PEP_1    40    LSTLLYVVSLLGVAPYLPRYAI---------------------SLGA 65   
+
+                   piaeilkqagsatFgiLpllfaigiAygLskakggkgvaglagligllaf
+                   + +e  + a s++ +  +l fa+g   gL    ++ g+ag   ++g l +
+  JCVI_PEP_1    66 SELEVSMLATSYAITAVALRFAVG---GL----NDRGYAGVLMVLGGLLN 108  
+
+                   nllapisvlllaagalettvtaadgvnlagevvaangggnilgigtggtG
+                    l     +l+l+                        +  ++l +g + +G
+  JCVI_PEP_1   109 AL-----SLALYSIS---------------------ESLSMLYAGRLLQG 132  
+
+                   vfGaiIvgllaaelynrfekrnitiklPeslpffvgkrFvpiItgfvtll
+                   v  a    ++ a ly+  +             ++ ++r ++  +++    
+  JCVI_PEP_1   133 VSVAL---FIPASLYSASVT------------GARAQRVIVWRSTM---- 163  
+
+                   vvgpil.liwpaiqgglnalgigkllqPLlilagsllGvliigflerlLw
+                    +  ++++++pa+ g+ +  +    +qP ++la  +  +l + +++++  
+  JCVI_PEP_1   164 -W-GLGsVLGPAVLGLTLQRL---SWQPMFYLAA-ATSALSALLAMQF-- 205  
+
+                   pfGlHgafiapfwflpilggggsniiaNqtaygdqniFfaqlagqplltf
+                            +p+ f+++                          g      
+  JCVI_PEP_1   206 ---------KPERFEAG-------------------------DG------ 215  
+
+                   ggaahiltggFpdiFivmfGgpGatLAlyaaaflfkkskvlkllgsaalt
+                      + ilt +F+    + + +    +A    + +  +      l+ a  +
+  JCVI_PEP_1   216 ---GSILTRPFLL---ASLTLLTYVIAYQSLTYFLPSLHEVEGLPTAETA 259  
+
+                   palfGItEPleFgfpfvlnpllyfipailaG<-*
+                                  f  + l     a+la    
+  JCVI_PEP_1   260 -------------AFFTVMAL-----ANLAS    272  
+
+PF04241: domain 1 of 1, from 43 to 125: score -70.1, E = 8.4
+                   *->fliLaALsGal......aVaLGAFaAHGLkkrlsDpkaQVDlavieT
+                      +l + +L+G ++  ++ a++LGA             ++   l+v   
+  JCVI_PEP_1    43    LLYVVSLLGVApylpryAISLGA-------------SE---LEVSML 73   
+
+                   GvqYQmiHaLAl.LavglllLalkraasrfvrwagwlllvGilLFSGSLY
+                   +++Y  i a+Al++avg l              ag+l+ +G lL + SL 
+  JCVI_PEP_1    74 ATSY-AITAVALrFAVGGL---------NDRGYAGVLMVLGGLLNALSLA 113  
+
+                   aLALLPGtglrilgaiTPiGGvlFiaGWllLal<-*
+                   ++++   + +                  l++++   
+  JCVI_PEP_1   114 LYSI---SES------------------LSMLY    125  
+
+PF00654: domain 1 of 1, from 43 to 304: score -219.5, E = 8.7
+                   *->iggllagllvkrfapeaa.GsGipeviaallhgvkgrrlplrvllvK
+                      ++ +++ l v  + p+ a   G  e +  +     +  +        
+  JCVI_PEP_1    43    LLYVVSLLGVAPYLPRYAiSLGASELEVSM-LATSYA-IT------- 80   
+
+                   flgslltigsGgSlGREGPsVqiGAaigsglglfktrrcllklsrndrRr
+                   +++  +++g+    G  G  + +G+ + ++                    
+  JCVI_PEP_1    81 AVALRFAVGGLNDRGYAGVLMVLGGLLNALSL------------------ 112  
+
+                   eLiaaGaAAGiAAaFnAPLAGvlFAlEvlllrdfslf.....rallpvlv
+                                        +l+++ + l+   +l+ ++    +  +l+
+  JCVI_PEP_1   113 ---------------------ALYSISESLS---MLYagrllQGVSVALF 138  
+
+                   asvvAalvsrllfGnelplgftnffgeisaavpslfvflpyvplSlsl.e
+                     + A+l s ++ G + +             ++            +  ++
+  JCVI_PEP_1   139 --IPASLYSASVTGAR-AQ-----RV-----IV------------WRStM 163  
+
+                   lplfillGilcGllGalFirlllkverlfrrlkrklpippkwllrpalgG
+                   + l  +lG++  +lG    rl ++ +                + ++a+ +
+  JCVI_PEP_1   164 WGLGSVLGPA--VLGLTLQRLSWQPM---------------FY-LAAATS 195  
+
+                   llvGllglll.P.eggvlGgGy....lvlKflaTalslGsGapG.GiFaP
+                   +l +ll++ ++P+ +++  gG  ++  +l   +T+l++         F P
+  JCVI_PEP_1   196 ALSALLAMQFkPeRFEAGDGGSiltrPFLLASLTLLTYVIAYQSlTYFLP 245  
+
+                   sLfiGAalGrlfGlllallfppdcsggiapsipPgayAlvGMAAflaavt
+                   sL           ++ +l+             ++ + A     A+   ++
+  JCVI_PEP_1   246 SL----------HEVEGLP-------------TAETAAFFTVMALANLAS 272  
+
+                   rAPltaivivfElTGsyslllPlmiavliAylvsrl<-*
+                   r   t + i+ E ++  + +l+  +a++ +y ++     
+  JCVI_PEP_1   273 R---TVLAIAGE-FNPGDTALAGVVASIAGYTIVTI    304  
+
+TIGR00893: domain 1 of 1, from 49 to 318: score -189.2, E = 0.36
+                   *->LvtvinYLDRanlSfAaptGlqeDLGlsaaqygyvfsAFsigYvlgq
+                      L++v  YL R+++S  a++     L +s  + +y ++A++++ ++g+
+  JCVI_PEP_1    49    LLGVAPYLPRYAISLGASE-----LEVSMLATSYAITAVALRFAVGG 90   
+
+                   fPggllLDRiGHarktlavaiVlWgvftllqafaggFstvtayvslyiLR
+                        l DR G     +a ++ + g ++ + ++a  +s++ ++  ly+ R
+  JCVI_PEP_1    91 -----LNDR-G-----YAGVLMVLGGLLNALSLA-LYSISESLSMLYAGR 128  
+
+                   vLlGaAGLEAplfPgiikivasWFPakeRatavsifns.aqylggiiggP
+                    L G+    A ++P+  +++as   +  Ra +v ++ s++ +lg+++g++
+  JCVI_PEP_1   129 LLQGVS--VALFIPA-SLYSASV--TGARAQRVIVWRStMWGLGSVLGPA 173  
+
+                   lvgwilvhfssmgmkGWqwvFiieGilgiilgvlwlkfikdkpqkakwlt
+                   ++g+ l+ +s      Wq +F + ++ +++ ++l+  f +++ +     +
+  JCVI_PEP_1   174 VLGLTLQRLS------WQPMFYLAAATSALSALLAMQFKPERFE-----A 212  
+
+                   eeekyivvggllaeqddskgkgpsepKkyqikelLkdrrvwglalgqflv
+                    +  +i+                         +lL+  +++ + +++ ++
+  JCVI_PEP_1   213 GDGGSILTRP----------------------FLLASLTLLTYVIAYQSL 240  
+
+                   nillyffltWfPtyLkqerglsileaGflaslPgivgfvGmvLgGilSDl
+                   +       ++ P++   e++ ++++a+f+++++ +               
+  JCVI_PEP_1   241 T-------YFLPSLHEVEGLPTAETAAFFTVMALA--------------N 269  
+
+                   llrrgarFWkslvfArktaiiaglvlsllmfatnslvnGmppwaalalva
+                   l++r+                      +l++a+   +n  p  +ala+v+
+  JCVI_PEP_1   270 LASRT----------------------VLAIAGE--FN--PGDTALAGVV 293  
+
+                   LaffgaglLgailwaviSdvlpgniagltgGlinslGYnlggivgPiviG
+                    ++ g                          +i ++              
+  JCVI_PEP_1   294 ASIAGY-------------------------TIVTIR------------- 305  
+
+                   yiaattGsfagallvvaalaligalsvLllV<-*
+                       ++G              + al++ +lV   
+  JCVI_PEP_1   306 ----PEG--------------LEALVAATLV    318  
+
+TIGR00947: domain 1 of 1, from 56 to 276: score -379.4, E = 8.3
+                   *->LvgwLgsWrasswllqwlE.aLaglLLalllvlaPFvsttlLGllLl
+                      L +   s++as++ +  l ++ a   +al ++   +  ++  G+l+ 
+  JCVI_PEP_1    56    LPRYAISLGASELEVSMLAtSYAITAVALRFAVGGLNDRGYAGVLMV 102  
+
+                   AcgAlWvL.ltlvdepqkrltPIHllVlLYWgIAalATglSPVpaAAlkG
+                   ++g l +L+l l ++ ++       l +LY                    
+  JCVI_PEP_1   103 LGGLLNALsLALYSISES-------LSMLY-------------------- 125  
+
+                   LlKLTLYLlvFALaarLLarnprwRsrLvtvlLlvsLlv.SvyGLRQwid
+                                a rLL +        v++   +sL + Sv G      
+  JCVI_PEP_1   126 -------------AGRLL-QGVS-----VALFIPASLYSaSVTG------ 150  
+
+                   GaeeLATWvDPeSvlAgtTRVYSyLGNPNLLAGYLvPaiPLslvAilvWr
+                                  A + RV                         +vWr
+  JCVI_PEP_1   151 ---------------ARAQRV-------------------------IVWR 160  
+
+                   gWaaKlLAatalgvnalCLlfTYSRGGWLGllAalavllvLlllWwsprL
+                   +        t+ g+++                +++ + l L l+++s   
+  JCVI_PEP_1   161 S--------TMWGLGS----------------VLGPAVLGLTLQRLS--- 183  
+
+                   PpfWRrWvlpalLGgaaaaLlvAvvqVePlRtRV...lSiFaGRgDSSNN
+                      W+    +a+  +a  aLl    q  P R+ ++++ Si+         
+  JCVI_PEP_1   184 ---WQPMFYLAAATSALSALL--AMQFKPERFEAgdgGSILT-------- 220  
+
+                   FRINVWlAVfeMIrDRPwLGIGPGNaAFNkIYPLYQrPrFsALSAYSVpL
+                                  RP L                               
+  JCVI_PEP_1   221 ---------------RPFL------------------------------- 224  
+
+                   EilVEtGivGLlAfLWLL.lVtldqGvrqlkrlRrarnpqGlWliGaLAA
+                              lA L LL+ V + q ++ +  l  ++ ++Gl   + +AA
+  JCVI_PEP_1   225 -----------LASLTLLtYVIAYQSLTYF--LPSLHEVEGLPT-AETAA 260  
+
+                   iaGLLvhGlvDTIWFRPeVqtlWWLmvAliaSqwas<-*
+                              T+           +++A +aS +     
+  JCVI_PEP_1   261 FF---------TV-----------MALANLASRTVL    276  
+
+TIGR01473: domain 1 of 1, from 58 to 232: score -219.1, E = 9.9
+                   *->kdYlqLtKPrvisLlliT....afaGmwLAsggadklsflvnlplll
+                      +  ++L+   + +++l+T+   ++++  +A gg++ + + +     +
+  JCVI_PEP_1    58    RYAISLGASELEVSMLATsyaiTAVALRFAVGGLN-DRGYAG----V 99   
+
+                   ltllGttLaaasAnafNmyiDrDIDkkMkRTrnRPlvtGrisPreAlafG
+                   l++lG+ L                                    +Al+++
+  JCVI_PEP_1   100 LMVLGGLL------------------------------------NALSLA 113  
+
+                   llLgvlGvalLaafvNpLaAlLglfgiffYvivYTiwLKRrtpqNtviGG
+                   l     ++++L+a + +L ++ ++  +f+ + +Y+               
+  JCVI_PEP_1   114 LYSISESLSMLYA-GRLLQGVSVA--LFIPASLYS--------------- 145  
+
+                   faGAvPPLiGWaAvtGsisleawlLfaiiFlWqPPHFWaLAlkykdDYaa
+                              a vtG                                  
+  JCVI_PEP_1   146 -----------ASVTG---------------------------------- 150  
+
+                   AgiPMLPvvkGeritkrqIalyCvytaaLfpvslllyflgatGylgwlYl
+                           ++  r+ +++   +  +  +L p++l l+ l  ++   ++Yl
+  JCVI_PEP_1   151 --------ARAQRVIVWRSTMW-GLGSVLGPAVLGLT-LQRLSWQPMFYL 190  
+
+                   ivatllgalfLylalkfyrdpd.nysgdrkkwArklFkfSliYLallfla
+                   ++at   al   la +f   p++  +gd           S+++ ++l+ +
+  JCVI_PEP_1   191 AAAT--SALSALLAMQFK--PErFEAGDGG---------SILTRPFLLAS 227  
+
+                   llids<-*
+                   l + +   
+  JCVI_PEP_1   228 LTLLT    232  
+
+PF01384: domain 1 of 1, from 63 to 311: score -225.4, E = 5.5
+                   *->iGANDvANsf.GTsVGSGaLTlrqAviLAaifEflGAvllGgkVaeT
+                       GA+    s+ +Ts++  a+ lr     +a+         G+  + +
+  JCVI_PEP_1    63    LGASELEVSMlATSYAITAVALR-----FAVGGLND---RGYAGVLM 101  
+
+                   Irkgivdvsgysntpallilg.mvAaLlgAavWlmliAtylGlPVSt.TH
+                   +  g+       ++ al+ +++++++L ++ + +  ++  l +P S  + 
+  JCVI_PEP_1   102 VLGGLL----NALSLALYSISeSLSMLYAGRLLQ-GVSVALFIPASLySA 146  
+
+                   sIVGaviGfGlAaggfGldgiqWsklgvskIvlSWviSPila.giiAfil
+                   s+ Ga        + +  ++i+W +         W +  +l++++++++l
+  JCVI_PEP_1   147 SVTGA--------RAQ--RVIVWRSTM-------WGLGSVLGpAVLGLTL 179  
+
+                   yslirrsrlilrkederpvknglralPvlyaatilfnalvilykGskdlq
+                     l                       P +y                    
+  JCVI_PEP_1   180 QRLSWQ--------------------PMFY-------------------- 189  
+
+                   ldnlpialavlislgialiaaffvffvvkprmrrkiaqkvekatlkkhsa
+                                l++a+ a                            sa
+  JCVI_PEP_1   190 -------------LAAATSAL---------------------------SA 199  
+
+                   llakaasketdvvalkasakstlySyavllyvvilstgsqqmilasevar
+                   lla+  ++e                                         
+  JCVI_PEP_1   200 LLAMQFKPER---------------------------------------- 209  
+
+                   nilkgflklleeryrsddrsvekiFsylQiitAcfmaFAHGaNDVANAiG
+                                                                     
+  JCVI_PEP_1     - -------------------------------------------------- -    
+
+                   PlaAilvyktggvsqkgakidvPvwvllyGglalaiGlwtgGyRVI..eT
+                        +   +gg+         +   ll+        ++t+  +VI  + 
+  JCVI_PEP_1   210 -----FEAGDGGSI-------LTRPFLLA--------SLTLLTYVIayQS 239  
+
+                   vGkkITeltPsrGF.saelgaAitVl....lAsklGlPVSTTHclVGaVv
+                   +   +  l+   G ++ae +a++tV+   +lAs + l +           
+  JCVI_PEP_1   240 LTYFLPSLHEVEGLpTAETAAFFTVMalanLASRTVLAI----------- 278  
+
+                   GVGlarggvkaVnwrvvknIivsWivTlPvaglis<-*
+                     G  +  + +  ++vv+ I+   ivT+   gl +   
+  JCVI_PEP_1   279 -AGEFNP-GDTALAGVVASIAGYTIVTIRPEGLEA    311  
+
+TIGR02210: domain 1 of 1, from 69 to 272: score -309.2, E = 6.2
+                   *->DwpLlllvllLmgiGllvlYSAtrnaltsggsaevwarqlvslflrQ
+                         +l+   ++ ++ l          l+  g+a+             
+  JCVI_PEP_1    69    EVSMLATSYAITAVALRFAVGG----LNDRGYAG------------- 98   
+
+                   lvwfgiGtlvlmivvalidyrflrrya.layplYvlgllLLvaVllfGtt
+                    + +++G l+ ++ +al+++    ++  +   l +++++L +   l+  +
+  JCVI_PEP_1    99 VLMVLGG-LLNALSLALYSISESLSMLyAGRLLQGVSVALFIPASLYSAS 147  
+
+                   gkGAqRWldLGfirfslQPSElaKlaliLmLAwylsrrpekvklspprlk
+                   + GA+        +                  + + +r+      +++l 
+  JCVI_PEP_1   148 VTGAR-------AQ------------------RVIVWRS----T-MWGLG 167  
+
+                   dllkalililvPalLIlkQPDLGTAlliaaiglfvlFlAGlswklilall
+                    +l++++l l                           l  lsw   ++l+
+  JCVI_PEP_1   168 SVLGPAVLGLT--------------------------LQRLSWQPMFYLA 191  
+
+                   aagaaaipalwlpvwellllalvwlliaynillvlkllwrlalgvlaltv
+                   aa+                                           al++
+  JCVI_PEP_1   192 AATS------------------------------------------ALSA 199  
+
+                   gvriilalasvlwfflLhdYQkqRvltFLdPPEsDPLGaGYHIIQSKIAI
+                   ++        ++ f                 PE+   G G          
+  JCVI_PEP_1   200 LL--------AMQFK----------------PERFEAGDG---------- 215  
+
+                   GSGGlfGKGwlqGTQsqLkeFLPErHTDFIFsVlaEEfGFvGglvLLlLY
+                     G ++ + +l  + + L                                
+  JCVI_PEP_1   216 --GSILTRPFLLASLTLL-------------------------------- 231  
+
+                   lllilRglrIAanakdrFGrLlagGitltfFfyvfVNiGMVsGlLP....
+                           +IA+++ ++F                          LP+ ++
+  JCVI_PEP_1   232 ------TYVIAYQSLTYF--------------------------LPslhe 249  
+
+                   VVGvPLPLvSYGGSSmltlmigfGllmsihthRk<-*
+                   V G+P            +  ++f  +m+         
+  JCVI_PEP_1   250 VEGLP-----------TAETAAFFTVMALANLAS    272  
+
+TIGR00880: domain 1 of 1, from 71 to 209: score -4.0, E = 0.0025
+                   *->GllvagyAlgqliysPlsglltdRfGRkpvllvglfifvlsqalfAl
+                      ++l ++yA+  +     +g l+dR     ++++g ++ +ls al   
+  JCVI_PEP_1    71    SMLATSYAITAVALRFAVGGLNDRGYAGVLMVLGGLLNALSLALYSI 117  
+
+                   sNPHsnitvLiisRflqGfgaaaalvagaAliaDiyppeeersvalglms
+                   s   +++++L+ +R+lqG++ a +++a   l++  +++     +++   s
+  JCVI_PEP_1   118 S---ESLSMLYAGRLLQGVSVALFIPAS--LYSASVTGA-RAQRVIVWRS 161  
+
+                   agialgpilGPplGgvlanvkqalgWRapFlilaalalaafillafllpE
+                   ++  lg +lGP + g+     q+l+W   F+++aa+++++++l   + pE
+  JCVI_PEP_1   162 TMWGLGSVLGPAVLGLTL---QRLSWQPMFYLAAATSALSALLAMQFKPE 208  
+
+                   T<-*
+                       
+  JCVI_PEP_1   209 R    209  
+
+PF01318: domain 1 of 1, from 71 to 266: score -89.9, E = 3.4
+                   *->sTsgTGKaLtR.aQRRAaaRkNkRltkevQPVIVEPlAsGQgkaiKa
+                      s  +T  a+t  a R A+   N R  + v  V       G   a+  
+  JCVI_PEP_1    71    SMLATSYAITAvALRFAVGGLNDRGYAGVLMVL-----GGLLNAL-S 111  
+
+                   rtGYsvskwvasndavkAKetvavsikLPdeLssEkNkaLKVGRvllw..
+                    + Ys+s   +   a +    v+v    P  L s      +  Rv +w++
+  JCVI_PEP_1   112 LALYSISESLSMLYAGRLLQGVSVALFIPASLYSASVTGARAQRVIVWrs 161  
+
+                   .LGLLPsVaGtvKvCvtEkQdsaaasFqvALAVADsSKeVvaAmYvdaFk
+                   ++  L sV G     +t +  s    F  A A    S   +  + ++ F 
+  JCVI_PEP_1   162 tMWGLGSVLGPAVLGLTLQRLSWQPMFYLAAATSALSALLAMQFKPERFE 211  
+
+                   g......vtLgdLekDLsI..YLYssaAlaansvvvhlEVEHVrPtFdd.
+                    +++++  t   L++ L+  +Y  +   l+      h EVE   Pt  + 
+  JCVI_PEP_1   212 AgdggsiLTRPFLLASLTLltYVIAYQSLTYFLPSLH-EVEGL-PTAETa 259  
+
+                   .rFtPvy<-*
+                    +Ft ++   
+  JCVI_PEP_1   260 aFFTVMA    266  
+
+PF04713: domain 1 of 1, from 72 to 153: score -31.3, E = 3.7
+                   *->alsarevlsaIGiTvLv..........lLMviSG....gALvlKlip
+                      +l +   ++a+++   v++ ++++  ++LMv+ G  +  +L+l +i 
+  JCVI_PEP_1    72    MLATSYAITAVALRFAVgglndrgyagVLMVLGGllnaLSLALYSIS 118  
+
+                   PVhrvvtmrSatfnRvvtflEvvailiFIPGtiiLYsAYIksLkv<-*
+                         +++ + ++R    l  v++ +FIP   +LYsA +   ++   
+  JCVI_PEP_1   119 E-----SLSMLYAGR---LLQGVSVALFIPA--SLYSASVTGARA    153  
+
+PF03006: domain 1 of 1, from 72 to 231: score -91.3, E = 6.6
+                   *->ftwhnEsaNiwtHligailflallifLiplasgglfpdtspwaDglk
+                      +             ++  ++  + ++ + +a+ggl     +     +
+  JCVI_PEP_1    72    M-------------LATSYA--ITAVALRFAVGGL----NDRG---Y 96   
+
+                   llvfiyglglvllflvSalYHlfsnisege.vkyvlrklDhagIyllIaG
+                   ++v++ + gl+  +++ alY +    se+ ++ y  r l  ++++l+I +
+  JCVI_PEP_1    97 AGVLMVLGGLLNALSL-ALYSI----SESLsMLYAGRLLQGVSVALFIPA 141  
+
+                   s.....yTPtllyllspagvlgwlllvf..iwvlallGillklfalyskf
+                   s  + ++T     +     v++  + +++++++ a+lG+ l+ +      
+  JCVI_PEP_1   142 SlysasVTGARAQRV---IVWRSTMWGLgsVLGPAVLGLTLQRLSW---- 184  
+
+                   krprrlrtvlylllGwlgiipivhrikslgggge.lkdalpllvlGGvlY
+                     p++  ++  ++l +l ++ +++  +  g gg+ l              
+  JCVI_PEP_1   185 -QPMFYLAAATSALSALLAMQFKPERFEAGDGGSiL-------------- 219  
+
+                   ivGaiFYalriPERlfpgpfdivghsHqifHlfvllgaicHy<-*
+                                   ++pf              ll+++  +   
+  JCVI_PEP_1   220 ----------------TRPF--------------LLASLTLL    231  
+
+PF00892: domain 1 of 1, from 75 to 204: score -22.2, E = 1.8
+                   *->liWalytvfskkllerispltftayrfliagilllilllfllrkppi
+                       ++a+++v+ ++++  ++    +++ ++++g+l ++ l+++ +    
+  JCVI_PEP_1    75    TSYAITAVALRFAVGGLNDRGYAGVLMVLGGLLNALSLALYSISE-- 119  
+
+                   fallslk.ilallylglfgtalgyllyfyalkyvsasnasvltslsPvft
+                   + +    + l   ++ ++  +++ +ly  +++   a+++ v  s++  + 
+  JCVI_PEP_1   120 SLSMLYAgRLLQGVSVAL--FIPASLYSASVTGARAQRVIVWRSTMWGLG 167  
+
+                   lilsvllLgEkltlkql.....lGivlillGvllisl<-*
+                    +l+ ++Lg +l  + +++   l+++ + l++ll      
+  JCVI_PEP_1   168 SVLGPAVLGLTLQRLSWqpmfyLAAATSALSALLAMQ    204  
+
+PF01925: domain 1 of 1, from 76 to 283: score -106.2, E = 5.5
+                   *->lllflagllaGfvagl..fGfGGGvlavPlLlllgpvvgvpsdlppk
+                       +++ a+ l + v+gl++ G  G ++++++Ll ++            
+  JCVI_PEP_1    76    SYAITAVALRFAVGGLndRGYAGVLMVLGGLLNAL------------ 110  
+
+                   qAigtsllvalftslssvlshrkrgrlnlklgiilasvslllgsliGall
+                       ++ l+ +  sls+++++r    +      ++++ sl ++s+ Ga +
+  JCVI_PEP_1   111 ----SLALYSISESLSMLYAGRLLQGVSV---ALFIPASLYSASVTGARA 153  
+
+                   GivvgalllkaldaeklllilggilliyaalyllkdarsKakvlskkver
+                    +v+ +   ++     l  +lg+++l + + +l                 
+  JCVI_PEP_1   154 QRVIVWRSTMWG----LGSVLGPAVLGLTLQRLS---------------- 183  
+
+                   iekskdlesmlLkgswyevdlsspivrsrfnpplallaGfliGflsglfG
+                                                       +++ l+  +s+l  
+  JCVI_PEP_1   184 ----------------------------------WQPMFYLAAATSALSA 199  
+
+                   vGGGflvvpllvlllglpvkvavgtslffi...fltstsgvisyllGlll
+                          +++++  ++ + ++ +g + ++++++fl +++ ++ y   +++
+  JCVI_PEP_1   200 -------LLAMQ--FKPE-RFEAGDGGSILtrpFLLASLTLLTY---VIA 236  
+
+                   Gavllllavll.llgailGsfiGarlarkvspkvirrlfailllvlglkl
+                   ++ l + ++ l+ +  ++     a +a+ + +  + +l +  +l+++   
+  JCVI_PEP_1   237 YQSLTYFLPSLhEVEGLPT----AETAAFFTVMALANLASRTVLAIAGEF 282  
+
+                   l<-*
+                       
+  JCVI_PEP_1   283 N    283  
+
+PF01757: domain 1 of 1, from 78 to 313: score -118.2, E = 5.4
+                   *->rldLdglRGlAIllVvlfHfaptifggttdvfsllsvllpngylgVd
+                                AI +V l  +++ +                +gy gV 
+  JCVI_PEP_1    78    ----------AITAVALRFAVGGLN--------------DRGYAGV- 99   
+
+                   lFFViSGfLmtmlllrkarnaeklslfssftlFykrRfkRilPlYllfvi
+                     +V+ G L + +l          s+  s++  y  R+++ + + l+  i
+  JCVI_PEP_1   100 -LMVLGGLLNALSLALY-------SISESLSMLYAGRLLQGVSVALF--I 139  
+
+                   llsliillllfpdtaletnwrsalaaLllvsnwlktheedYFdmflssai
+                    +sl++  +   +     +wrs  + L                  +s ++
+  JCVI_PEP_1   140 PASLYSASVTGARAQRVIVWRSTMWGL------------------GSVLG 171  
+
+                   dpfthlWSLsvEmqFYllvpliflllrklkneklkrllrrallvlaivaa
+                    ++     L+   q     p ++l                    +a+ a+
+  JCVI_PEP_1   172 PAV-----LGLTLQRLSWQPMFYLA-------------------AATSAL 197  
+
+                   lalislvifaliplsyafnsvaldwfiyfgtfarlwqFllGalvylwsks
+                   +al+++++ +  +                           G +       
+  JCVI_PEP_1   198 SALLAMQFKPERFEAGD----------------------GGSI------- 218  
+
+                   kiqeisskskeeveeckLeeesedssllalafaatifrrrlpirlrkyll
+                                                               l++ +l
+  JCVI_PEP_1   219 --------------------------------------------LTRPFL 224  
+
+                   llallavaalpfllpnsltslfvrpygslglvsvkavlllvtlvtallil
+                   l++l +++ +   ++ slt++  ++  + g        l ++ ++a++ +
+  JCVI_PEP_1   225 LASLTLLTYVI--AYQSLTYFLPSLHEVEG--------LPTAETAAFFTV 264  
+
+                   vseglnftrlqcllgrsqlLsnrlLvylGdiSYslYLvHWPviaywkltt
+                   ++ + n                         S  ++ +       + +++
+  JCVI_PEP_1   265 MALA-NL-----------------------ASRTVLAIA------GEFNP 284  
+
+                   ggdmlIaillgfvflsvlqqygaqwdltsnlvllllallvsillaillhe
+                   g+                               +l+++++si+  ++++ 
+  JCVI_PEP_1   285 GDT------------------------------ALAGVVASIAGYTIVTI 304  
+
+                   fvEkpylkl<-*
+                     E +       
+  JCVI_PEP_1   305 RPEGLEALV    313  
+
+PF00499: domain 1 of 1, from 80 to 241: score -60.7, E = 5.4
+                   *->llilssllvilsknPvysgLfLillfllisgllgllgassflsliLf
+                       ++ + + v  ++   y+g+ ++l  ll ++ l+l + s      L 
+  JCVI_PEP_1    80    TAVALRFAVGGLNDRGYAGVLMVLGGLLNALSLALYSIS----ESLS 122  
+
+                   LvYvG....GmlVLF.....lYvvmLapnekfeiskkkllsllvllllll
+                   + Y+G+  +G+ V    + +lY+++ +  +   +     + ++++++ l+
+  JCVI_PEP_1   123 MLYAGrllqGVSVALfipasLYSASVTGARAQRV-----IVWRSTMWGLG 167  
+
+                   llllllilgllffgel..........................nikaigsl
+                   ++l  ++lgl +   ++ +       ++  +       ++  +    g +
+  JCVI_PEP_1   168 SVLGPAVLGLTLQRLSwqpmfylaaatsalsallamqfkperFEAGDGGS 217  
+
+                   LYstsnnyglllllasyiLLlaLigvvklt<-*
+                   ++ t      ++llas+ LL   i+   lt   
+  JCVI_PEP_1   218 IL-TR-----PFLLASLTLLTYVIAYQSLT    241  
+
+PF03595: domain 1 of 1, from 94 to 318: score -77.2, E = 0.018
+                   *->pswfglvLGtgglgnlWenlaapAlalrlassvlnglplvglvLfal
+                       +++g+ + +ggl           +al+la++++      ++ L+ l
+  JCVI_PEP_1    94    RGYAGVLMVLGGLL----------NALSLALYSI------SESLSML 124  
+
+                   lallfllllilyllkfllypkevraelnhPvvasFfptfpmslmllgnal
+                   +a                      + l    va+F+p+   s  + g  +
+  JCVI_PEP_1   125 YAG---------------------RLLQGVSVALFIPASLYSASVTGARA 153  
+
+                   lplgsnapstgwlpllalvLWwlgvalhlafavyfyyllfstnkkfeleh
+                   ++          ++++  + W lg++l  a    + +l +   +++++  
+  JCVI_PEP_1   154 QR----------VIVWRSTMWGLGSVLGPA----VLGLTL---QRLSW-- 184  
+
+                   mtPsWfLPvVGliVaaltaplfivfshlltaswqlglleagyfffgvGff
+                     P  +L     +++al+a++f  +++++ a     +l    ++ ++ ++
+  JCVI_PEP_1   185 -QPMFYLAAATSALSALLAMQF--KPERFEAGDGGSILTRPFLLASLTLL 231  
+
+                   lylvllpillyRLifh...gllPkalrPtlfIflAPpslglaAylkiagg
+                    y + +  l y+L+  ++ ++lP+a ++ +f+ +A ++l++ ++l+iag 
+  JCVI_PEP_1   232 TYVIAYQSLTYFLPSLhevEGLPTAETAAFFTVMALANLASRTVLAIAGE 281  
+
+                   addiaagllivgissigygvlvlafilllllwgfglwflllallvllryf
+                   +    ++l+                  ++ ++++g+ +    +++++ ++
+  JCVI_PEP_1   282 FNPGDTALA------------------GVVASIAGYTI----VTIRPEGL 309  
+
+                   rrqklpFspgWWAfTFPlgilAtA<-*
+                   +                l++ ++    
+  JCVI_PEP_1   310 EA---------------LVAATLV    318  
+
+PF08449: domain 1 of 1, from 95 to 307: score -209.2, E = 8.5
+                   *->flicisGIFggycsngvlq......ElimtreygsdggsgerFsfgn
+                      +   + ++ gg ++n+ ++   + +E +  +  g            +
+  JCVI_PEP_1    95    GYAGVLMVLGG-LLNALSLalysisESLSMLYAGR---------LLQ 131  
+
+                   lLTFaQflfialvgllyllltkrlvnnvvppiklkkrkiPlktYvlival
+                    ++ a+f+ ++l++   +  +              +r+i ++     +++
+  JCVI_PEP_1   132 GVSVALFIPASLYSASVTGARA-------------QRVIVWR-----STM 163  
+
+                   fflssvlnNeALkydisyPthvifKScKlIPVMilGililgKrYsslqYl
+                     l svl+ ++L+                         +++ +     Yl
+  JCVI_PEP_1   164 WGLGSVLGPAVLGL-----------------------TLQRLSWQPMFYL 190  
+
+                   svllitlGviiFtLasakdsknsklttesdnvgktqflwWllGillLfga
+                   ++    l + +++ ++   +   +                          
+  JCVI_PEP_1   191 AAATSALSALLAMQFKPERFEAGDGG------------------------ 216  
+
+                   LlmDaltGntQEklykkYgkhstvtlvvakemmFysnllslpffllglld
+                               +++     ++                   pf+l++l++
+  JCVI_PEP_1   217 ------------SIL-----TR-------------------PFLLASLTL 230  
+
+                   IrshftgllfsavsfllPllgl......irhPsvlfyLllnsltqyvGqr
+                   +    + ++ +++ ++lP l   ++ ++ +   +++ ++l  l++    r
+  JCVI_PEP_1   231 LT---YVIAYQSLTYFLPSLHEveglptAETAAFFTVMALANLAS----R 273  
+
+                   fVfyliaefGaLTvtlVtTlRKfvSllLSvllFgnpltlqqwlGtllVFl
+                    V++ + ef++                             +  + + V++
+  JCVI_PEP_1   274 TVLAIAGEFNP-----------------------------GDTALAGVVA 294  
+
+                   Giflyaylkkkka<-*
+                   +i+ y+ + +++    
+  JCVI_PEP_1   295 SIAGYTIVTIRPE    307  
+
+PF06182: domain 1 of 1, from 97 to 281: score -115.1, E = 4.9
+                   *->lgslimlatsllllslifshsqvgslgGWnleEvlflyGfaelSFli
+                       g+l +l++ l +lsl++ +  +        e  ++ly      + +
+  JCVI_PEP_1    97    AGVLMVLGGLLNALSLALYS--IS-------ESLSMLY-A----GRL 129  
+
+                   tqglyavffapnlsrigrsVrdGtlDfyLLKPinllfqillrrfniwrvg
+                   +qg+    f p++   + sV            ++++ ++++ r   w++g
+  JCVI_PEP_1   130 LQGVSVALFIPAS-LYSASVTG----------ARAQ-RVIVWRSTMWGLG 167  
+
+                   rlfGiAtlilvGiiLliYavkkldIniTpakillyiislilGtlIyyslf
+                   ++        +G  +l+ ++ +l  ++ p+ +l+++ s ++++l      
+  JCVI_PEP_1   168 SV--------LGPAVLGLTLQRL--SWQPMFYLAAATSALSALL------ 201  
+
+                   filgslsFWFvrsenitNyiayglvaLltfakyPmtiYplilrklltFII
+                       + +F+ +r    + + ++g+       ++   ++ l+   llt++I
+  JCVI_PEP_1   202 ----AMQFKPER----F-EAGDGG-------SILTRPFLLASLTLLTYVI 235  
+
+                   Pfaflsyv.PArivLGrlsplaliywiiglqliaalvlfvlSkliWqkGl
+                      +l+y+ P ++ + +l      ++ ++  + + ++  ++S++++    
+  JCVI_PEP_1   236 AYQSLTYFlPSLHEVEGLPT----AETAAF-FTVMALANLASRTVLA--- 277  
+
+                   rsYtSaGS<-*
+                       +aG+   
+  JCVI_PEP_1   278 ----IAGE    281  
+
+PF03591: domain 1 of 1, from 99 to 202: score -96.4, E = 8.3
+                   *->lPilLGyiPiGlafGvlAvqaGLslleallMSllVfAGasQFvavgL
+                      + ++LG +  +l+  ++ +   Ls l+a                   
+  JCVI_PEP_1    99    VLMVLGGLLNALSLALYSISESLSMLYAGR----------------- 128  
+
+                   laagapllaIvlttFlVNlRHlLYgaslapylkglplrkr...lllgafl
+                   l +g+++++ + +         LY+as +    +    +r++ ++lg ++
+  JCVI_PEP_1   129 LLQGVSVALFIPAS--------LYSASVTGARAQRVIVWRstmWGLG-SV 169  
+
+                   LTDEtFAvalarapegrlsgwwmlGlgltaYlsWvlgtllGallGslip<
+                   L   + +++l+r+    ++++++l+++ +             +l +l+  
+  JCVI_PEP_1   170 LGPAVLGLTLQRL---SWQPMFYLAAATS-------------ALSALLA  202  
+
+                   -*
+                     
+  JCVI_PEP_1     -    -    
+
+PF01032: domain 1 of 1, from 100 to 303: score -246.4, E = 7.4
+                   *->llllllilSLslGalsispadVlqaLfgfydgiEidegdelivlnlR
+                      l++l  +l++    ls+    + ++L  +y                 
+  JCVI_PEP_1   100    LMVLGGLLNA----LSLALYSISESLSMLY----------------- 125  
+
+                   LPRvLlAlLVGAaLAVsGAImQgltRNPLAsPdilGvnsGAslgavlaiv
+                                   +G ++Qg                     + +a++
+  JCVI_PEP_1   126 ----------------AGRLLQG---------------------VSVALF 138  
+
+                   llpgsspslaffg.........pymlpfsfAFaGAliaallVyllawlgk
+                   +  ++++++ ++++ ++    ++ m++++ +++G ++ +l +  l+w   
+  JCVI_PEP_1   139 IPASLYSASVTGAraqrvivwrSTMWGLG-SVLGPAVLGLTLQRLSW--- 184  
+
+                   nGltpvrLiLaGialsalfsAlttlmlylsddetldqalfWltGSlsgrn
+                      +p++       l+a  sAl+ l+++++ +e +       +G+ +   
+  JCVI_PEP_1   185 ---QPMF------YLAAATSALSALLAMQFKPERFE------AGDGGSIL 219  
+
+                   WeevklalpilliglplalllarqlnvLsLGDdtAkgLGvnvervRllll
+                    +  +la   ll   +++ +l+  l  L   + + ++     e  ++   
+  JCVI_PEP_1   220 TRPFLLASLTLLTYVIAYQSLTYFLPSLHEVEGLPTA-----ETAAFFTV 264  
+
+                   llvvlLtGsaVAvAGpIgFVGLivPHiaRrlvGadhrwLLPvsALlGAiL
+                   ++ + L++                            r +L+         
+  JCVI_PEP_1   265 MALANLAS----------------------------RTVLA--------- 277  
+
+                   LllADllARtvfaPiElP.VGvvTAliGAPyFlYLLrr<-*
+                        +++   f P+++  +Gvv +++G     Y ++    
+  JCVI_PEP_1   278 -----IAGE--FNPGDTAlAGVVASIAG-----YTIVT    303  
+
+PF07331: domain 1 of 1, from 101 to 211: score -82.0, E = 8.4
+                   *->igdrrdfasGaIFiafGalFaiqgrgyemGTAsrMGPGYFPlvLavv
+                            ++ G+++ a+ ++    + ++ m  A r       l+ +v 
+  JCVI_PEP_1   101    ------MVLGGLLNALSLALYSISESLSMLYAGR-------LLQGVS 134  
+
+                   LillGavimirsarragegidgpiaWDlrgLvwIlgAvilFGllarpLGl
+                    +l+    + ++ +  + + ++ i W  r   w lg+v +          
+  JCVI_PEP_1   135 VALFIPASLYSASVTGARA-QRVIVW--RSTMWGLGSVLG---------- 171  
+
+                   VpalvvlaLvsSmASrkftwlgAialaavltvlslaVFvyGLgLql..pv
+                    pa+  l+L       + +w     laa+  +ls++     L+ q+++++
+  JCVI_PEP_1   172 -PAVLGLTL------QRLSWQPMFYLAAATSALSAL-----LAMQFkpER 209  
+
+                   fp<-*
+                   f    
+  JCVI_PEP_1   210 FE    211  
+
+TIGR02112: domain 1 of 1, from 118 to 206: score -52.5, E = 6.2
+                   *->IaslYeimdKglLRALSfiLAlllagcvfwDPnrFAaaiggleavla
+                      + sl  +   +lL   S  L        f   + ++a   g+ a   
+  JCVI_PEP_1   118    SESLSMLYAGRLLQGVSVAL--------FIPASLYSASVTGARAQRV 156  
+
+                   lll...iWAvCilvIHG...VGFrPrktlWqllFsPilgliILIylliff
+                   +  ++++W++++  + G+   G+  ++  Wq  F    +   L+ ll+ +
+  JCVI_PEP_1   157 IVWrstMWGLGS--VLGpavLGLTLQRLSWQPMFYLAAATSALSALLAMQ 204  
+
+                   fa<-*
+                   f    
+  JCVI_PEP_1   205 FK    206  
+
+PF02588: domain 1 of 1, from 120 to 201: score -18.9, E = 3.6
+                   *->kllaaliGglllglGlglflipnglstGGtdgl.alilsklfgisvG
+                       l ++  G ll g++++lf ip+ l+++ ++g +a+ +   +  +++
+  JCVI_PEP_1   120    SLSMLYAGRLLQGVSVALF-IPASLYSASVTGArAQRV-IVWRSTMW 164  
+
+                   lilfliNipllilayfflgklrfalyTliavfvlsifi<-*
+                    +  ++   +l l + +l  ++ ++y   a+ +ls  +   
+  JCVI_PEP_1   165 GLGSVLGPAVLGLTLQRLS-WQPMFYLAAATSALSALL    201  
+
+TIGR01191: domain 1 of 1, from 131 to 278: score -134.3, E = 4.3
+                   *->PvDYQQGasvRImYvHVPAAwmaigvYvmmAIasfifLVwkhkladl
+                           QG sv  +++  PA++ + +v   ++  +    Vw+ ++  l
+  JCVI_PEP_1   131    -----QGVSV-ALFI--PASLYSASV---TGARAQRVIVWRSTMWGL 166  
+
+                   aakaa.ApiGAvFTliaLvTGslWGKPmWGTWWVWDARLTSvLILFLlYL
+                    ++ ++A +G+    ++      W +Pm                   +YL
+  JCVI_PEP_1   167 GSVLGpAVLGLTLQRLS------W-QPM-------------------FYL 190  
+
+                   ........GylaLweAvdnrdsAakaAgiLiL.vGvvniPIIKfSVeWWN
+                      ++  + +la ++ +  r  A++  +iL+++  +  + +  +     +
+  JCVI_PEP_1   191 aaatsalsALLAMQFKP-ERFEAGDGGSILTRpFLLASLTLLTYVIA--Y 237  
+
+                   TGLHQPaSitrlgspsIdvsmliPLllmflgFlllflaLlLlrtRleI<-
+                   +      S+t +   s++ +  +P   ++++F+   la l  rt+l I  
+  JCVI_PEP_1   238 Q------SLTYFLP-SLHEVEGLPTAETAAFFTVMALANLASRTVLAI   278  
+
+                   *
+                    
+  JCVI_PEP_1     -   -    
+
+PF01001: domain 1 of 1, from 131 to 314: score -85.8, E = 7.1
+                   *->qkekalgllqtAkqkaesitpavasfTleildekleqfWakhmwnfv
+                      q  ++  +++++  +a+++ + ++              W++ mw   
+  JCVI_PEP_1   131    QGVSVALFIPASLYSASVTGARAQR----------VIVWRSTMWGLG 167  
+
+                   SlIqylaglytlprNPalasl.asFlagltspltthvrLala...LLgGv
+                   S++  ++ + tl r   l+  ++ +la+ ts l++   + + +++   G 
+  JCVI_PEP_1   168 SVLGPAVLGLTLQR---LSWQpMFYLAAATSALSALLAMQFKperFEAGD 214  
+
+                   vatqLgtP..saglAfvgAglAGaavgssglgrvlvdvLgGyeaavnaAs
+                   +++ L+ P   a+l++     A  +++  + +   +  + G  +a  aA 
+  JCVI_PEP_1   215 GGSILTRPflLASLTLLTYVIAYQSLTYFLPS---LHEVEGLPTAETAAF 261  
+
+                   ltFkilsGelptaeDlvnLlpallSPG.AsVvGValaliLrshkgpgeGa
+                    t   l+  ++     v ++   ++PG+ +++GV+   + +  ++     
+  JCVI_PEP_1   262 FTVMALANLAS---RTVLAIAGEFNPGdTALAGVVASIAGYTIVT---IR 305  
+
+                   vqWmNRLLt<-*
+                    + +  L +   
+  JCVI_PEP_1   306 PEGLEALVA    314  
+
+TIGR03082: domain 1 of 1, from 135 to 303: score -84.4, E = 5.4
+                   *->llllllvgl..agglllsllglPAa....wllGpllagavlslaggl
+                      ++l++ ++l +a   ++++ ++  ++++ w lG+ l+ avl+l+ ++
+  JCVI_PEP_1   135    VALFIPASLysASVTGARAQRVIVWrstmWGLGSVLGPAVLGLT-LQ 180  
+
+                   eirlPpwl.lalaqaviGilIGlrftrevlae......larllpaallst
+                    + + p + la+a  ++ +l++ +f +e + ++++++ l r +++a l +
+  JCVI_PEP_1   181 RLSWQPMFyLAAATSALSALLAMQFKPERFEAgdggsiLTRPFLLASLTL 230  
+
+                   vlllalsallawllarltgvdfl....TAfL....atsPGGlseMaalAa
+                   +  +++   l ++l  l+ v +l++ +TA + +  a +  +  +++a+A 
+  JCVI_PEP_1   231 LTYVIAYQSLTYFLPSLHEVEGLptaeTAAFftvmALANLASRTVLAIAG 280  
+
+                   el.gaDvrfVaamQtlRllfVlllvPllarll<-*
+                   e++  D++         l  V+++++         
+  JCVI_PEP_1   281 EFnPGDTA---------LAGVVASIAGYTIVT    303  
+
+PF09678: domain 1 of 1, from 137 to 307: score -146.4, E = 0.81
+                   *->llliaalYaliyvggvrRrfprgrrvpakravlFllGlllLylalgS
+                      l   a lY + +       ++r +rv ++r  ++ lG +l  ++lg 
+  JCVI_PEP_1   137    LFIPASLYSASV------TGARAQRVIVWRSTMWGLGSVLGPAVLGL 177  
+
+                   Pldllgh.alFsaHMvQHmlLymvaPPLLvLGAPvtLaaRglPfaWlwrk
+                    l +l+ + +F +     +  + +   LL++             +   ++
+  JCVI_PEP_1   178 TLQRLSWqPMFYL-----AAATSALSALLAM-------------QFKPER 209  
+
+                   praaReaGralrrplvsrvlrfltnPlvAllLFnglfwlwHlPpvFdaal
+                   +              ++ + ++lt P   + L                +l
+  JCVI_PEP_1   210 F-------------EAGDGGSILTRPFLLASL---------------TLL 231  
+
+                   tnpwvHalmhvsflisAlLFWWpllgpdpelprLsglakllylFatgill
+                   t+ +++   ++++         p l+ ++ lp      +  + F+t + l
+  JCVI_PEP_1   232 TYVIAYQSLTYFL---------PSLHEVEGLP-----TAETAAFFTVMAL 267  
+
+                   tplGALiiFAdspLYatYtdpaawaeAmaLCvPgtlslswgGPemflsld
+                   + l      A+    a   +                   ++         
+  JCVI_PEP_1   268 ANL------ASRTVLAIAGE-------------------FN--------- 283  
+
+                   lleDQQLGGliMWipgeivYlivllaiffrWlrre<-*
+                     +D  L+G+++ i+g   Y iv +       r e   
+  JCVI_PEP_1   284 -PGDTALAGVVASIAG---YTIVTI-------RPE    307  
+
+PF04854: domain 1 of 1, from 157 to 230: score -32.3, E = 6.1
+                   *->laylNlLWllftLlGLiVfG.............lmPATaALfavlRk
+                      +++    W l++ lG  V+G + ++ + ++   l+ AT AL a+l +
+  JCVI_PEP_1   157    IVWRSTMWGLGSVLGPAVLGltlqrlswqpmfyLAAATSALSALLAM 203  
+
+                   wlqgekDvpifktFwqlYKqnFvksNllGlfflligliLllnL<-*
+                    +++e+                +++   G +++  +l+  l L   
+  JCVI_PEP_1   204 QFKPER----------------FEAGDGGSILTRPFLLASLTL    230  
+
+PF02308: domain 1 of 1, from 164 to 256: score -77.7, E = 9.7
+                   *->LllAallG.avIGLERerRgKRTrpAGLRTfaLIAvGsalfvlvSiq
+                        l+ +lG+av GL  +r     +p     f L A +sal++l+++q
+  JCVI_PEP_1   164    WGLGSVLGpAVLGLTLQRLS--WQPM----FYLAAATSALSALLAMQ 204  
+
+                   tfldspklaenilDPsRiAaqvvSGiGFLGaGvILregndnvsGLTTAAt
+                   + + +  +                      +G+IL +  +          
+  JCVI_PEP_1   205 FKPERFEAGD--------------------GGSILTRP-F---------- 223  
+
+                   iWvTAgiGlliGaGlYklAvigtii....iLvilllLrplhrlierlrer
+                           ll+     +l++++ +i  ++++    +L++lh  +e l+ +
+  JCVI_PEP_1   224 --------LLA-----SLTLLTYVIayqsLT---YFLPSLHE-VEGLPTA 256  
+
+                   <-*
+                      
+  JCVI_PEP_1     -     -    
+
+PF02283: domain 1 of 1, from 169 to 303: score -107.3, E = 8.7
+                   *->ILVTGGaRSGKSshAEaLvgd..sgqsvhYIATGriwAaaDdemaaR
+                        V+G+a  G       L++++ s q++ Y A    +  a   m+  
+  JCVI_PEP_1   169    --VLGPAVLG-------LTLQrlSWQPMFYLAAATSALSALLAMQFK 206  
+
+                   IahHRaRRPehWlTveepqdLvtaLrelddpsevvLvDCLttWvTNlllg
+                    +   a+ +   lT+   +   t+L   ++        +Lt  +  l + 
+  JCVI_PEP_1   207 PERFEAGDGGSILTRPFLLASLTLLTYVIAYQ------SLTYFLPSLHEV 250  
+
+                   sGGeedwdadtadvyqvleAelktLvA..alqelpakvvfVtNEVGLGiV
+                      e +            +Ae +++ +  al +l  + v+          
+  JCVI_PEP_1   251 ---EGL-----------PTAETAAFFTvmALANLASRTVLA--------- 277  
+
+                   PenrlaRlFRDraGrlnqqvAaacdEVyLVvaGlplKl<-*
+                              +aG  n    a+++ V+  +aG+ +     
+  JCVI_PEP_1   278 -----------IAGEFNPGDTALAG-VVASIAGYTIVT    303  
+
+PF01988: domain 1 of 1, from 169 to 304: score -78.9, E = 6.9
+                   *->ilRafVlGanDGlvsvlglvaGvagagasplvvllaGlaglvaggAl
+                       l+++VlG+          +  ++   +  l+ +++ l++l+a    
+  JCVI_PEP_1   169    VLGPAVLGL---------TLQRLSWQPMFYLAAATSALSALLA---- 202  
+
+                   SMHaiGEYlSvkserdteeaelkkeerelkkspedekaeLaeiYverGis
+                    M     +  ++ e++    +l                            
+  JCVI_PEP_1   203 -M----QFKPERFEAGDGGSIL---------------------------- 219  
+
+                   eelArevAeqLmaneedaLelhareelgidkevlesplkaAlasgiafil
+                                                      +p+  A  + + + +
+  JCVI_PEP_1   220 ----------------------------------TRPFLLASLTLLTYVI 235  
+
+                   GaliPllPylfisykmlpgllaliasiilallaLfilGfviaklsgasvl
+                     +   l+y++ s   l+  ++l+++  +a+++ + l+         + +
+  JCVI_PEP_1   236 --AYQSLTYFLPS---LHEVEGLPTAETAAFFTVMALA---------NLA 271  
+
+                   ksalrm..........vilGllAaaltyllGkl<-*
+                    +++    ++ ++++++++G++A++++y + ++   
+  JCVI_PEP_1   272 SRTVLAiagefnpgdtALAGVVASIAGYTIVTI    304  
+
+PF01569: domain 1 of 1, from 187 to 307: score -38.6, E = 8.9
+                   *->aalalllalvaslllnglaylKllfgr........pRApPhflavcq
+                       +  ++++ ++s+ll+    +K    + +++++   R  P       
+  JCVI_PEP_1   187    MFYLAAATSALSALLAMQ--FKPERFEagdggsilTR--P------- 222  
+
+                   pdwgdstcsdlwyeellgyefycmagspgldridlfgsvlltsafalvse
+                                                         +ll s ++l+++
+  JCVI_PEP_1   223 --------------------------------------FLLASLTLLTYV 234  
+
+                   agpSFPSGHaafaaafalflalylprrlsklgrllrlllgllllllallv
+                     +       +  ++f+ +l  + ++         +  +++++ ++al +
+  JCVI_PEP_1   235 IAY-------QSLTYFLPSLHEVEGL--------PTAETAAFFTVMALAN 269  
+
+                   glSRvylgvHypsDVlaG.......allGaliaalvllfvrrlld<-*
+                     SR  l        +aG+ +++++al G++  ++ +++v  +++   
+  JCVI_PEP_1   270 LASRTVLA-------IAGefnpgdtALAGVVASIAGYTIVTIRPE    307  
+
+PF01478: domain 1 of 1, from 225 to 304: score -18.3, E = 3.5
+                   *->lllllfLlllsvtDlrtreipnrltlpllllgllfafylfsyaqeLl
+                      l+ l +L++     + ++ +   l  +                   +
+  JCVI_PEP_1   225    LASLTLLTYV----IAYQSLTYFLPSL-------------------H 248  
+
+                   ll.pplsl.lyllgalavfllllilyrltitlyllgiPglGgGDvKLlaa
+                   + +++++ +++++  ++++++l +         ++            la+
+  JCVI_PEP_1   249 EVeGLPTAeTAAFFTVMALANLAS---------RTV-----------LAI 278  
+
+                   lglwlglppllfllvlllasvlggvyal<-*
+                   +g + + +++  l+ +++++ +  ++++   
+  JCVI_PEP_1   279 AGEFNPGDTA--LAGVVASIAGYTIVTI    304  
+
+//
+
+Query sequence: JCVI_PEP_1113087384437
+Accession:      [none]
+Description:    /orf_id=JCVI_ORF_1113087384436 /read_id=BEARPAW_READ_1646937539 /begin=125 /end=893 /orientation=1 /5_prime_stop=TGA /5_prime_l
+
+Scores for sequence family classification (score includes all domains):
+Model    Description                                    Score    E-value  N 
+-------- -----------                                    -----    ------- ---
+	[no hits above thresholds]
+
+Parsed for domains:
+Model    Domain  seq-f seq-t    hmm-f hmm-t      score  E-value
+-------- ------- ----- -----    ----- -----      -----  -------
+	[no hits above thresholds]
+
+Alignments of top-scoring domains:
+	[no hits above thresholds]
+//

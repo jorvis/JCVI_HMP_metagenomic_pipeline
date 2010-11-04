@@ -1,0 +1,8 @@
+JCVI_PEP_1113087382761	PFAM::FullLength::EquivalogDomain	PF07516	1	common_name	SecA Wing and Scaffold domain	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382775	PFAM::FullLength::Superfamily	PF00171	1	common_name	aldehyde dehydrogenase (NAD) family protein	gene_symbol		GO	GO:0016620	EC		TIGR_role	703
+JCVI_PEP_1113087382779	PFAM::FullLength::Domain	PF01636	1	common_name	Phosphotransferase enzyme family	gene_symbol		GO	GO:0016772	EC		TIGR_role	703
+JCVI_PEP_1113087382789	TIGRFAM::FullLength::Equivalog	TIGR01071	1	common_name	ribosomal protein L15	gene_symbol		GO	GO:0000315 || GO:0003735 || GO:0006412 || GO:0022625	EC		TIGR_role	158
+JCVI_PEP_1113087382789	PFAM::FullLength::Equivalog	PF01305	2	common_name	ribosomal protein L15 amino terminal region	gene_symbol		GO	GO:0003735 || GO:0006412 || GO:0022625 || GO:0042255	EC		TIGR_role	158
+JCVI_PEP_1113087382789	PFAM::FullLength::SubfamilyDomain	PF00256	3	common_name	ribosomal protein L15	gene_symbol		GO	GO:0003735 || GO:0006412 || GO:0015934	EC		TIGR_role	
+JCVI_PEP_1113087384397	PFAM::FullLength::Domain	PF00271	1	common_name	Helicase conserved C-terminal domain	gene_symbol		GO	GO:0004386 || GO:0006139	EC		TIGR_role	703
+JCVI_PEP_1113087384421	PFAM::FullLength::Subfamily	PF07690	1	common_name	transporter, major facilitator family	gene_symbol		GO	GO:0005215 || GO:0005887 || GO:0006810	EC		TIGR_role	141

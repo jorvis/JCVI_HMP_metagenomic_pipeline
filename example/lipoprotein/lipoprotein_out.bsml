@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<Bsml>
+  <Definitions></Definitions>
+  <Research>
+    <Analyses>
+      <Analysis id="lipoprotein_motif_analysis">
+        <Attribute name="sourcename" content="/tmp/split1.fasta"></Attribute>
+      </Analysis>
+    </Analyses>
+  </Research>
+</Bsml>

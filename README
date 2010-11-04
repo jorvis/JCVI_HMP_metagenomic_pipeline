@@ -1,0 +1,9 @@
+JCVI Metagenomics Annotation Pipline
+-------------------------------------------------------
+File Structure
+
+bin       perl binaries
+data      lookup files
+example   example files (contains test set)
+lib       perl library files
+

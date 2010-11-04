@@ -1,0 +1,15 @@
+JCVI_PEP_1113087382759	PandaBLASTP::HighConfidence	RF|YP_001196442.1|146301851|NC_009441	1	common_name	glycoside hydrolase, family 28	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382759	PandaBLASTP::Putative	RF|NP_693009.1|23099543|NC_004193	6	common_name	conserved hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382761	PandaBLASTP::HighConfidence	SP|O67718|SECA_AQUAE	1	common_name	preprotein translocase SecA subunit	gene_symbol	secA	GO		EC		TIGR_role	
+JCVI_PEP_1113087382761	PandaBLASTP::ConservedDomain	SP|Q3SVN4|SECA_NITWN	2	common_name	protein translocase subunit SecA.	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382763	PandaBLASTP::HighConfidence	RF|NP_213449.1|15606072|NC_000918	1	common_name	conserved hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382763	PandaBLASTP::Putative	RF|NP_613920.1|20094073|NC_003551	2	common_name	translation factor (SUA5)	gene_symbol	SUA	GO		EC		TIGR_role	
+JCVI_PEP_1113087382775	PandaBLASTP::HighConfidence	RF|YP_001195307.1|146300716|NC_009441	1	common_name	aldehyde dehydrogenase	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382779	PandaBLASTP::HighConfidence	RF|XP_001893601.1|170576369|XM_001893566	1	common_name	aminoglycoside 3'-phosphotransferase	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382789	PandaBLASTP::HighConfidence	SP|Q3K607|RL15_PSEPF	1	common_name	50S ribosomal protein L15.	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087384395	PandaBLASTP::HighConfidence	RF|YP_262630.1|70732863|NC_004129	1	common_name	preprotein translocase subunit SecY	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087384397	PandaBLASTP::HighConfidence	RF|YP_001435564.1|156937768|NC_009776	1	common_name	type III restriction enzyme, res subunit	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087384397	PandaBLASTP::Putative	RF|YP_001604300.1|162329501|NC_010154	2	common_name	putative helicase	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087384421	PandaBLASTP::Putative	RF|YP_184660.1|57642182|NC_006624	1	common_name	conserved hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087384437	PandaBLASTP::HighConfidence	RF|YP_001299277.1|150004533|NC_009614	1	common_name	glycoside hydrolase family 43, candidate beta-xylosidase/alpha-L-arabinofuranosidase	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087384437	PandaBLASTP::Putative	RF|YP_001559732.1|160880764|NC_010001	8	common_name	glycoside hydrolase family 43	gene_symbol		GO		EC		TIGR_role	

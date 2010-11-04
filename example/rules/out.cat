@@ -1,0 +1,36 @@
+JCVI_PEP_1113087382759	PandaBLASTP::HighConfidence	UniRef100_A3HWR0	1	common_name		gene_symbol		GO	GO:0004650 || GO:0005975 || GO:0007047	EC		TIGR_role	
+JCVI_PEP_1113087382761	PandaBLASTP::HighConfidence	UniRef100_D3DFX9	1	common_name		gene_symbol		GO	GO:0005515 || GO:0005524 || GO:0005737 || GO:0005886 || GO:0006605 || GO:0017038 || GO:0065002	EC		TIGR_role	
+JCVI_PEP_1113087382761	PandaBLASTP::ConservedDomain	UniRef100_C0QRJ2	4	common_name		gene_symbol		GO	GO:0005515 || GO:0005524 || GO:0006605 || GO:0016020 || GO:0017038 || GO:0065002	EC		TIGR_role	
+JCVI_PEP_1113087382763	PandaBLASTP::HighConfidence	UniRef100_D3DJ17	1	common_name		gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382763	PandaBLASTP::ConservedDomain	UniRef100_C0QS03	4	common_name		gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382763	PandaBLASTP::Putative	UniRef100_Q8TXM7	10	common_name		gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382775	PandaBLASTP::HighConfidence	UniRef100_C0YPK8	1	common_name		gene_symbol		GO	GO:0004029 || GO:0055114	EC	1.2.1.3	TIGR_role	
+JCVI_PEP_1113087382779	PandaBLASTP::HighConfidence	UniRef100_A8NVE1	1	common_name		gene_symbol		GO	GO:0016740	EC		TIGR_role	
+JCVI_PEP_1113087382789	PandaBLASTP::HighConfidence	UniRef100_C3K2V7	1	common_name		gene_symbol		GO	GO:0003735 || GO:0006412 || GO:0015934 || GO:0019843	EC		TIGR_role	
+JCVI_PEP_1113087384395	PandaBLASTP::HighConfidence	UniRef100_C3K2V6	1	common_name		gene_symbol		GO	GO:0015450 || GO:0016020	EC		TIGR_role	
+JCVI_PEP_1113087384397	PandaBLASTP::HighConfidence	UniRef100_A8AB55	1	common_name		gene_symbol		GO	GO:0003677 || GO:0004386 || GO:0005524	EC		TIGR_role	
+JCVI_PEP_1113087384397	PandaBLASTP::Putative	UniRef100_A7WKU9	3	common_name		gene_symbol		GO	GO:0003677 || GO:0004386 || GO:0005524	EC		TIGR_role	
+JCVI_PEP_1113087384421	PandaBLASTP::Putative	UniRef100_C6A148	1	common_name		gene_symbol		GO	GO:0015520 || GO:0016021 || GO:0046677	EC		TIGR_role	
+JCVI_PEP_1113087384437	PandaBLASTP::HighConfidence	UniRef100_A3XP87	1	common_name		gene_symbol		GO	GO:0004553 || GO:0005975	EC		TIGR_role	
+JCVI_PEP_1113087382761	PFAM::FullLength::EquivalogDomain	PF07516	1	common_name	SecA Wing and Scaffold domain	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382775	PFAM::FullLength::Superfamily	PF00171	1	common_name	aldehyde dehydrogenase (NAD) family protein	gene_symbol		GO	GO:0016620	EC		TIGR_role	703
+JCVI_PEP_1113087382779	PFAM::FullLength::Domain	PF01636	1	common_name	Phosphotransferase enzyme family	gene_symbol		GO	GO:0016772	EC		TIGR_role	703
+JCVI_PEP_1113087382789	TIGRFAM::FullLength::Equivalog	TIGR01071	1	common_name	ribosomal protein L15	gene_symbol		GO	GO:0000315 || GO:0003735 || GO:0006412 || GO:0022625	EC		TIGR_role	158
+JCVI_PEP_1113087382789	PFAM::FullLength::Equivalog	PF01305	2	common_name	ribosomal protein L15 amino terminal region	gene_symbol		GO	GO:0003735 || GO:0006412 || GO:0022625 || GO:0042255	EC		TIGR_role	158
+JCVI_PEP_1113087382789	PFAM::FullLength::SubfamilyDomain	PF00256	3	common_name	ribosomal protein L15	gene_symbol		GO	GO:0003735 || GO:0006412 || GO:0015934	EC		TIGR_role	
+JCVI_PEP_1113087384397	PFAM::FullLength::Domain	PF00271	1	common_name	Helicase conserved C-terminal domain	gene_symbol		GO	GO:0004386 || GO:0006139	EC		TIGR_role	703
+JCVI_PEP_1113087384421	PFAM::FullLength::Subfamily	PF07690	1	common_name	transporter, major facilitator family	gene_symbol		GO	GO:0005215 || GO:0005887 || GO:0006810	EC		TIGR_role	141
+JCVI_PEP_1113087382759	Hypothetical	CAMERA	1	common_name	hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382761	Hypothetical	CAMERA	1	common_name	hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382763	Hypothetical	CAMERA	1	common_name	hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382775	Hypothetical	CAMERA	1	common_name	hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382779	Hypothetical	CAMERA	1	common_name	hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382789	Hypothetical	CAMERA	1	common_name	hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087384395	Hypothetical	CAMERA	1	common_name	hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087384397	Hypothetical	CAMERA	1	common_name	hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087384421	Hypothetical	CAMERA	1	common_name	hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087384437	Hypothetical	CAMERA	1	common_name	hypothetical protein	gene_symbol		GO		EC		TIGR_role	
+JCVI_PEP_1113087382779	PRIAM	PRIAM	1	common_name	kanamycin kinase	gene_symbol		GO		EC	2.7.1.95	TIGR_role	
+JCVI_PEP_1113087382775	PRIAM	PRIAM	1	common_name	aldehyde dehydrogenase (NAD+)	gene_symbol		GO		EC	1.2.1.3	TIGR_role	
+JCVI_PEP_1113087382759	PRIAM	PRIAM	1	common_name	exo-poly-.-galacturonosidase	gene_symbol		GO		EC	3.2.1.82	TIGR_role	
+JCVI_PEP_1113087384421	TMHMM	TMHMM	1	common_name	membrane protein	gene_symbol		GO		EC		TIGR_role	

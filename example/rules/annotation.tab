@@ -1,0 +1,10 @@
+JCVI_PEP_1113087382759	common_name	hypothetical protein || exo-poly-.-galacturonosidase	CAMERA || PRIAM	gene_symbol			GO			EC	3.2.1.82	PRIAM	TIGR_role		
+JCVI_PEP_1113087382761	common_name	SecA Wing and Scaffold domain	PF07516	gene_symbol			GO			EC			TIGR_role		
+JCVI_PEP_1113087382763	common_name	hypothetical protein	CAMERA	gene_symbol			GO			EC			TIGR_role		
+JCVI_PEP_1113087382775	common_name	aldehyde dehydrogenase (NAD) family protein || aldehyde dehydrogenase (NAD+)	PF00171 || PRIAM	gene_symbol			GO	GO:0016620	PF00171	EC	1.2.1.3	PRIAM	TIGR_role	703	PF00171
+JCVI_PEP_1113087382779	common_name	Phosphotransferase enzyme family || kanamycin kinase	PF01636 || PRIAM	gene_symbol			GO	GO:0016772	PF01636	EC	2.7.1.95	PRIAM	TIGR_role	703	PF01636
+JCVI_PEP_1113087382789	common_name	ribosomal protein L15	TIGR01071	gene_symbol			GO	GO:0022625 || GO:0006412 || GO:0003735 || GO:0000315	TIGR01071 || TIGR01071 || TIGR01071 || TIGR01071	EC			TIGR_role	158	TIGR01071
+JCVI_PEP_1113087384395	common_name	hypothetical protein	CAMERA	gene_symbol			GO			EC			TIGR_role		
+JCVI_PEP_1113087384397	common_name	Helicase conserved C-terminal domain	PF00271	gene_symbol			GO	GO:0006139 || GO:0004386	PF00271 || PF00271	EC			TIGR_role	703	PF00271
+JCVI_PEP_1113087384421	common_name	transporter, major facilitator family	PF07690	gene_symbol			GO	GO:0006810 || GO:0005887 || GO:0005215	PF07690 || PF07690 || PF07690	EC			TIGR_role	141	PF07690
+JCVI_PEP_1113087384437	common_name	hypothetical protein	CAMERA	gene_symbol			GO			EC			TIGR_role		

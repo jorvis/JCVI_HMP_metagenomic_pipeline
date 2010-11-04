@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+
+<Bsml>
+  <Definitions>
+    <Sequences>
+      <Sequence class="polypeptide" title="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;" id="JCVI_PEP_1113087384397" molecule="aa">
+        <Attribute name="defline" content="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;"></Attribute>
+        <Attribute name="exp_aa_in_tmh" content="0.0267"></Attribute>
+        <Attribute name="exp_first_60" content="0.00632"></Attribute>
+        <Attribute name="length" content="247"></Attribute>
+        <Attribute name="prob_n_in" content="0.17326"></Attribute>
+        <Attribute name="tmh_count" content="0"></Attribute>
+        <Feature-tables>
+          <Feature-table id="Bsml0">
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504518.1">
+              <Interval-loc complement="0" startpos="0" endpos="247"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+          </Feature-table>
+        </Feature-tables>
+        <Seq-data-import source="/usr/local/projects/CAMERA/runtime-shared/filestore/jgoll/WorkSession/1532122193889067295/FastaFiles/1532122203896676639/al-1-50000-1-0-1000000000/peptide.fasta.q1_q10" identifier="JCVI_PEP_1113087384397" format="fasta" id="JCVI_PEP_1113087384397_seq"></Seq-data-import>
+        <Link rel="analysis" href="#tmhmm_analysis" role="input_of"></Link>
+      </Sequence>
+      <Sequence class="polypeptide" title="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;" id="JCVI_PEP_1113087382779" molecule="aa">
+        <Attribute name="defline" content="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;"></Attribute>
+        <Attribute name="exp_aa_in_tmh" content="0"></Attribute>
+        <Attribute name="exp_first_60" content="0"></Attribute>
+        <Attribute name="length" content="231"></Attribute>
+        <Attribute name="prob_n_in" content="0.00652"></Attribute>
+        <Attribute name="tmh_count" content="0"></Attribute>
+        <Feature-tables>
+          <Feature-table id="Bsml1">
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504519.1">
+              <Interval-loc complement="0" startpos="0" endpos="231"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+          </Feature-table>
+        </Feature-tables>
+        <Seq-data-import source="/usr/local/projects/CAMERA/runtime-shared/filestore/jgoll/WorkSession/1532122193889067295/FastaFiles/1532122203896676639/al-1-50000-1-0-1000000000/peptide.fasta.q1_q10" identifier="JCVI_PEP_1113087382779" format="fasta" id="JCVI_PEP_1113087382779_seq"></Seq-data-import>
+        <Link rel="analysis" href="#tmhmm_analysis" role="input_of"></Link>
+      </Sequence>
+      <Sequence class="polypeptide" title="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;" id="JCVI_PEP_1113087382775" molecule="aa">
+        <Attribute name="defline" content="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;"></Attribute>
+        <Attribute name="exp_aa_in_tmh" content="1.56407"></Attribute>
+        <Attribute name="exp_first_60" content="0.00017"></Attribute>
+        <Attribute name="length" content="300"></Attribute>
+        <Attribute name="prob_n_in" content="0.08480"></Attribute>
+        <Attribute name="tmh_count" content="0"></Attribute>
+        <Feature-tables>
+          <Feature-table id="Bsml2">
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504520.1">
+              <Interval-loc complement="0" startpos="0" endpos="300"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+          </Feature-table>
+        </Feature-tables>
+        <Seq-data-import source="/usr/local/projects/CAMERA/runtime-shared/filestore/jgoll/WorkSession/1532122193889067295/FastaFiles/1532122203896676639/al-1-50000-1-0-1000000000/peptide.fasta.q1_q10" identifier="JCVI_PEP_1113087382775" format="fasta" id="JCVI_PEP_1113087382775_seq"></Seq-data-import>
+        <Link rel="analysis" href="#tmhmm_analysis" role="input_of"></Link>
+      </Sequence>
+      <Sequence class="polypeptide" title="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;" id="JCVI_PEP_1113087382789" molecule="aa">
+        <Attribute name="defline" content="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;"></Attribute>
+        <Attribute name="exp_aa_in_tmh" content="0.0004"></Attribute>
+        <Attribute name="exp_first_60" content="0"></Attribute>
+        <Attribute name="length" content="145"></Attribute>
+        <Attribute name="prob_n_in" content="0.04898"></Attribute>
+        <Attribute name="tmh_count" content="0"></Attribute>
+        <Feature-tables>
+          <Feature-table id="Bsml3">
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504521.1">
+              <Interval-loc complement="0" startpos="0" endpos="145"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+          </Feature-table>
+        </Feature-tables>
+        <Seq-data-import source="/usr/local/projects/CAMERA/runtime-shared/filestore/jgoll/WorkSession/1532122193889067295/FastaFiles/1532122203896676639/al-1-50000-1-0-1000000000/peptide.fasta.q1_q10" identifier="JCVI_PEP_1113087382789" format="fasta" id="JCVI_PEP_1113087382789_seq"></Seq-data-import>
+        <Link rel="analysis" href="#tmhmm_analysis" role="input_of"></Link>
+      </Sequence>
+      <Sequence class="polypeptide" title="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;" id="JCVI_PEP_1113087382763" molecule="aa">
+        <Attribute name="defline" content="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;"></Attribute>
+        <Attribute name="exp_aa_in_tmh" content="0.0414"></Attribute>
+        <Attribute name="exp_first_60" content="0.02386"></Attribute>
+        <Attribute name="length" content="136"></Attribute>
+        <Attribute name="prob_n_in" content="0.43613"></Attribute>
+        <Attribute name="tmh_count" content="0"></Attribute>
+        <Feature-tables>
+          <Feature-table id="Bsml4">
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504522.1">
+              <Interval-loc complement="0" startpos="0" endpos="136"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+          </Feature-table>
+        </Feature-tables>
+        <Seq-data-import source="/usr/local/projects/CAMERA/runtime-shared/filestore/jgoll/WorkSession/1532122193889067295/FastaFiles/1532122203896676639/al-1-50000-1-0-1000000000/peptide.fasta.q1_q10" identifier="JCVI_PEP_1113087382763" format="fasta" id="JCVI_PEP_1113087382763_seq"></Seq-data-import>
+        <Link rel="analysis" href="#tmhmm_analysis" role="input_of"></Link>
+      </Sequence>
+      <Sequence class="polypeptide" title="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;" id="JCVI_PEP_1113087384395" molecule="aa">
+        <Attribute name="defline" content="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;"></Attribute>
+        <Attribute name="exp_aa_in_tmh" content="39.58342"></Attribute>
+        <Attribute name="exp_first_60" content="18.31966"></Attribute>
+        <Attribute name="length" content="109"></Attribute>
+        <Attribute name="prob_n_in" content="0.74946"></Attribute>
+        <Attribute name="tmh_count" content="1"></Attribute>
+        <Feature-tables>
+          <Feature-table id="Bsml5">
+            <Feature class="signal_peptide" id="unknown.signal_peptide.1126946504523.1">
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="inside" id="unknown.located_sequence_feature.1126946504524.1">
+              <Interval-loc complement="0" startpos="0" endpos="74"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="TMhelix" id="unknown.located_sequence_feature.1126946504525.1">
+              <Interval-loc complement="0" startpos="74" endpos="97"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504526.1">
+              <Interval-loc complement="0" startpos="97" endpos="109"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+          </Feature-table>
+        </Feature-tables>
+        <Seq-data-import source="/usr/local/projects/CAMERA/runtime-shared/filestore/jgoll/WorkSession/1532122193889067295/FastaFiles/1532122203896676639/al-1-50000-1-0-1000000000/peptide.fasta.q1_q10" identifier="JCVI_PEP_1113087384395" format="fasta" id="JCVI_PEP_1113087384395_seq"></Seq-data-import>
+        <Link rel="analysis" href="#tmhmm_analysis" role="input_of"></Link>
+      </Sequence>
+      <Sequence class="polypeptide" title="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;" id="JCVI_PEP_1113087382759" molecule="aa">
+        <Attribute name="defline" content="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;"></Attribute>
+        <Attribute name="exp_aa_in_tmh" content="0.04468"></Attribute>
+        <Attribute name="exp_first_60" content="0.01901"></Attribute>
+        <Attribute name="length" content="299"></Attribute>
+        <Attribute name="prob_n_in" content="0.09043"></Attribute>
+        <Attribute name="tmh_count" content="0"></Attribute>
+        <Feature-tables>
+          <Feature-table id="Bsml6">
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504527.1">
+              <Interval-loc complement="0" startpos="0" endpos="299"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+          </Feature-table>
+        </Feature-tables>
+        <Seq-data-import source="/usr/local/projects/CAMERA/runtime-shared/filestore/jgoll/WorkSession/1532122193889067295/FastaFiles/1532122203896676639/al-1-50000-1-0-1000000000/peptide.fasta.q1_q10" identifier="JCVI_PEP_1113087382759" format="fasta" id="JCVI_PEP_1113087382759_seq"></Seq-data-import>
+        <Link rel="analysis" href="#tmhmm_analysis" role="input_of"></Link>
+      </Sequence>
+      <Sequence class="polypeptide" title="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;" id="JCVI_PEP_1113087382761" molecule="aa">
+        <Attribute name="defline" content="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;"></Attribute>
+        <Attribute name="exp_aa_in_tmh" content="0"></Attribute>
+        <Attribute name="exp_first_60" content="0"></Attribute>
+        <Attribute name="length" content="150"></Attribute>
+        <Attribute name="prob_n_in" content="0.14301"></Attribute>
+        <Attribute name="tmh_count" content="0"></Attribute>
+        <Feature-tables>
+          <Feature-table id="Bsml7">
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504528.1">
+              <Interval-loc complement="0" startpos="0" endpos="150"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+          </Feature-table>
+        </Feature-tables>
+        <Seq-data-import source="/usr/local/projects/CAMERA/runtime-shared/filestore/jgoll/WorkSession/1532122193889067295/FastaFiles/1532122203896676639/al-1-50000-1-0-1000000000/peptide.fasta.q1_q10" identifier="JCVI_PEP_1113087382761" format="fasta" id="JCVI_PEP_1113087382761_seq"></Seq-data-import>
+        <Link rel="analysis" href="#tmhmm_analysis" role="input_of"></Link>
+      </Sequence>
+      <Sequence class="polypeptide" title="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;" id="JCVI_PEP_1113087384437" molecule="aa">
+        <Attribute name="defline" content="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;"></Attribute>
+        <Attribute name="exp_aa_in_tmh" content="0.00058"></Attribute>
+        <Attribute name="exp_first_60" content="0"></Attribute>
+        <Attribute name="length" content="255"></Attribute>
+        <Attribute name="prob_n_in" content="0.03194"></Attribute>
+        <Attribute name="tmh_count" content="0"></Attribute>
+        <Feature-tables>
+          <Feature-table id="Bsml8">
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504529.1">
+              <Interval-loc complement="0" startpos="0" endpos="255"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+          </Feature-table>
+        </Feature-tables>
+        <Seq-data-import source="/usr/local/projects/CAMERA/runtime-shared/filestore/jgoll/WorkSession/1532122193889067295/FastaFiles/1532122203896676639/al-1-50000-1-0-1000000000/peptide.fasta.q1_q10" identifier="JCVI_PEP_1113087384437" format="fasta" id="JCVI_PEP_1113087384437_seq"></Seq-data-import>
+        <Link rel="analysis" href="#tmhmm_analysis" role="input_of"></Link>
+      </Sequence>
+      <Sequence class="polypeptide" title="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;" id="JCVI_PEP_1113087384421" molecule="aa">
+        <Attribute name="defline" content="JCVI_PEP_1113087382759 /orf_id=JCVI_ORF_1113087382758 /read_id=BEARPAW_READ_1646937538 /begin=71 /end=971 /orientation=-1 /5_prime_stop=0 /5_prime_loc=NA /3_prime_stop=TGA /ttable=11 /length=300 /read_defline=&quot;/accession=AOIX4253.b2 /library_id=JGI_LIB_BEARPAW_20031007 /template_id=JGI_TMPL_BEARPAW_AOIX4253 /sequencing_direction=forward /sample_id=BEARPAW_SMPL_20031007 /clr_range_begin=0 /clr_range_end=973 /site_id=JGI_SITE_BEARPAW /length=973&quot;"></Attribute>
+        <Attribute name="exp_aa_in_tmh" content="178.81061"></Attribute>
+        <Attribute name="exp_first_60" content="20.76571"></Attribute>
+        <Attribute name="length" content="318"></Attribute>
+        <Attribute name="prob_n_in" content="0.98189"></Attribute>
+        <Attribute name="tmh_count" content="9"></Attribute>
+        <Feature-tables>
+          <Feature-table id="Bsml9">
+            <Feature class="signal_peptide" id="unknown.signal_peptide.1126946504530.1">
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="inside" id="unknown.located_sequence_feature.1126946504531.1">
+              <Interval-loc complement="0" startpos="0" endpos="35"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="TMhelix" id="unknown.located_sequence_feature.1126946504532.1">
+              <Interval-loc complement="0" startpos="35" endpos="55"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504533.1">
+              <Interval-loc complement="0" startpos="55" endpos="69"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="TMhelix" id="unknown.located_sequence_feature.1126946504534.1">
+              <Interval-loc complement="0" startpos="69" endpos="89"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="inside" id="unknown.located_sequence_feature.1126946504535.1">
+              <Interval-loc complement="0" startpos="89" endpos="95"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="TMhelix" id="unknown.located_sequence_feature.1126946504536.1">
+              <Interval-loc complement="0" startpos="95" endpos="118"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504537.1">
+              <Interval-loc complement="0" startpos="118" endpos="127"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="TMhelix" id="unknown.located_sequence_feature.1126946504538.1">
+              <Interval-loc complement="0" startpos="127" endpos="150"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="inside" id="unknown.located_sequence_feature.1126946504539.1">
+              <Interval-loc complement="0" startpos="150" endpos="156"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="TMhelix" id="unknown.located_sequence_feature.1126946504540.1">
+              <Interval-loc complement="0" startpos="156" endpos="179"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504541.1">
+              <Interval-loc complement="0" startpos="179" endpos="182"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="TMhelix" id="unknown.located_sequence_feature.1126946504542.1">
+              <Interval-loc complement="0" startpos="182" endpos="202"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="inside" id="unknown.located_sequence_feature.1126946504543.1">
+              <Interval-loc complement="0" startpos="202" endpos="222"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="TMhelix" id="unknown.located_sequence_feature.1126946504544.1">
+              <Interval-loc complement="0" startpos="222" endpos="245"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504545.1">
+              <Interval-loc complement="0" startpos="245" endpos="257"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="TMhelix" id="unknown.located_sequence_feature.1126946504546.1">
+              <Interval-loc complement="0" startpos="257" endpos="280"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="inside" id="unknown.located_sequence_feature.1126946504547.1">
+              <Interval-loc complement="0" startpos="280" endpos="286"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="TMhelix" id="unknown.located_sequence_feature.1126946504548.1">
+              <Interval-loc complement="0" startpos="286" endpos="304"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+            <Feature class="located_sequence_feature" title="outside" id="unknown.located_sequence_feature.1126946504549.1">
+              <Interval-loc complement="0" startpos="304" endpos="318"></Interval-loc>
+              <Link rel="analysis" href="#tmhmm_analysis" role="computed_by"></Link>
+            </Feature>
+          </Feature-table>
+        </Feature-tables>
+        <Seq-data-import source="/usr/local/projects/CAMERA/runtime-shared/filestore/jgoll/WorkSession/1532122193889067295/FastaFiles/1532122203896676639/al-1-50000-1-0-1000000000/peptide.fasta.q1_q10" identifier="JCVI_PEP_1113087384421" format="fasta" id="JCVI_PEP_1113087384421_seq"></Seq-data-import>
+        <Link rel="analysis" href="#tmhmm_analysis" role="input_of"></Link>
+      </Sequence>
+    </Sequences>
+  </Definitions>
+  <Research>
+    <Analyses>
+      <Analysis id="tmhmm_analysis">
+        <Attribute name="algorithm" content="tmhmm"></Attribute>
+        <Attribute name="program" content="tmhmm"></Attribute>
+        <Attribute name="sourcename" content="/usr/local/projects/CAMERA/runtime-shared/filestore/jgoll/WorkSession/1532122193889067295/MetaGenoAnnotationResult/1532122260452671775/MgTmhmmService/peptide.fasta.q1_q10_1532122841997115679.tmhmm_out.bsml"></Attribute>
+      </Analysis>
+    </Analyses>
+  </Research>
+</Bsml>
