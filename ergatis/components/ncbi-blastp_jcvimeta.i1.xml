@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<commandSetRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation='commandSet.xsd'>
+    <commandSet type="serial">
+        <name>wu-blastp_jcvimeta compute</name>
+        <command>
+            <type>RunUnixCommand</type>
+            <name>ncbi-blastp</name>
+            <state>incomplete</state>
+            <executable>$;BLASTALL_EXEC$;</executable>
+            <arg>-p blastp -i $;I_FILE_PATH$; -d $;DATABASE_PATH$; -e $;EXPECT$; -F '$;FILTER$;' -b $;DATABASE_MATCHES$; -v $;DESCRIPTIONS$; -M $;MATRIX$; $;OTHER_OPTS$;</arg>
+            <param>  
+                <key>stdout</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.$;COMPONENT_NAME$;.xml</value>
+            </param>
+        </command>
+        <command>
+            <type>RunUnixCommand</type>
+            <name>convert xml to btab</name>
+            <state>incomplete</state>
+            <executable>/usr/local/projects/jorvis/metagenomic_annotation/SOM/bin/blast_xml_to_btab.pl</executable>
+            <param>  
+                <key>stdin</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.$;COMPONENT_NAME$;.xml</value>
+            </param>
+            <param>  
+                <key>stdout</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.$;COMPONENT_NAME$;.btab</value>
+            </param>
+        </command>
+        <command>
+            <type>RunUnixCommand</type>
+            <name>parse btab</name>
+            <state>incomplete</state>
+            <executable>/usr/local/projects/jorvis/metagenomic_annotation/SOM/bin/camera_parse_annotation_results_to_text_table.pl</executable>
+            <param>  
+                <key>--input_file</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.$;COMPONENT_NAME$;.btab</value>
+            </param>
+            <param>  
+                <key>--input_type</key>
+                <value>BTAB</value>
+            </param>
+            <param>  
+                <key>--output_file</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.$;COMPONENT_NAME$;.btab.parsed</value>
+            </param>
+            <param>  
+                <key>--work_dir</key>
+                <value>$;TMP_DIR$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/</value>
+            </param>
+        </command>
+    </commandSet>
+</commandSetRoot>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<commandSetRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation='commandSet.xsd'>
+    <commandSet type="serial">
+        <name>hmmpfam_meta compute</name>
+        <command>
+            <type>RunUnixCommand</type>
+            <name>hmmpfam</name>
+            <state>incomplete</state>
+            <executable>$;HMMPFAM_EXEC$;</executable>
+            <arg>$;OTHER_OPTS$; $;DATABASE_PATH$; $;I_FILE_PATH$;</arg>
+            <param>  
+                <key>stdout</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.raw</value>
+            </param>
+        </command>
+        <command>
+            <type>RunUnixCommand</type>
+            <name>conversion to htab</name>
+            <state>incomplete</state>
+            <executable>/usr/local/projects/jorvis/metagenomic_annotation/SOM/bin/htab.pl</executable>
+            <arg>-d $;HMM_INFO_FILE$;</arg>
+            <param>
+                <key>stdin</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.raw</value>
+            </param>
+            <param>
+                <key>stdout</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.htab</value>
+            </param>
+        </command>
+        <command>
+            <type>RunUnixCommand</type>
+            <name>parse the htab</name>
+            <state>incomplete</state>
+            <executable>/usr/local/projects/jorvis/metagenomic_annotation/SOM/bin/camera_parse_annotation_results_to_text_table.pl</executable>
+            <param>
+                <key>input_file</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.htab</value>
+            </param>
+            <param>
+                <key>input_type</key>
+                <value>HTAB</value>
+            </param>
+            <param>
+                <key>output_file</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.htab.parsed</value>
+            </param>
+            <param>
+                <key>work_dir</key>
+                <value>$;TMP_DIR$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;</value>
+            </param>
+        </command>
+    </commandSet>
+</commandSetRoot>
