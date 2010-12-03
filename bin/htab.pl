@@ -68,6 +68,7 @@ DESCRIPTION
           Each file is processed and the results are saved as "filename.htab"
           in the directory where the file is. 
     -h    a flag to print this help message
+    -i    used to specify the path of a single input file
     -m    a flag for supporting output from multiple query sequences
     -s    a flag to skip database query
     -t    input a value for trusted_cutoff (for hmmsearch log, replace the value retrieved from db)
@@ -164,6 +165,14 @@ _EOT_
 		    &parse_hmm_hits($file, $info{db}, $info{db_proc}, $usage, $info{debug}, $info{align_output}, $info{align_file}, $info{b1_cutoff}, $info{b2_cutoff}, $info{e1_cutoff}, $info{e2_cutoff}, $info{format}, $info{quiet}, $info{noise_cutoff}, $info{trusted_cutoff}, '', '', '', '', '', '', $info{multi}, $info{expanded_output});
 		}
 
+    } elsif ( $info{input_file} ) {
+        
+        if (! -s $info{input_file} ) {
+            print "***Error: can not find file $info{input_file} or it has zero size\n";
+        }
+        
+        &parse_hmm_hits($info{input_file}, $info{db}, $info{db_proc}, $usage, $info{debug}, $info{align_output}, $info{align_file}, $info{b1_cutoff}, $info{b2_cutoff}, $info{e1_cutoff}, $info{e2_cutoff}, $info{format}, $info{quiet}, $info{noise_cutoff}, $info{trusted_cutoff}, '', '', '', '', '', '', $info{multi}, $info{expanded_output});
+        
 	# input from stdin
 	} else {
 		&parse_hmm_hits('', $info{db}, $info{db_proc}, $usage, $info{debug}, $info{align_output}, $info{align_file}, $info{b1_cutoff}, $info{b2_cutoff}, $info{e1_cutoff}, $info{e2_cutoff}, $info{format}, $info{quiet}, $info{noise_cutoff}, $info{trusted_cutoff}, '', '', '', '', '', '', $info{multi}, $info{expanded_output});
@@ -176,14 +185,15 @@ _EOT_
 
     exit(0);
 }
+
 sub get_options {
     use strict;
     use Getopt::Std;
-    use vars qw($opt_A $opt_B $opt_C $opt_D $opt_E $opt_F $opt_Z $opt_d $opt_f $opt_h $opt_m $opt_n $opt_q $opt_s $opt_t $opt_x );
+    use vars qw($opt_A $opt_B $opt_C $opt_D $opt_E $opt_F $opt_Z $opt_d $opt_f $opt_h $opt_i $opt_m $opt_n $opt_q $opt_s $opt_t $opt_x );
     my ($info_r, $usage) = @_;
     our $defaultEgad;
     
-    getopts('A:B:C:D:E:F:Zfhmn:qst:d:x') or die "Wrong input options. \n"; #get options
+    getopts('A:B:C:D:E:F:Zfhmi:n:qst:d:x') or die "Wrong input options. \n"; #get options
     die "$usage" if($opt_h);
     $$info_r{debug} = 1 if($opt_Z);
     $$info_r{file} = 1 if($opt_f);
@@ -198,6 +208,7 @@ sub get_options {
     if ($opt_s) { $$info_r{no_db} = 1 }
     $$info_r{noise_cutoff}   = ($opt_n ne '' ? $opt_n : '');
     $$info_r{trusted_cutoff} = ($opt_t ne '' ? $opt_t : '');
+    $$info_r{input_file}     = ($opt_i ne '' ? $opt_i : '');
     $$info_r{align_file}     = ($opt_A ne '' ? $opt_A : "protein_alignment");
     $$info_r{b1_cutoff}      = ($opt_B ne '' ? $opt_B : -2000);
     $$info_r{b2_cutoff}      = ($opt_C ne '' ? $opt_C : -2000);

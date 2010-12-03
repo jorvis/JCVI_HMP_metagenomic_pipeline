@@ -1,11 +1,4 @@
-#!/local/packages/perl-5.8.8/bin/perl
-
-eval 'exec /local/packages/perl-5.8.8/bin/perl  -S $0 ${1+"$@"}'
-    if 0; # not running under some shell
-
-use lib (@INC,$ENV{"PERL_MOD_DIR"});
-no lib "$ENV{PERL_MOD_DIR}/i686-linux";
-no lib ".";
+#!/usr/local/bin/perl
 
 =head1 NAME
 
@@ -78,6 +71,7 @@ B<--help,-h>
 use strict;
 use warnings;
 use Pod::Usage;
+use lib '/usr/local/projects/ergatis/package-jorvis/lib/perl5';
 use Ergatis::IdGenerator;
 use Ergatis::Logger;
 use BSML::BsmlBuilder;

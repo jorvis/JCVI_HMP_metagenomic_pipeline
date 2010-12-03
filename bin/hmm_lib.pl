@@ -1,4 +1,5 @@
 #!/usr/local/bin/perl
+
 sub prot_acc_link {
     use strict;
     my ( $acc, $mode, $out_r ) = @_;
@@ -3438,663 +3439,6 @@ sub load_db {
       if ( $return_r eq '' );
 }
 
-sub parse_hmm_hits {
-    use strict;
-    my (
-        $file,       $db,           $db_proc,        $usage,
-        $debug,      $align_output, $align_file,     $b1_cutoff,
-        $b2_cutoff,  $e1_cutoff,    $e2_cutoff,      $format,
-        $quiet,      $noise_cutoff, $trusted_cutoff, $output_dir,
-        $tb1_cutoff, $tb2_cutoff,   $te1_cutoff,     $te2_cutoff,
-        $inverse,    $multi
-    ) = @_;
-
-    #   following are entry-wide variables
-    if ( $inverse ne '' ) {
-        $tb1_cutoff = (
-              $tb1_cutoff ne ''
-            ? $tb1_cutoff
-            : 2000
-        );
-        $tb2_cutoff = (
-              $tb2_cutoff ne ''
-            ? $tb2_cutoff
-            : 2000
-        );
-        $te1_cutoff = (
-              $te1_cutoff ne ''
-            ? $te1_cutoff
-            : -100
-        );
-        $te2_cutoff = (
-              $te2_cutoff ne ''
-            ? $te2_cutoff
-            : -100
-        );
-    }
-    else {
-        $inverse    = 0;
-        $tb1_cutoff = (
-              $tb1_cutoff ne ''
-            ? $tb1_cutoff
-            : -2000
-        );
-        $tb2_cutoff = (
-              $tb2_cutoff ne ''
-            ? $tb2_cutoff
-            : -2000
-        );
-        $te1_cutoff = (
-              $te1_cutoff ne ''
-            ? $te1_cutoff
-            : 100
-        );
-        $te2_cutoff = (
-              $te2_cutoff ne ''
-            ? $te2_cutoff
-            : 100
-        );
-    }
-    my ( @line, $method, $query_obj, $query_db, %seq, $output, $prot_desc,
-        $fhtab );
-    my $version;
-
-    														# drink in the output from file or stdin
-    if ( $file ne '' ) {
-        chomp $file;
-        open( FH, "$file" )
-          || die "Can't open $file for reading: $!\n";
-        @line = <FH>;
-        close FH;
-        $fhtab = "$file.htab";
-        $fhtab =~ s:^(.*/)?:$output_dir/:
-          if ($output_dir);
-        open( FHTAB, ">$fhtab" )
-          || die "Can't open $fhtab for writing: $!\n";
-        $output = \*FHTAB;
-    }
-    else {
-        @line   = <STDIN>;
-        $output = \*STDOUT;
-    }
-
-														    #parse file content
-    my $n = 0;
-    while ( $n < @line ) {
-
-        													 #get program used (hmmsearch or hmmpfam)
-        if ( $line[$n] =~ /hmmsearch/ ) {
-            $method = 'hmmsearch';
-            print "Method: $method\n"
-              if ($debug);
-        }
-        elsif ( $line[$n] =~ /hmmpfam/ ) {
-            $method = 'hmmpfam';
-            print "Method: $method\n"
-              if ($debug);
-        }
-        else {
-            if ( $method eq '' ) {
-                if ( \*FHTAB ) {
-                    close FHTAB;
-                    unlink "$file.htab"
-                      if ( !-s "$file.htab" );
-                }
-                die "***Error: unknown search program used: $line[$n]\n";
-            }
-        }
-        if ( $line[$n] =~ /^HMMER (\d)\.(\S+) \(/ ) {
-            my ( $maj_ver, $min_ver ) = ( $1, $2 );
-            print "Version: $maj_ver.$min_ver\n"
-              if ($debug);
-            if ( $maj_ver == 2 ) {
-                if ( $min_ver eq '1.1' ) {
-                    $version = 1;
-                }
-                else {
-                    $version = 2;
-                }
-
-#                } elsif ($min_ver eq '2g') {
-#                    $version = 2;
-#                } else {
-#                    if (\*FHTAB) {
-#                        close FHTAB;
-#                        unlink "$file.htab" if(!-s "$file.htab");
-#                    }
-#                    die "***Error: invalid HMMer version '$maj_ver.$min_ver' used.\n";
-#                }
-            }
-            else {
-                if ( \*FHTAB ) {
-                    close FHTAB;
-                    unlink "$file.htab"
-                      if ( !-s "$file.htab" );
-                }
-                die
-                  "***Error: invalid HMMer version '$maj_ver.$min_ver' used.\n";
-            }
-        }
-        elsif ( $line[$n] =~ /^Logical Depth HMMER (\d+)\.(\S+)/ ) {
-            my ( $maj_ver, $min_ver ) = ( $1, $2 );
-            print "Version: $maj_ver.$min_ver\n"
-              if ($debug);
-            $version =
-              2;    # Logical Depth HMMer currently uses 2.2g output format
-        }																						
-## New code for CLC hmmer handling 2009-04-08 by aklump
-		  elsif ( $line[$n] =~ /^CLC\w*\s+(\d+)\.(\S+)/ ){
-            my ( $maj_ver, $min_ver ) = ( $1, $2 );
-            print "Version: $maj_ver.$min_ver\t"
-              if ($debug);
-            print "Assuming CLC is still HMMer2 compliant..if things break, verify this first.\n"
-              if ($debug);
-				$version = 2;
-		  }
-		  																				# else CLC version here...
-
-        																				#get sequence db name for hmmsearch
-        if ( $line[$n] =~ /^Sequence database:\s+([\w\-.]+)/ ) {
-            $query_db = $1;
-            print "Sequence database: $query_db\n"
-              if ($debug);
-        }
-
-        																				#get HMM db name for hmmpfam
-        if ( $line[$n] =~ /^HMM file:\s+/ ) {
-            if ( $' ne '' ) {
-                $query_db = $';
-                chomp $query_db;
-                $query_db =~ s/\t//g;
-                $query_db =~ s/^\s+//;
-                $query_db =~ s/\s+$//;
-                print "HMM database: $query_db\n"
-                  if ($debug);
-            }
-        }
-        if ( $version == 1 ) {						# Does anything still use version 1?
-            if (
-                (
-                       $line[$n] =~ /^Query HMM: ([\w.\-]+)\|\|/
-                    or $line[$n] =~ /^Query:\s+(\S+)/
-                )
-                && $seq{number} > 0
-              )
-            {
-
-                #get hmm length from either DB or HMM file
-                &print_parse_hmm_hit(
-                    $db_proc,      $db,             $output,
-                    $method,       \%seq,           $query_obj,
-                    $prot_desc,    $query_db,       $debug,
-                    $noise_cutoff, $trusted_cutoff, $tb1_cutoff,
-                    $tb2_cutoff,   $te1_cutoff,     $te2_cutoff,
-                    $inverse
-                ) unless ($quiet);
-                $query_obj = $prot_desc = "";
-                %seq = ();
-            }
-
-            #get query hmm name for hmmsearch
-            if ( $line[$n] =~ /^Query HMM: ([\w.\-]+)\|/ ) {
-                $query_obj = $1;
-                print "query HMM: $query_obj\n"
-                  if ($debug);
-            }
-
-            #get query sequence name for hmmpfam
-            if ( $line[$n] =~ /^Query:\s+(\S+)/ ) {
-                $query_obj = $1;
-                $prot_desc = '';
-                if ( $' ne '' ) {
-                    $prot_desc = $';
-                    chomp $prot_desc;
-                    $prot_desc =~ s/\t/ /g;
-                    $prot_desc =~ s/^\s+//;
-                    $prot_desc =~ s/\s+$//;
-                }
-                print "query seq: $query_obj\n"
-                  if ($debug);
-            }
-        }
-        elsif ( $version == 2 ) {							
-
-            																			#get query sequence name for hmmpfam
-            if ( $line[$n] =~ /^Query sequence:\s+(\S+)/ ) {
-                my $tmp_obj = $1;
-                &print_parse_hmm_hit(
-                    $db_proc,      $db,             $output,
-                    $method,       \%seq,           $query_obj,
-                    $prot_desc,    $query_db,       $debug,
-                    $noise_cutoff, $trusted_cutoff, $tb1_cutoff,
-                    $tb2_cutoff,   $te1_cutoff,     $te2_cutoff,
-                    $inverse
-                ) unless ($quiet);
-                $query_obj = $tmp_obj;
-                $prot_desc = "";
-                %seq       = ();
-                print "query seq: $query_obj\n"
-                  if ($debug);
-            }
-
-            																			#get query hmm name for hmmsearch
-            if ( $line[$n] =~ /^Query HMM:\s+(\S+)/ ) {
-                $query_obj = $1;
-                print "query HMM: $query_obj\n"
-                  if ($debug);
-            }
-            if ( $line[$n] =~ /^Description:\s+(.+)/ ) {
-                $prot_desc = $1;
-                chomp $prot_desc;
-                $prot_desc =~ s/\t/ /g;
-                $prot_desc =~ s/^\s+//;
-                $prot_desc =~ s/\s+$//;
-            }
-        }
-
-#get header, total score, e_value, number of domains of sequences for hmmsearch or hmmpfam
-# 2007-05-08 RAR altered regex to accept either N or #D as number of domains column header
-        if ( $line[$n] =~
-            /^(Sequence\s+)Description\s+Score\s+E-value\s+(?:N|\#D)/
-            || $line[$n] =~
-            /^(Model\s+)Description\s+Score\s+E-value\s+(?:N|\#D)/ )
-        {
-            my $m            = 0;
-            my $seqid_length = length($1);
-
-            # if these are results from searches on a multi-sequence input file
-            # this return should not happen
-            unless ($multi) {
-
-                # create one line file if there are no hits.
-                if ( $line[ $m + $n + 2 ] =~ /\[no hits above thresholds\]/ ) {
-                    print $output "No hits above thresholds.\n";
-                    ###return ();   #### <---- this line was causing the program to exit even if other files followed the one with no hits!!!
-                    #### Removed by selengut 6/11/07
-                }
-            }
-            while ( $line[ $m + $n + 2 ] =~ /^\S+/ ) {
-                my @data = split /\s+/, $line[ $m + $n + 2 ];
-                $seq{$m}{header}  = shift @data;
-                $seq{$m}{number}  = pop @data;
-                $seq{$m}{e_value} = pop @data;
-                $seq{$m}{score}   = pop @data;
-                $seq{$m}{comment} = join " ", @data;
-                print
-"$m --- $seq{$m}{header}\t$seq{$m}{comment}\t$seq{$m}{score}\t$seq{$m}{e_value}\t$seq{$m}{number}\n"
-                  if ($debug);
-                ++$m;
-            }
-            $seq{number} = $m;
-        }
-
-#get seq-f, seq-t, hmm-f, hmm-t, score, e_value for each domain for hmmsearch or hmmpfam
-        if ( $line[$n] =~
-/^Sequence\s+Domain\s+seq-f\s+seq-t\s+hmm-f\s+hmm-t\s+score\s+E-value/i
-            or $line[$n] =~
-            /^Model\s+Domain\s+seq-f\s+seq-t\s+hmm-f\s+hmm-t\s+score\s+E-value/i
-          )
-        {
-            my $m = 0;
-            while ( $line[ $m + $n + 2 ] =~
-/^(\S+)\s+(\d+)\/(\d+)\s+(\d+)\s+(\d+).+?(\d+)\s+(\d+).+?(-?\d\S*)\s+(\d\S*)/
-              )
-            {
-                for my $k ( 0 .. $seq{number} - 1 ) {
-                    if ( $seq{$k}{header} eq $1 ) {
-                        $seq{$k}{$2}{seq_f}   = $4;
-                        $seq{$k}{$2}{seq_t}   = $5;
-                        $seq{$k}{$2}{hmm_f}   = $6;
-                        $seq{$k}{$2}{hmm_t}   = $7;
-                        $seq{$k}{$2}{score}   = $8;
-                        $seq{$k}{$2}{e_value} = $9;
-                        print "***Error: number of domain do not match\n"
-                          if (  $3 != $seq{$k}{number}
-                            and $debug );
-                        print "$m --- $1\t$2\t$3\t$4\t$5\t$6\t$7\t$8\t$9\n"
-                          if ($debug);
-                    }
-                }
-                ++$m;
-            }
-        }
-
-     # get aligned sequences ---------------------------------------------------
-        if (   $align_output
-            && $line[$n] =~ /^Alignments of top-scoring domains:/
-            && $method eq 'hmmsearch' )
-        {
-            my ( %align, %posi, %align_seq );
-            my ( $s_hmm, $e_hmm, $hmm_max_len ) = ( 10000, 0, 0 );
-
-            #get the maximum range of hmm sequnces, required for fragment model
-            for my $k1 ( 0 .. $seq{number} - 1 ) {
-                for my $k2 ( 1 .. $seq{$k1}{number} ) {
-                    $s_hmm = $seq{$k1}{$k2}{hmm_f}
-                      if ( $seq{$k1}{$k2}{hmm_f} < $s_hmm );
-                    $e_hmm = $seq{$k1}{$k2}{hmm_t}
-                      if ( $seq{$k1}{$k2}{hmm_t} > $e_hmm );
-                }
-            }
-
-            #get hmm and prot sequences
-            my $m = 1;
-            while ( $line[ $n + $m ] !~ /^Histogram of all scores:/ ) {
-                if ( $line[ $n + $m ] =~ /^\S+/ ) {
-                    for my $k ( 0 .. $seq{number} - 1 ) {
-                        next
-                          if ( $b1_cutoff > $seq{$k}{score}
-                            or $e1_cutoff < $seq{$k}{e_value} );
-                        if ( $line[ $n + $m ] =~
-                            /^\Q$seq{$k}{header}\E:\s+domain\s+(\d+)/ )
-                        {
-                            my $domain = $1;
-                            next
-                              if ( $b2_cutoff > $seq{$k}{$domain}{score}
-                                or $e2_cutoff < $seq{$k}{$domain}{e_value} );
-                            while ( $line[ $m + $n + 1 ] =~ /^\s+/
-                                and $line[ $m + $n + 3 ] =~
-/^\s+([^\|\.\:\/\s]+((\||\.|\:|\/)[^\|\.\:\/\s]+)?)/
-                                && index( $seq{$k}{header}, $1 ) == 0 )
-                            {
-                                $align{$k}{$domain}{prot} .= $3
-                                  if ( $line[ $m + $n + 3 ] =~
-                                    /^\s+(\S+)\s+(\d+|-)\s+(\S+)\s+(\d+|-)/ );
-                                $align{$k}{$domain}{hmm} .=
-                                  $line[ $m + $n + 1 ];
-                                $m += 4;
-                            }
-                            $align{$k}{$domain}{hmm} =~ s/[\s\n]//g;
-                            $align{$k}{$domain}{hmm} =~ s/\*->|<-\*//g
-                              ; # can not merge since <-* might be broken to two sections
-                            $align{$k}{$domain}{show} = 1
-                              ; # means this line is above all cutoff and should be printed out later
-                            die
-"***Error: wrong character(s) \"$&\" in HMM sequence $align{$k}{$domain}{hmm} for file $file\n"
-                              if ( $align{$k}{$domain}{hmm} =~ /[^a-zA-Z.]/ );
-                            last;
-                        }
-                    }
-                }
-                ++$m;
-            }
-
-#align hmm and prot sequences to the maximum range of hmm sequence as defined by $s_hmm, $e_hmm, gap in prot
-# sequences is dot, gap in hmm sequence is dash since dot means insertion which needs to be processed later.
-            for my $k1 ( 0 .. $seq{number} - 1 ) {
-                for my $k2 ( 1 .. $seq{$k1}{number} ) {
-
-                    # what if header has coords in it???????????
-                    if (   $seq{$k1}{$k2}{hmm_f} > 0
-                        && $seq{$k1}{$k2}{hmm_t} > $seq{$k1}{$k2}{hmm_f} )
-                    {
-                        $align{$k1}{$k2}{new_prot} =
-                            '.' x ( $seq{$k1}{$k2}{hmm_f} - $s_hmm )
-                          . $align{$k1}{$k2}{prot}
-                          . '.' x ( $e_hmm - $seq{$k1}{$k2}{hmm_t} );
-                        $align{$k1}{$k2}{new_hmm} =
-                            '-' x ( $seq{$k1}{$k2}{hmm_f} - $s_hmm )
-                          . $align{$k1}{$k2}{hmm}
-                          . '-' x ( $e_hmm - $seq{$k1}{$k2}{hmm_t} );
-                        $align{$k1}{$k2}{new_prot} =~ s/-/\./g;
-
-# following can not be replaced by ($e_hmm - $s_hmm +1) since hmm sequence contains dor as gap
-                        $hmm_max_len = length $align{$k1}{$k2}{new_hmm}
-                          if (
-                            length $align{$k1}{$k2}{new_hmm} > $hmm_max_len );
-
-                        #			print "A $align{$k1}{$k2}{new_prot}\n";
-                        #			print "B $align{$k1}{$k2}{new_hmm}\n";
-                    }
-                }
-            }
-
-     #get position of gaps in hmm sequences and the indices of the hmm sequences
-            for my $n ( 1 .. $hmm_max_len - 1 ) {    # $n start from 1 here
-                for my $k1 ( 0 .. $seq{number} - 1 ) {
-                    for my $k2 ( 1 .. $seq{$k1}{number} ) {
-                        if ( substr( $align{$k1}{$k2}{new_hmm}, $n, 1 ) eq '.' )
-                        {
-                            ++$posi{ $n - 1 }{$k1}{$k2};
-                            $posi{ $n - 1 }{max} = $posi{ $n - 1 }{$k1}{$k2}
-                              if ( $posi{ $n - 1 }{max} <
-                                $posi{ $n - 1 }{$k1}{$k2} );
-                            $align{$k1}{$k2}{new_hmm} =
-                                substr( $align{$k1}{$k2}{new_hmm}, 0, $n )
-                              . substr( $align{$k1}{$k2}{new_hmm}, $n + 1 );
-                            redo;
-                        }
-                    }
-                }
-            }
-
-            #re-align protein sequences based on gaps in hmm sequences
-            my $count = 0;
-            for my $n ( sort { $a <=> $b } keys %posi ) {
-                for my $k1 ( 0 .. $seq{number} - 1 ) {
-                    for my $k2 ( 1 .. $seq{$k1}{number} ) {
-                        if ( $posi{$n}{max} > 0 ) {
-                            $align{$k1}{$k2}{new_prot} =
-                              substr( $align{$k1}{$k2}{new_prot},
-                                0, $n + $count + 1 )
-                              . '.' x ( $posi{$n}{max} - $posi{$n}{$k1}{$k2} )
-                              . substr( $align{$k1}{$k2}{new_prot},
-                                $n + $count + 1 );
-                        }
-                    }
-                }
-                $count += $posi{$n}{max};
-            }
-
-            #remove a gap if all sequences have it
-            my $n = 0;
-            while ( $n < length $align{0}{1}{new_prot} ) {
-                my $dele = 1;
-                for my $k1 ( 0 .. $seq{number} - 1 ) {
-                    for my $k2 ( 1 .. $seq{$k1}{number} ) {
-                        $dele = 0
-                          if (
-                            substr( $align{$k1}{$k2}{new_prot}, $n, 1 ) ne
-                            '.' );
-                    }
-                }
-                if ($dele) {
-                    for my $k1 ( 0 .. $seq{number} - 1 ) {
-                        for my $k2 ( 1 .. $seq{$k1}{number} ) {
-                            $align{$k1}{$k2}{new_prot} =
-                                substr( $align{$k1}{$k2}{new_prot}, 0, $n )
-                              . substr( $align{$k1}{$k2}{new_prot}, $n + 1 );
-                        }
-                    }
-                }
-                else {
-                    ++$n;
-                }
-            }
-
-            #output
-            my $m = -1;
-            for my $k1 ( 0 .. $seq{number} - 1 ) {
-                for my $k2 ( 1 .. $seq{$k1}{number} ) {
-                    if ( $align{$k1}{$k2}{show} ) {
-                        ++$m;
-                        $align_seq{$m}{ori} =
-                          "$seq{$k1}{header}\t$align{$k1}{$k2}{new_prot}";
-                        &parse_single_seq( $align_seq{$m}, 'mul', '', '', '',
-                            '', '' );
-                        $align_seq{$m}{lend} = $seq{$k1}{$k2}{seq_f};
-                        $align_seq{$m}{rend} = $seq{$k1}{$k2}{seq_t};
-                    }
-                }
-            }
-            $align_seq{number} = $m + 1;
-
-            #get more header info for each protein
-            my %prot;
-            for my $n ( 0 .. $align_seq{number} - 1 ) {
-                (
-                      $align_seq{$n}{db} eq "EGAD"
-                    ? $prot{"$align_seq{$n}{db}|$align_seq{$n}{prot_id}"} =
-                      {}
-                    : $prot{"$align_seq{$n}{db}|$align_seq{$n}{0}"} = {}
-                );
-            }
-
-            #	    &download_nraa(\%prot, '', '', 1);
-            #	    &yank_prot(\%prot, '', '');
-            for my $n ( 0 .. $align_seq{number} - 1 ) {
-                if ( $align_seq{$n}{db} eq "EGAD" ) {
-                    $align_seq{$n}{locus} = $1
-                      if ( $prot{"$align_seq{$n}{db}|$align_seq{$n}{prot_id}"}
-                        {first_acc} =~ /^EGAD\|\d+\|([^\|\/\s]+)/ );
-                }
-                else {
-                    $align_seq{$n}{1} = $1
-                      if ( $prot{"$align_seq{$n}{db}|$align_seq{$n}{0}"}
-                        {first_acc} =~ /^[A-Za-z]+\|[^\|]+\|([^\|\/\s]+)/ );
-                    $align_seq{$n}{number} = 2;
-                }
-            }
-
-            #output results
-            my $out =
-              &format_sequence( \%align_seq, $format, '', 60, 1, '', '', '' );
-            if ( $align_file ne '' ) {
-                $align_file .= ".msf"
-                  if ( $format eq 'msf' );
-                $align_file .= ".fa"
-                  if ( $format eq 'fasta' );
-                $align_file .= ".mul"
-                  if ( $format eq 'mul' );
-                open( FH, ">$align_file" );
-                print FH $out;
-                close FH;
-                unlink "$align_file"
-                  if ( -s "$align_file" == 0 );
-            }
-            else {
-                open( FH, ">$file.aligned" );
-                print FH $out;
-                close FH;
-                unlink "$file.aligned"
-                  if ( -s "$file.aligned" == 0 );
-            }
-
-            #end of job
-            $n += $m;
-        }
-        ++$n;
-    }
-    &print_parse_hmm_hit(
-        $db_proc,    $db,           $output,         $method,
-        \%seq,       $query_obj,    $prot_desc,      $query_db,
-        $debug,      $noise_cutoff, $trusted_cutoff, $tb1_cutoff,
-        $tb2_cutoff, $te1_cutoff,   $te2_cutoff,     $inverse
-    ) unless ($quiet);
-    close FHTAB;
-    unlink "$file.htab"
-      if ( !-s "$file.htab" );
-    return "success";
-}
-
-sub print_parse_hmm_hit {
-    use strict;
-    my (
-        $db_proc,    $db,           $output,         $method,
-        $seq_r,      $query_obj,    $prot_desc,      $query_db,
-        $debug,      $noise_cutoff, $trusted_cutoff, $tb1_cutoff,
-        $tb2_cutoff, $te1_cutoff,   $te2_cutoff,     $inverse
-    ) = @_;
-    my ( $hmm_len, $hmm_com_name );
-    if ( $db_proc ne '' ) {
-        if ( $method eq 'hmmsearch' ) {
-            my $ref = &do_query( $db_proc,
-"select hmm_len, trusted_cutoff, noise_cutoff, hmm_com_name from $db..hmm2 where hmm_acc = \"$query_obj\" and is_current = 1"
-            );
-            $hmm_len      = $$ref[0]{hmm_len};
-            $noise_cutoff = $$ref[0]{noise_cutoff}
-              if ( $noise_cutoff eq '' );
-            $trusted_cutoff = $$ref[0]{trusted_cutoff}
-              if ( $trusted_cutoff eq '' );
-            $hmm_com_name = $$ref[0]{hmm_com_name};
-            $hmm_com_name =~ s/\t/ /g;
-            print
-"hmm_len, trusted, noise, hmm_com_name: $hmm_len, $trusted_cutoff, $noise_cutoff, $hmm_com_name\n"
-              if ($debug);
-        }
-        elsif ( $method eq 'hmmpfam' ) {
-            for my $n ( 0 .. $$seq_r{number} - 1 ) {
-                my $query =
-"select hmm_len, trusted_cutoff, noise_cutoff, hmm_com_name from $db..hmm2 where hmm_acc = \"$$seq_r{$n}{header}\" and is_current = 1";
-                my $ref = &do_query( $db_proc, $query );
-                $$seq_r{$n}{hmm_len}        = $$ref[0]{hmm_len};
-                $$seq_r{$n}{noise_cutoff}   = $$ref[0]{noise_cutoff};
-                $$seq_r{$n}{trusted_cutoff} = $$ref[0]{trusted_cutoff};
-                $$seq_r{$n}{comment}        = $$ref[0]{hmm_com_name};
-                $$seq_r{$n}{comment} =~ s/\t/ /g;
-                print
-"seq \#, hmm_len, trusted, noise, hmm_com_name: $n, $$seq_r{$n}{trusted_cutoff}, $$seq_r{$n}{noise_cutoff}, $$seq_r{$n}{comment}\n"
-                  if ($debug);
-            }
-        }
-    }
-
-   #    if($method eq "hmmsearch" and defined $hmm_file and !defined $hmm_len) {
-   #	chomp $hmm_file;
-   #	open(FH, "$hmm_file");
-   #	while(<FH>) {
-   #	    if($_ =~ /^LENG\s+(\d+)/) {
-   #		$hmm_len = $1;
-   #		print "hmm_len: $hmm_len\n";
-   #		last;
-   #	    }
-   #	}
-   #	close FH;
-   #    }
-    if ( $$seq_r{number} > 0 ) {
-        my ( $day, $month, $year ) =
-          ( (localtime)[3], (localtime)[4] + 1, (localtime)[5] + 1900 );
-        print $output
-"1 HMM\t2 htab_date\t3 hmm_length\t4 method\t5 query_DB\t6 protein\t7 hmm_f\t8 hmm_t\t9 protein_f\t10 protein_t\t11 NULL\t12 domain_score\t13 total_score\t14 domain \#\t15 \# of domains\t16 HMM description\t17 protein description\t18 trusted_cutoff\t19 noise_cutoff\t20 total_E_value\t21 domain_E_value\n"
-          if ($debug);
-        for my $m ( 0 .. $$seq_r{number} - 1 ) {
-            if ($inverse) {
-                next
-                  if ( $tb1_cutoff < $$seq_r{$m}{score}
-                    or $te1_cutoff > $$seq_r{$m}{e_value} );
-            }
-            else {
-                next
-                  if ( $tb1_cutoff > $$seq_r{$m}{score}
-                    or $te1_cutoff < $$seq_r{$m}{e_value} );
-            }
-            for my $n ( 1 .. $$seq_r{$m}{number} ) {
-                if ( !$$seq_r{$m}{$n}{seq_f} ) {
-                    next;
-                }
-                if ($inverse) {
-                    next
-                      if ( $tb2_cutoff < $$seq_r{$m}{$n}{score}
-                        or $te2_cutoff > $$seq_r{$m}{$n}{e_value} );
-                }
-                else {
-                    next
-                      if ( $tb2_cutoff > $$seq_r{$m}{$n}{score}
-                        or $te2_cutoff < $$seq_r{$m}{$n}{e_value} );
-                }
-                if ( $method eq 'hmmsearch' ) {
-                    print $output
-"$query_obj\t$month-$day-$year\t$hmm_len\t$method\t$query_db\t$$seq_r{$m}{header}\t$$seq_r{$m}{$n}{hmm_f}\t$$seq_r{$m}{$n}{hmm_t}\t$$seq_r{$m}{$n}{seq_f}\t$$seq_r{$m}{$n}{seq_t}\t\t$$seq_r{$m}{$n}{score}\t$$seq_r{$m}{score}\t$n\t$$seq_r{$m}{number}\t$hmm_com_name\t$$seq_r{$m}{comment}\t$trusted_cutoff\t$noise_cutoff\t$$seq_r{$m}{e_value}\t$$seq_r{$m}{$n}{e_value}\n";
-                }
-                elsif ( $method eq 'hmmpfam' ) {
-                    print $output
-"$$seq_r{$m}{header}\t$month-$day-$year\t$$seq_r{$m}{hmm_len}\t$method\t$query_db\t$query_obj\t$$seq_r{$m}{$n}{hmm_f}\t$$seq_r{$m}{$n}{hmm_t}\t$$seq_r{$m}{$n}{seq_f}\t$$seq_r{$m}{$n}{seq_t}\t\t$$seq_r{$m}{$n}{score}\t$$seq_r{$m}{score}\t$n\t$$seq_r{$m}{number}\t$$seq_r{$m}{comment}\t$prot_desc\t$$seq_r{$m}{trusted_cutoff}\t$$seq_r{$m}{noise_cutoff}\t$$seq_r{$m}{e_value}\t$$seq_r{$m}{$n}{e_value}\n";
-                }
-            }
-        }
-    }
-}
-
 sub read_hmmbuild_para {
     use strict;
     my ( $para_r, $file ) = @_;
@@ -7121,7 +6465,7 @@ sub load_htab_line_to_evidence {
 
 # this subroutine currently (and rather unfortunately) requires $ENV{SGC_SCRIPTS}/sgc_library.dbi
     my ( $dbproc, $db, $line, $model ) = @_;
-    my ( %SEEN, %OldHits );
+    my ( $SEE, %SEEN, %OldHits );
 
     # --- Parse data for each hit
     my @newhits;
@@ -7421,5 +6765,791 @@ sub load_htab_line_to_evidence {
 
         #	print LOG "\t\tHit not above noise cutoff\n";
     }    # if ($total_score >= $noise || $expect_whole < 1)
+}
+####################################################################################
+# read extend HMM hit with details from egad database and write data in tab-delimited format 
+sub print_parse_hmm_hit {
+	use strict;
+    our $errorMessage;
+    
+	my (
+        $db_proc,    $db,           $output,         $method,
+        $seq_r,      $query_obj,    $prot_desc,      $query_db,
+        $debug,      $noise_cutoff, $trusted_cutoff, $tb1_cutoff,
+        $tb2_cutoff, $te1_cutoff,   $te2_cutoff,     $inverse,
+        $expand_output
+      )
+      = @_;
+
+	my $expanded_format = 0;
+	if ( defined $expand_output ) {
+		$expanded_format = $expand_output;
+	}
+
+    my ( $details, $com_name, $hmm_len );
+
+    if ( $db_proc ne '' ) {
+        if ( $method eq 'hmmsearch' ) {
+            my $ref = &get_hmm_db_info( $db_proc, $query_obj );
+			if ( !defined $ref ) {
+				$errorMessage = "print_parse_hmm_hit: " . $errorMessage;
+				return undef;
+			}
+			$hmm_len      = $$ref{hmm_len};
+            $noise_cutoff = $$ref{noise_cutoff} if ( $noise_cutoff eq '' );
+            $trusted_cutoff = $$ref{trusted_cutoff} if ( $trusted_cutoff eq '' );
+            $com_name = $$ref{com_name};
+            $com_name =~ s/\t/ /g;
+            $details = $$ref{details};
+            print
+              "hmm_len, trusted, noise, hmm_com_name: $hmm_len, $trusted_cutoff, $noise_cutoff, $com_name\n"
+              if ($debug);
+        }
+        elsif ( $method eq 'hmmpfam' ) {
+            for my $n ( 0 .. $$seq_r{number} - 1 ) {
+                my $ref = &get_hmm_db_info( $db_proc, $$seq_r{$n}{header} );
+				if ( !defined $ref ) {
+					$errorMessage = "print_parse_hmm_hit: " . $errorMessage;
+					return undef;
+				}
+                $$seq_r{$n}{hmm_len} = $$ref{hmm_len};
+                $$seq_r{$n}{noise_cutoff} = $$ref{noise_cutoff};
+                $$seq_r{$n}{trusted_cutoff} = $$ref{trusted_cutoff};
+                $$seq_r{$n}{com_name} = $$ref{com_name};
+                $$seq_r{$n}{com_name} =~ s/\t/ /g;
+                $$seq_r{$n}{details} = $$ref{details};
+                print
+                  "seq \#, hmm_len, trusted, noise, hmm_com_name: $n, $$seq_r{$n}{trusted_cutoff}, $$seq_r{$n}{noise_cutoff}, $$seq_r{$n}{comment}\n"
+                  if ($debug);
+            }
+        }
+    }
+
+    if ( $$seq_r{number} > 0 ) {
+        my ( $day, $month, $year ) =
+          ( (localtime)[3], (localtime)[4] + 1, (localtime)[5] + 1900 );
+        print $output
+          "1 HMM\t2 htab_date\t3 hmm_length\t4 method\t5 query_DB\t6 protein\t7 hmm_f\t8 hmm_t\t9 protein_f\t10 protein_t\t11 NULL\t12 domain_score\t13 total_score\t14 domain \#\t15 \# of domains\t16 HMM description\t17 protein description\t18 trusted_cutoff\t19 noise_cutoff\t20 total_E_value\t21 domain_E_value\n"
+          if ($debug);
+        for my $m ( 0 .. $$seq_r{number} - 1 ) {
+            if ($inverse) {
+                next
+                  if ( $tb1_cutoff < $$seq_r{$m}{score}
+                    or $te1_cutoff > $$seq_r{$m}{e_value} );
+            }
+            else {
+                next
+                  if ( $tb1_cutoff > $$seq_r{$m}{score}
+                    or $te1_cutoff < $$seq_r{$m}{e_value} );
+            }
+            for my $n ( 1 .. $$seq_r{$m}{number} ) {
+                if ( !$$seq_r{$m}{$n}{seq_f} ) {
+                    next;
+                }
+                if ($inverse) {
+                    next
+                      if ( $tb2_cutoff < $$seq_r{$m}{$n}{score}
+                        or $te2_cutoff > $$seq_r{$m}{$n}{e_value} );
+                }
+                else {
+                    next
+                      if ( $tb2_cutoff > $$seq_r{$m}{$n}{score}
+                        or $te2_cutoff < $$seq_r{$m}{$n}{e_value} );
+                }
+                if ( $method eq 'hmmsearch' ) {
+                	if ( $query_obj =~ /_rev$/ ) {			# check for strand specific HMM (_fwd or _rev)
+                		$query_obj =~ s/_rev$//;
+                		my $seq_t = $$seq_r{$m}{$n}{seq_t};
+                		$$seq_r{$m}{$n}{seq_t} = $$seq_r{$m}{$n}{seq_f};
+                		$$seq_r{$m}{$n}{seq_f} = $seq_t;
+                	} elsif ( $query_obj =~ /_fwd$/ ) {
+                		$query_obj =~ s/_fwd$//;
+                	}
+					my @tab = ($query_obj, "$month-$day-$year", $hmm_len, $method, $query_db, $$seq_r{$m}{header}, $$seq_r{$m}{$n}{hmm_f}, $$seq_r{$m}{$n}{hmm_t}, $$seq_r{$m}{$n}{seq_f}, $$seq_r{$m}{$n}{seq_t}, undef, $$seq_r{$m}{$n}{score}, $$seq_r{$m}{score}, $n, $$seq_r{$m}{number}, $com_name, $$seq_r{$m}{comment}, $trusted_cutoff, $noise_cutoff, $$seq_r{$m}{e_value}, $$seq_r{$m}{$n}{e_value} );
+					if ( $expanded_format ) {
+						push ( @tab, $details );
+					}
+					print $output join("\t", @tab ) . "\n";
+                }
+                elsif ( $method eq 'hmmpfam' ) {
+                	if ( $$seq_r{$m}{header} =~ /_rev$/ ) {	# check for strand specific HMM (_fwd or _rev)
+                		$$seq_r{$m}{header} =~ s/_rev$//;
+                		my $seq_t = $$seq_r{$m}{$n}{seq_t};
+                		$$seq_r{$m}{$n}{seq_t} = $$seq_r{$m}{$n}{seq_f};
+                		$$seq_r{$m}{$n}{seq_f} = $seq_t;
+                	} elsif ( $$seq_r{$m}{header} =~ /_fwd$/ ) {
+                		$$seq_r{$m}{header} =~ s/_fwd$//;
+                	}
+                	my @tab = ( $$seq_r{$m}{header}, "$month-$day-$year", $$seq_r{$m}{hmm_len}, $method, $query_db, $query_obj, $$seq_r{$m}{$n}{hmm_f}, $$seq_r{$m}{$n}{hmm_t}, $$seq_r{$m}{$n}{seq_f}, $$seq_r{$m}{$n}{seq_t}, undef, $$seq_r{$m}{$n}{score}, $$seq_r{$m}{score}, $n, $$seq_r{$m}{number}, $$seq_r{$m}{com_name}, $prot_desc, $$seq_r{$m}{trusted_cutoff}, $$seq_r{$m}{noise_cutoff}, $$seq_r{$m}{e_value}, $$seq_r{$m}{$n}{e_value} );
+                	if ( $expanded_format ) {
+                		push( @tab, $$seq_r{$m}{details} );
+                	}
+                    print $output join("\t", @tab) . "\n";
+                }
+            }
+        }
+    }
+}
+
+####################################################################################
+# read HMM's details from egad database
+sub get_hmm_db_info {
+	use strict;
+	my ( $db_proc, $acc ) = @_;
+	our $errorMessage;
+
+# get HMM details from egad database
+# if database not available, return empty details
+	if ( ! defined $db_proc ) {
+		return &emptyHMMDetail;
+	}
+
+# first try hmm2 table
+	my $info =
+		$db_proc->selectrow_hashref(
+			"select hmm_acc, hmm_len, trusted_cutoff, noise_cutoff, gathering_cutoff, hmm_com_name as com_name, "
+				. "gene_sym, ec_num, iso_type, trusted_cutoff2 "
+				. "from hmm2 "
+				. "where hmm_acc = ? and is_current = 1",
+			undef, $acc );
+	if ( defined $$info{hmm_acc} && $$info{hmm_acc} eq $acc ) {
+		$$info{details} = "gene_sym=" . $$info{gene_sym}
+			. "~~ec_num=" . $$info{ec_num}
+			. "~~gathering_cutoff=" . $$info{gathering_cutoff}
+			. "~~trusted_cutoff2=" . $$info{trusted_cutoff2}
+			. "~~iso_type=" . $$info{iso_type};
+		delete ( $$info{gene_sym} );
+		delete ( $$info{ec_num} );
+		delete ( $$info{gathering_cutoff} );
+		delete ( $$info{trusted_cutoff2} );
+		delete ( $$info{iso_type} );
+		return $info;
+	}
+
+# if no results, try rfam table
+	my $acc2 = $acc;
+	$acc2 =~ s/_rev$//;
+	$acc2 =~ s/_fwd$//;
+	$info =
+		$db_proc->selectrow_hashref(
+			"select accession as hmm_acc, null as hmm_len, trusted_cutoff, noise_cutoff, gathering_thresh, com_name, "
+				. "window_size, feat_type, feat_class, gene_sym "
+				. "from rfam "
+				. "where accession = ? and iscurrent = 1",
+			undef, $acc2 );
+	if ( defined $$info{hmm_acc} && $$info{hmm_acc} eq $acc2 ) {
+		$$info{details} = "gene_sym=" . $$info{gene_sym}
+			. "~~feat_type=" . $$info{feat_type}
+			. "~~feat_class=" . $$info{feat_class}
+			. "~~gathering_thresh=" . $$info{gathering_thresh}
+			. "~~window_size=" . $$info{window_size};
+		delete ( $$info{gene_sym} );
+		delete ( $$info{feat_type} );
+		delete ( $$info{feat_class} );
+		delete ( $$info{gathering_thresh} );
+		delete ( $$info{window_size} );
+		return $info;
+	}
+
+# not in db, return empty details
+	return &emptyHMMDetail;
+}
+
+sub emptyHMMDetail {
+	use strict;
+# return empty HMM details, used when db query failed
+	my $empty;
+	$$empty{hmm_acc} = undef;
+	$$empty{hmm_len} = undef;
+	$$empty{trusted_cutoff} = undef;
+	$$empty{noise_cutoff} = undef;
+	$$empty{com_name} = undef;
+	$$empty{details} = undef;
+	return $empty;
+}
+	
+####################################################################################
+# read HMM results file,
+# parse and extend details from egad database,
+# and write tab-delimited output
+sub parse_hmm_hits {
+    use strict;
+    my (
+        $file,       $db,           $db_proc,        $usage,
+        $debug,      $align_output, $align_file,     $b1_cutoff,
+        $b2_cutoff,  $e1_cutoff,    $e2_cutoff,      $format,
+        $quiet,      $noise_cutoff, $trusted_cutoff, $output_dir,
+        $tb1_cutoff, $tb2_cutoff,   $te1_cutoff,     $te2_cutoff,
+        $inverse,    $multi, $expand_output
+      )
+      = @_;
+	
+
+	my $expanded_format = 0;
+	if ( defined $expand_output ) {
+		$expanded_format = $expand_output;
+	}
+
+    #   following are entry-wide variables
+    if ( $inverse ne '' ) {
+        $tb1_cutoff = (
+              $tb1_cutoff ne ''
+            ? $tb1_cutoff
+            : 2000
+        );
+        $tb2_cutoff = (
+              $tb2_cutoff ne ''
+            ? $tb2_cutoff
+            : 2000
+        );
+        $te1_cutoff = (
+              $te1_cutoff ne ''
+            ? $te1_cutoff
+            : -100
+        );
+        $te2_cutoff = (
+              $te2_cutoff ne ''
+            ? $te2_cutoff
+            : -100
+        );
+    }
+    else {
+        $inverse    = 0;
+        $tb1_cutoff = (
+              $tb1_cutoff ne ''
+            ? $tb1_cutoff
+            : -2000
+        );
+        $tb2_cutoff = (
+              $tb2_cutoff ne ''
+            ? $tb2_cutoff
+            : -2000
+        );
+        $te1_cutoff = (
+              $te1_cutoff ne ''
+            ? $te1_cutoff
+            : 100
+        );
+        $te2_cutoff = (
+              $te2_cutoff ne ''
+            ? $te2_cutoff
+            : 100
+        );
+    }
+    my ( @line, $method, $query_obj, $query_db, %seq, $output, $prot_desc,
+        $fhtab );
+    my $version;
+
+    # drink in the output from file or stdin
+    if ( $file ne '' ) {
+        chomp $file;
+        open( FH, "$file" )
+          || die "Can't open $file for reading: $!\n";
+        @line = <FH>;
+        close FH;
+        $fhtab = "$file.htab";
+        $fhtab =~ s:^(.*/)?:$output_dir/:
+          if ($output_dir);
+        open( FHTAB, ">$fhtab" )
+          || die "Can't open $fhtab for writing: $!\n";
+        $output = \*FHTAB;
+    }
+    else {
+        @line   = <STDIN>;
+        $output = \*STDOUT;
+    }
+
+    #parse file content
+    my $n = 0;
+    while ( $n < @line ) {
+		if ( $line[$n] =~ /^ *RF [ Xx]+$/ ) {
+        #get program used
+		} elsif ( $line[$n] =~ /hmmsearch/ ) {
+            $method = 'hmmsearch';
+            print "Method: $method\n"
+              if ($debug);
+        }
+        elsif ( $line[$n] =~ /hmmpfam/ ) {
+            $method = 'hmmpfam';
+            print "Method: $method\n"
+              if ($debug);
+        }
+        else {
+            if ( $method eq '' ) {
+                if ( \*FHTAB ) {
+                    close FHTAB;
+                    unlink "$file.htab"
+                      if ( !-s "$file.htab" );
+                }
+                die "***Error: unknown search program used: $line[$n]\n";
+            }
+        }
+        if ( $line[$n] =~ /^HMMER (\d)\.(\S+) \(/ ) {
+            my ( $maj_ver, $min_ver ) = ( $1, $2 );
+            print "Version: $maj_ver.$min_ver\n"
+              if ($debug);
+            if ( $maj_ver == 2 ) {
+                if ( $min_ver eq '1.1' ) {
+                    $version = 1;
+                }
+                else {
+                    $version = 2;
+                }
+
+#                } elsif ($min_ver eq '2g') {
+#                    $version = 2;
+#                } else {
+#                    if (\*FHTAB) {
+#                        close FHTAB;
+#                        unlink "$file.htab" if(!-s "$file.htab");
+#                    }
+#                    die "***Error: invalid HMMer version '$maj_ver.$min_ver' used.\n";
+#                }
+            }
+            else {
+                if ( \*FHTAB ) {
+                    close FHTAB;
+                    unlink "$file.htab"
+                      if ( !-s "$file.htab" );
+                }
+                die
+                  "***Error: invalid HMMer version '$maj_ver.$min_ver' used.\n";
+            }
+        }
+        elsif ( $line[$n] =~ /^Logical Depth HMMER (\d+)\.(\S+)/ ) {
+            my ( $maj_ver, $min_ver ) = ( $1, $2 );
+            print "Version: $maj_ver.$min_ver\n"
+              if ($debug);
+            $version =
+              2;  # Logical Depth HMMer currently uses 2.2g output format
+        }
+        # New code for CLC hmmer handling 2009-04-08 by aklump
+		  elsif ( $line[$n] =~ /^CLC\w*\s+(\d+)\.(\S+)/ ){
+            my ( $maj_ver, $min_ver ) = ( $1, $2 );
+            print "Version: $maj_ver.$min_ver\t"
+              if ($debug);
+            print "Assuming CLC is still HMMer2 compliant..if things break, verify this first.\n"
+              if ($debug);
+				$version = 2;
+		  }
+
+        #get sequence db name for hmmsearch
+        if ( $line[$n] =~ /^Sequence database:\s+([\w\-.]+)/ ) {
+            $query_db = $1;
+            print "Sequence database: $query_db\n"
+              if ($debug);
+        }
+
+        #get HMM db name for hmmpfam
+        if ( $line[$n] =~ /^HMM file:\s+/ ) {
+            if ( $' ne '' ) {
+                $query_db = $';
+                chomp $query_db;
+                $query_db =~ s/\t//g;
+                $query_db =~ s/^\s+//;
+                $query_db =~ s/\s+$//;
+                print "HMM database: $query_db\n"
+                  if ($debug);
+            }
+        }
+        if ( $version == 1 ) {
+            if (
+                (
+                       $line[$n] =~ /^Query HMM: ([\w.\-]+)\|\|/
+                    or $line[$n] =~ /^Query:\s+(\S+)/
+                )
+                && $seq{number} > 0
+              )
+            {
+
+                #get hmm length from either DB or HMM file
+                &print_parse_hmm_hit(
+                    $db_proc,      $db,             $output,
+                    $method,       \%seq,           $query_obj,
+                    $prot_desc,    $query_db,       $debug,
+                    $noise_cutoff, $trusted_cutoff, $tb1_cutoff,
+                    $tb2_cutoff,   $te1_cutoff,     $te2_cutoff,
+                    $inverse, $expanded_format
+                  )
+                  unless ($quiet);
+                $query_obj = $prot_desc = "";
+                %seq = ();
+            }
+
+            #get query hmm name for hmmsearch
+            if ( $line[$n] =~ /^Query HMM: ([\w.\-]+)\|/ ) {
+                $query_obj = $1;
+                print "query HMM: $query_obj\n"
+                  if ($debug);
+            }
+
+            #get query sequence name for hmmpfam
+            if ( $line[$n] =~ /^Query:\s+(\S+)/ ) {
+                $query_obj = $1;
+                $prot_desc = '';
+                if ( $' ne '' ) {
+                    $prot_desc = $';
+                    chomp $prot_desc;
+                    $prot_desc =~ s/\t/ /g;
+                    $prot_desc =~ s/^\s+//;
+                    $prot_desc =~ s/\s+$//;
+                }
+                print "query seq: $query_obj\n"
+                  if ($debug);
+            }
+        }
+        elsif ( $version == 2 ) {
+
+            #get query sequence name for hmmpfam
+            if ( $line[$n] =~ /^Query sequence:\s+(\S+)/ ) {
+                my $tmp_obj = $1;
+                &print_parse_hmm_hit(
+                    $db_proc,      $db,             $output,
+                    $method,       \%seq,           $query_obj,
+                    $prot_desc,    $query_db,       $debug,
+                    $noise_cutoff, $trusted_cutoff, $tb1_cutoff,
+                    $tb2_cutoff,   $te1_cutoff,     $te2_cutoff,
+                    $inverse, $expanded_format
+                  )
+                  unless ($quiet);
+                $query_obj = $tmp_obj;
+                $prot_desc = "";
+                %seq       = ();
+                print "query seq: $query_obj\n"
+                  if ($debug);
+            }
+
+            #get query hmm name for hmmsearch
+            if ( $line[$n] =~ /^Query HMM:\s+(\S+)/ ) {
+                $query_obj = $1;
+                print "query HMM: $query_obj\n"
+                  if ($debug);
+            }
+            if ( $line[$n] =~ /^Description:\s+(.+)/ ) {
+                $prot_desc = $1;
+                chomp $prot_desc;
+                $prot_desc =~ s/\t/ /g;
+                $prot_desc =~ s/^\s+//;
+                $prot_desc =~ s/\s+$//;
+            }
+        }
+
+#get header, total score, e_value, number of domains of sequences for hmmsearch or hmmpfam
+# 2007-05-08 RAR altered regex to accept either N or #D as number of domains column header
+        if (   $line[$n] =~ /^(Sequence\s+)Description\s+Score\s+E-value\s+(?:N|\#D)/
+            || $line[$n] =~ /^(Model\s+)Description\s+Score\s+E-value\s+(?:N|\#D)/ )
+        {
+            my $m            = 0;
+            my $seqid_length = length($1);
+
+            # if these are results from searches on a multi-sequence input file
+            # this return should not happen
+            unless ($multi) {
+
+                # create one line file if there are no hits.
+                if ( $line[ $m + $n + 2 ] =~ /\[no hits above thresholds\]/ )
+                {
+                    print $output "No hits above thresholds.\n" ;
+                    ###return ();   #### <---- this line was causing the program to exit even if other files followed the one with no hits!!!
+		                    #### Removed by selengut 6/11/07
+                }
+            }
+            while ( $line[ $m + $n + 2 ] =~ /^\S+/ ) {
+                my @data = split /\s+/, $line[ $m + $n + 2 ];
+                $seq{$m}{header}  = shift @data;
+                $seq{$m}{number}  = pop @data;
+                $seq{$m}{e_value} = pop @data;
+                $seq{$m}{score}   = pop @data;
+                $seq{$m}{comment} = join " ", @data;
+                print
+                  "$m --- $seq{$m}{header}\t$seq{$m}{comment}\t$seq{$m}{score}\t$seq{$m}{e_value}\t$seq{$m}{number}\n"
+                  if ($debug);
+                ++$m;
+            }
+            $seq{number} = $m;
+        }
+
+#get seq-f, seq-t, hmm-f, hmm-t, score, e_value for each domain for hmmsearch or hmmpfam
+        if ( $line[$n] =~
+            /^Sequence\s+Domain\s+seq-f\s+seq-t\s+hmm-f\s+hmm-t\s+score\s+E-value/i
+            or $line[$n] =~
+            /^Model\s+Domain\s+seq-f\s+seq-t\s+hmm-f\s+hmm-t\s+score\s+E-value/i
+          )
+        {
+            my $m = 0;
+            while ( $line[ $m + $n + 2 ] =~
+                /^(\S+)\s+(\d+)\/(\d+)\s+(\d+)\s+(\d+).+?(\d+)\s+(\d+).+?(-?\d\S*)\s+(\d\S*)/
+              )
+            {
+                for my $k ( 0 .. $seq{number} - 1 ) {
+                    if ( $seq{$k}{header} eq $1 ) {
+                        $seq{$k}{$2}{seq_f}   = $4;
+                        $seq{$k}{$2}{seq_t}   = $5;
+                        $seq{$k}{$2}{hmm_f}   = $6;
+                        $seq{$k}{$2}{hmm_t}   = $7;
+                        $seq{$k}{$2}{score}   = $8;
+                        $seq{$k}{$2}{e_value} = $9;
+                        print "***Error: number of domain do not match\n"
+                          if (  $3 != $seq{$k}{number}
+                            and $debug );
+                        print "$m --- $1\t$2\t$3\t$4\t$5\t$6\t$7\t$8\t$9\n"
+                          if ($debug);
+                    }
+                }
+                ++$m;
+            }
+        }
+
+        # get aligned sequences ---------------------------------------------------
+        if (   $align_output
+            && $line[$n] =~ /^Alignments of top-scoring domains:/
+            && $method eq 'hmmsearch' )
+        {
+            my ( %align, %posi,  %align_seq );
+            my ( $s_hmm, $e_hmm, $hmm_max_len ) = ( 10000, 0, 0 );
+
+            #get the maximum range of hmm sequnces, required for fragment model
+            for my $k1 ( 0 .. $seq{number} - 1 ) {
+                for my $k2 ( 1 .. $seq{$k1}{number} ) {
+                    $s_hmm = $seq{$k1}{$k2}{hmm_f}
+                      if ( $seq{$k1}{$k2}{hmm_f} < $s_hmm );
+                    $e_hmm = $seq{$k1}{$k2}{hmm_t}
+                      if ( $seq{$k1}{$k2}{hmm_t} > $e_hmm );
+                }
+            }
+
+            #get hmm and prot sequences
+            my $m = 1;
+            while ( $line[ $n + $m ] !~ /^Histogram of all scores:/ ) {
+                if ( $line[ $n + $m ] =~ /^\S+/ ) {
+                    for my $k ( 0 .. $seq{number} - 1 ) {
+                        next
+                          if ( $b1_cutoff > $seq{$k}{score}
+                            or $e1_cutoff < $seq{$k}{e_value} );
+                        if ( $line[ $n + $m ] =~
+                            /^\Q$seq{$k}{header}\E:\s+domain\s+(\d+)/ )
+                        {
+                            my $domain = $1;
+ 
+  							# ignore extra line generated when HMM's RF flag is on
+							if ( $line[ $n + $m + 1 ] =~ /^ *RF [ Xx]+$/ ) { $m++ }
+
+                            next
+                              if ( $b2_cutoff > $seq{$k}{$domain}{score}
+                                or $e2_cutoff < $seq{$k}{$domain}{e_value} );
+                            while ( $line[ $m + $n + 1 ] =~ /^\s+/
+                                and $line[ $m + $n + 3 ] =~
+                                /^\s+([^\|\.\:\/\s]+((\||\.|\:|\/)[^\|\.\:\/\s]+)?)/
+                                && index( $seq{$k}{header}, $1 ) == 0 )
+                            {
+                                $align{$k}{$domain}{prot} .= $3
+                                  if ( $line[ $m + $n + 3 ] =~
+                                    /^\s+(\S+)\s+(\d+|-)\s+(\S+)\s+(\d+|-)/
+                                  );
+                                $align{$k}{$domain}{hmm} .=
+                                  $line[ $m + $n + 1 ];
+                                $m += 4;
+								if ( $line[ $n + $m + 1 ] =~ /^ *RF [ Xx]+$/ ) { $m++ }
+                            }
+                            $align{$k}{$domain}{hmm} =~ s/[\s\n]//g;
+                            $align{$k}{$domain}{hmm} =~ s/\*->|<-\*//g
+                              ; # can not merge since <-* might be broken to two sections
+                            $align{$k}{$domain}{show} = 1
+                              ; # means this line is above all cutoff and should be printed out later
+                            die
+                              "***Error: wrong character(s) \"$&\" in HMM sequence $align{$k}{$domain}{hmm} for file $file\n"
+                              if (
+                                $align{$k}{$domain}{hmm} =~ /[^a-zA-Z.]/ );
+                            last;
+                        }
+                    }
+                }
+                ++$m;
+            }
+
+#align hmm and prot sequences to the maximum range of hmm sequence as defined by $s_hmm, $e_hmm, gap in prot
+# sequences is dot, gap in hmm sequence is dash since dot means insertion which needs to be processed later.
+            for my $k1 ( 0 .. $seq{number} - 1 ) {
+                for my $k2 ( 1 .. $seq{$k1}{number} ) {
+
+                    # what if header has coords in it???????????
+                    if (   $seq{$k1}{$k2}{hmm_f} > 0
+                        && $seq{$k1}{$k2}{hmm_t} > $seq{$k1}{$k2}{hmm_f} )
+                    {
+                        $align{$k1}{$k2}{new_prot} =
+                            '.' x ( $seq{$k1}{$k2}{hmm_f} - $s_hmm )
+                          . $align{$k1}{$k2}{prot}
+                          . '.' x ( $e_hmm - $seq{$k1}{$k2}{hmm_t} );
+                        $align{$k1}{$k2}{new_hmm} =
+                            '-' x ( $seq{$k1}{$k2}{hmm_f} - $s_hmm )
+                          . $align{$k1}{$k2}{hmm}
+                          . '-' x ( $e_hmm - $seq{$k1}{$k2}{hmm_t} );
+                        $align{$k1}{$k2}{new_prot} =~ s/-/\./g;
+
+# following can not be replaced by ($e_hmm - $s_hmm +1) since hmm sequence contains dor as gap
+                        $hmm_max_len = length $align{$k1}{$k2}{new_hmm}
+                          if (
+                            length $align{$k1}{$k2}{new_hmm} >
+                            $hmm_max_len );
+
+                        #			print "A $align{$k1}{$k2}{new_prot}\n";
+                        #			print "B $align{$k1}{$k2}{new_hmm}\n";
+                    }
+                }
+            }
+
+            #get position of gaps in hmm sequences and the indices of the hmm sequences
+            for my $n ( 1 .. $hmm_max_len - 1 ) {  # $n start from 1 here
+                for my $k1 ( 0 .. $seq{number} - 1 ) {
+                    for my $k2 ( 1 .. $seq{$k1}{number} ) {
+                        if (
+                            substr( $align{$k1}{$k2}{new_hmm}, $n, 1 ) eq
+                            '.' )
+                        {
+                            ++$posi{ $n - 1 }{$k1}{$k2};
+                            $posi{ $n - 1 }{max} = $posi{ $n - 1 }{$k1}{$k2}
+                              if ( $posi{ $n - 1 }{max} <
+                                $posi{ $n - 1 }{$k1}{$k2} );
+                            $align{$k1}{$k2}{new_hmm} =
+                                substr( $align{$k1}{$k2}{new_hmm}, 0, $n )
+                              . substr( $align{$k1}{$k2}{new_hmm}, $n + 1 );
+                            redo;
+                        }
+                    }
+                }
+            }
+
+            #re-align protein sequences based on gaps in hmm sequences
+            my $count = 0;
+            for my $n ( sort { $a <=> $b } keys %posi ) {
+                for my $k1 ( 0 .. $seq{number} - 1 ) {
+                    for my $k2 ( 1 .. $seq{$k1}{number} ) {
+                        if ( $posi{$n}{max} > 0 ) {
+                            $align{$k1}{$k2}{new_prot} =
+                              substr( $align{$k1}{$k2}{new_prot},
+                                0, $n + $count + 1 )
+                              . '.' x
+                              ( $posi{$n}{max} - $posi{$n}{$k1}{$k2} )
+                              . substr( $align{$k1}{$k2}{new_prot},
+                                $n + $count + 1 );
+                        }
+                    }
+                }
+                $count += $posi{$n}{max};
+            }
+
+            #remove a gap if all sequences have it
+            my $n = 0;
+            while ( $n < length $align{0}{1}{new_prot} ) {
+                my $dele = 1;
+                for my $k1 ( 0 .. $seq{number} - 1 ) {
+                    for my $k2 ( 1 .. $seq{$k1}{number} ) {
+                        $dele = 0
+                          if (
+                            substr( $align{$k1}{$k2}{new_prot}, $n, 1 ) ne
+                            '.' );
+                    }
+                }
+                if ($dele) {
+                    for my $k1 ( 0 .. $seq{number} - 1 ) {
+                        for my $k2 ( 1 .. $seq{$k1}{number} ) {
+                            $align{$k1}{$k2}{new_prot} =
+                                substr( $align{$k1}{$k2}{new_prot}, 0, $n )
+                              . substr( $align{$k1}{$k2}{new_prot}, $n + 1 );
+                        }
+                    }
+                }
+                else {
+                    ++$n;
+                }
+            }
+
+            #output
+            $m = -1;
+            for my $k1 ( 0 .. $seq{number} - 1 ) {
+                for my $k2 ( 1 .. $seq{$k1}{number} ) {
+                    if ( $align{$k1}{$k2}{show} ) {
+                        ++$m;
+                        $align_seq{$m}{ori} =
+                          "$seq{$k1}{header}\t$align{$k1}{$k2}{new_prot}";
+                        &parse_single_seq( $align_seq{$m}, 'mul', '', '', '',
+                            '', '' );
+                        $align_seq{$m}{lend} = $seq{$k1}{$k2}{seq_f};
+                        $align_seq{$m}{rend} = $seq{$k1}{$k2}{seq_t};
+                    }
+                }
+            }
+            $align_seq{number} = $m + 1;
+
+            #get more header info for each protein
+            my %prot;
+            for my $n ( 0 .. $align_seq{number} - 1 ) {
+                (
+                      $align_seq{$n}{db} eq "EGAD"
+                    ? $prot{"$align_seq{$n}{db}|$align_seq{$n}{prot_id}"} =
+                      {}
+                    : $prot{"$align_seq{$n}{db}|$align_seq{$n}{0}"} = {}
+                );
+            }
+
+            #	    &download_nraa(\%prot, '', '', 1);
+            #	    &yank_prot(\%prot, '', '');
+            for my $n ( 0 .. $align_seq{number} - 1 ) {
+                if ( $align_seq{$n}{db} eq "EGAD" ) {
+                    $align_seq{$n}{locus} = $1
+                      if (
+                        $prot{"$align_seq{$n}{db}|$align_seq{$n}{prot_id}"}
+                        {first_acc} =~ /^EGAD\|\d+\|([^\|\/\s]+)/ );
+                }
+                else {
+                    $align_seq{$n}{1} = $1
+                      if ( $prot{"$align_seq{$n}{db}|$align_seq{$n}{0}"}
+                        {first_acc} =~ /^[A-Za-z]+\|[^\|]+\|([^\|\/\s]+)/ );
+                    $align_seq{$n}{number} = 2;
+                }
+            }
+
+            #output results
+            my $out =
+              &format_sequence( \%align_seq, $format, '', 60, 1, '', '',
+                '' );
+            if ( $align_file ne '' ) {
+                $align_file .= ".msf"
+                  if ( $format eq 'msf' );
+                $align_file .= ".fa"
+                  if ( $format eq 'fasta' );
+                $align_file .= ".mul"
+                  if ( $format eq 'mul' );
+                open( FH, ">$align_file" );
+                print FH $out;
+                close FH;
+                unlink "$align_file"
+                  if ( -s "$align_file" == 0 );
+            }
+            else {
+                open( FH, ">$file.aligned" );
+                print FH $out;
+                close FH;
+                unlink "$file.aligned"
+                  if ( -s "$file.aligned" == 0 );
+            }
+
+            #end of job
+            $n += $m;
+        }
+        ++$n;
+    }
+    &print_parse_hmm_hit(
+        $db_proc,    $db,           $output,         $method,
+        \%seq,       $query_obj,    $prot_desc,      $query_db,
+        $debug,      $noise_cutoff, $trusted_cutoff, $tb1_cutoff,
+        $tb2_cutoff, $te1_cutoff,   $te2_cutoff,     $inverse,
+        $expanded_format
+      )
+      unless ($quiet);
+    close FHTAB;
+    unlink "$file.htab"
+      if ( !-s "$file.htab" );
+    return "success";
 }
 1;

@@ -14,8 +14,13 @@ use File::Copy;
 
 BEGIN { $SIG{__DIE__}= sub{ Carp::confess @_ } }
 
-my $hmm_db_source = '../../../data';
+#my $hmm_db_source = '../../../data';
+my $hmm_db_source = '/usr/local/projects/jorvis/metagenomic_annotation/SOM/data/hmm-index';
 my $hmm_db_name = 'ALL_LIB.HMM.dump';
+
+
+
+
 my $hmm_db_source_file = $hmm_db_source."/".$hmm_db_name;
 
 print "Using dbm souce file=" . $hmm_db_source_file . "\n";
