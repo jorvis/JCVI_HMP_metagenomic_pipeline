@@ -1,5 +1,8 @@
 #!/usr/local/bin/perl
 
+#use lib "/share/apps/ergatis/jboss-test/lib";
+#use lib "/usr/local/devel/ANNOTATION/mg-annotation/testing/smurphy-20090825-DO_NOT_USE_FOR_PRODUCTION/current/annotation_tool";
+
 use strict;
 use warnings;
 use Carp;
@@ -16,6 +19,7 @@ my %options = ();
 GetOptions (\%options,
             'input|i=s',
             'output|o=s',
+            'synonyms|s=s',
             'help|h') || pod2usage();
 
 unless($options{'input'}) {
@@ -30,7 +34,7 @@ unless (-e $options{'input'}) {
 
 open (my $infh, $options{'input'}) || die "Couldn't open input table file '$options{input}' for reading: $!";
 open (my $outfh, ">".$options{'output'}) || die "couldn't open output file '$options{output_file}' for writing: $!";
-my $rules = new CAMERA::AnnotationRules::PredictedProtein();
+my $rules = new CAMERA::AnnotationRules::PredictedProtein($options{'synonyms'});
 
 my $last_id = '';
 my $pep = undef;

@@ -1,10 +1,20 @@
 #!/usr/local/bin/perl
 
+##################################################################
+# Description: HTAB.pm
+#
+# Parses hmmer 3 htab files and fetches HMM annotation information
+# from a SQLite database (hmm3.db)
+# --------------
+# Date:   Dec 23, 2010  
+##################################################################
+
 package CAMERA::Parser::HTAB;
 
 use strict;
 use warnings;
 
+use DBI;
 use Carp;
 use CAMERA::Polypeptide;
 use CAMERA::PolypeptideSet;
@@ -13,23 +23,6 @@ use DBM::Deep;
 use File::Copy;
 
 BEGIN { $SIG{__DIE__}= sub{ Carp::confess @_ } }
-
-#my $hmm_db_source = '../../../data';
-my $hmm_db_source = '/usr/local/projects/jorvis/metagenomic_annotation/SOM/data/hmm-index';
-my $hmm_db_name = 'ALL_LIB.HMM.dump';
-
-
-
-
-my $hmm_db_source_file = $hmm_db_source."/".$hmm_db_name;
-
-print "Using dbm souce file=" . $hmm_db_source_file . "\n";
-
-my $hmm_db_file = '';
-
-my $hmm_data = {};
-
-my $hmm_frag = 0;
 
 my $to_text;
 
@@ -41,21 +34,15 @@ sub new {
 
     my $self = {};
 
-    my $hmm_db_dir = ($args{'work_dir'}) ? $args{'work_dir'} : '';
+    ## path to sqlite database
+    my $sqliteDB = "$args{'work_dir'}/hmm3.db";
 
-    $hmm_db_file = "$hmm_db_dir/$hmm_db_name";
-    print "$hmm_db_source_file\n";
-    if (! -e $hmm_db_file) {
-        copy($hmm_db_source_file, $hmm_db_file);
-    }
-
-    unless (-e $hmm_db_file) {
-        confess "HMM data file '$hmm_db_file' does not exist";
-    }
-
-    if ($args{'frag'}) {
-        $hmm_frag = 1;
-    }
+	## open sqlite database
+	$self->{'db'} = DBI->connect( "dbi:SQLite:$sqliteDB", "", "", {PrintError=>1,RaiseError=>1,AutoCommit=>0} );
+	if ( !defined $self->{'db'} ) {
+		die "could not connect to sqlite database: $sqliteDB" . $DBI::errstr;
+	}
+    
     ## pass in a reference to a CAMERA::PolypeptideSet object
     ## can be null if no other annotation has been parsed yet
     if (ref($args{'polypeptides'}) eq 'CAMERA::PolypeptideSet') {
@@ -65,12 +52,12 @@ sub new {
     }
 
     ## initialize the hmm data hash
-    _initialize_hmm_data();
+    ##_initialize_hmm_data();
     
     return bless $self, $class;
 }
 
-sub parse {
+sub parse {	
     my ($self, $file, $text_mode, $txt_fh) = @_;
 
     if ($text_mode) {
@@ -128,11 +115,15 @@ sub parse {
         chomp;
 	print "Reading htab line=$_\n";
         ## fix for concatenated output not from htab.pl -m
-        if (/^No hits/) {
+        if (/^No hits/ || /^No domain/) {
             next;
         }
         my @t = split("\t", $_);
         my $hmm_id = $t[0];
+        
+        ## database results
+        my $hmm3 = $self->get($hmm_id);
+        
         my $pep_id = $t[5];
         my $score = $t[11];
         
@@ -150,8 +141,9 @@ sub parse {
             $self->{'polypeptides'}->add($pep);
         }
         
-        my $hmm_type = _get_hmm_type($hmm_id);
+        my $hmm_type = _get_hmm_type($hmm3);
    
+   		
         ## if we don't recognize the hmm_type then skip
         unless ($hmm_type) {
             next;
@@ -159,21 +151,17 @@ sub parse {
         
         ## filter on trusted cutoffs
         if ($has_trusted_cutoffs{$hmm_type}) {
-            my $cutoff = $hmm_data->{$hmm_id}->[2];
-	    if($hmm_frag){
-		if($hmm_type =~ /PFAM/){
-#		    $cutoff = $hmm_data->{$hmm_id}->[9];
-		}
-	    }
+            my $cutoff = $hmm3->{trusted_cutoff};
+
             unless ($score >= $cutoff) {
-		print "Skipping because score=$score is less than cutoff=$cutoff\n";
+				print "Skipping because score=$score is less than cutoff=$cutoff\n";
                 next;
             }
         }
 
 	print "Adding annotation for hmm_id=$hmm_id pep_id=$pep_id\n";
         
-        $result .= _add_annotation($pep, $hmm_id, $hmm_type, $rank->{$pep_id});
+        $result .= _add_annotation($pep, $hmm3, $hmm_type, $rank->{$pep_id});
    }
    return $result;
 }
@@ -187,7 +175,9 @@ sub _open_file_read {
 }
 
 sub _add_annotation {
-    my ($pep, $hmm_id, $type, $rank) = @_;
+    my ($pep, $hmm3, $type, $rank) = @_;
+    
+	my $hmm_id = $hmm3->{hmm_acc};
 
     my $annotation = new CAMERA::AnnotationData::Polypeptide(
                 'id'        => $pep->{'id'},
@@ -197,13 +187,12 @@ sub _add_annotation {
                                            );
                                                
     my $success = 0;
-                                           
-    $success += _set_common_name($annotation); 
-    $success += _set_gene_symbol($annotation);
-    $success += _set_ec_numbers($annotation);
-    $success += _set_go_ids($annotation);
-    $success += _set_TIGR_roles($annotation);
-    
+                               
+    $success += _set_common_name($annotation,$hmm3); 
+    $success += _set_gene_symbol($annotation,$hmm3);
+    $success += _set_ec_numbers($annotation,$hmm3);
+    $success += _set_go_ids($annotation,$hmm3);
+     
     if ($success) {
         if ($to_text) {
             if ($text_fh) {
@@ -221,23 +210,24 @@ sub _add_annotation {
 }
 
 sub _get_hmm_type {
-    my ($hmm_id) = @_;
+    my $hmm3 = shift;
+
+	my $hmm_id = $hmm3->{hmm_acc};
 
     my $hmm_lib = '';
 
     if ($hmm_id =~ /^TIGR/) {
         $hmm_lib = 'TIGRFAM';
     } elsif ($hmm_id =~ /^PF/) {
-        $hmm_lib = 'PFAM';
+        $hmm_lib = 'PFAM'; 
     } else {
         confess "Unrecognized HMM type for '$hmm_id'";
     }
 
-    my $hmm_length = ($hmm_frag) ? 'FRAG' : 'FullLength';
+    my $hmm_length = 'FullLength';
 
-    my $hmm_type = $hmm_data->{$hmm_id}->[0];
-    my $iso_type = $hmm_data->{$hmm_id}->[1];
-    my $cutoff = $hmm_data->{$hmm_id}->[2];
+    my $iso_type = $hmm3->{iso_type};
+    my $cutoff 	 = $hmm3->{trusted_cutoff};
    
     if (! $iso_type) {
         confess "No iso_type for '$hmm_id'";
@@ -273,16 +263,16 @@ sub _get_hmm_type {
 }
 
 sub _set_common_name {
-    my ($annotation) = @_;
+    my ($annotation,$hmm3) = @_;
     
     my $hmm_id = $annotation->{'source'};
     my $type = $annotation->{'type'};
 
-    unless ($hmm_data->{$hmm_id}->[4]) {
-	return 0;
+    unless ($hmm3->{com_name}) {
+		return 0;
     }
 
-    my $common_name = $hmm_data->{$hmm_id}->[4];
+    my $common_name = $hmm3->{com_name};
 
     $annotation->add_attribute('common_name', $common_name);
     
@@ -290,128 +280,127 @@ sub _set_common_name {
 }
 
 sub _set_gene_symbol {
-    my ($annotation) = @_;
+    my ($annotation,$hmm3) = @_;
     
     my $hmm_id = $annotation->{'source'};
     my $type = $annotation->{'type'};
 
-    unless ($hmm_data->{$hmm_id}->[5]) {
-	return 0;
+    unless ($hmm3->{gene_sym}) {
+		return 0;
     }
-    my $data_type = ref($hmm_data->{$hmm_id}->[5]);
+   
+   	my $geneSymbol = $hmm3->{gene_sym};
     
-    if(!$data_type){
-	print "there is no data type\n";
-	#return 1;
-    }else{
+  	
+	$annotation->add_attribute('gene_symbol', $geneSymbol);
 
-	my $gc = $hmm_data->{$hmm_id}->[5];
-	$annotation->add_attribute('gene_symbol', $gc);
-
-#	my @gene_symbol = @{$hmm_data->{$hmm_id}->[5]};
-#
-#	foreach my $gc(@gene_symbol) {
-#	    $annotation->add_attribute('gene_symbol', $gc);
-#	}
-
-	return 1;
-    }
+	return 1;  
 }
 
 sub _set_ec_numbers {
-    my ($annotation) = @_;
+    my ($annotation,$hmm3) = @_;
     
-    my $hmm_id = $annotation->{'source'};
-    my $type = $annotation->{'type'};
-
-    unless ($hmm_data->{$hmm_id}->[6]) {
-	return 0;
+    my $hmm_id = $hmm3->{hmm_acc};
+ 
+    unless ($hmm3->{ec_num}) {
+		return 0;
     }
-    my $data_type = ref($hmm_data->{$hmm_id}->[6]);
-    
-    if(!$data_type){
-	print "there is no data type\n";
-	#return 1;
-    }else{
+       
+    my $ec_num = $hmm3->{ec_num};
 
-	my @ec_numbers = @{$hmm_data->{$hmm_id}->[6]};
+	my @ec_numbers = split(' ',$ec_num);
 	
 	foreach my $ec(@ec_numbers) {
 	    $annotation->add_attribute('EC', $ec);
 	}
 	
-	return 1;
-    }  
+	return 1; 
 }
 
 sub _set_go_ids {
-    my ($annotation) = @_;
+    my ($annotation,$hmm3) = @_;
 
     my $hmm_id = $annotation->{'source'};
     my $type = $annotation->{'type'};
 
-    unless ($hmm_data->{$hmm_id}->[7]) {
-	return 0;
+    unless($hmm3->{go}) {
+		return 0;
     }
-    my $data_type = ref($hmm_data->{$hmm_id}->[7]);
-    if(!$data_type){
-	print "htere is no data type\n";
-
-    }else{
-	my @go_ids = @{$hmm_data->{$hmm_id}->[7]};
     
-	foreach my $go(@go_ids) {
-	    print "$hmm_id,$go\n";
-	    $annotation->add_attribute('GO', $go);
+	my @go_ids = @{$hmm3->{go}};
+    
+	foreach my $go(@go_ids) {   
+	    $annotation->add_attribute('GO', @{$go}[0]);
 	}
 
 	return 1;
-    }
     
 }
 
-sub _set_TIGR_roles {
-    my ($annotation) = @_;
-    
-    my $hmm_id = $annotation->{'source'};
-    my $type = $annotation->{'type'};
-
-    unless ($hmm_data->{$hmm_id}->[8]) {
-	return 0;
-    }
-    my $data_type = ref($hmm_data->{$hmm_id}->[8]);
-    if(!$data_type){
-	print "there is no data type\n";
+sub get() {
+	my ($self,$accession) = @_;
 	
-    }else{
-	my @roles = @{$hmm_data->{$hmm_id}->[8]};
-    
-	foreach my $roles_ref(@roles) {
-	    $annotation->add_attribute('TIGR_role', $roles_ref->[0]);
+	my $db_proc = $self->{'db'};
+	
+	my $hmm3Result = $self->{'db'}->selectrow_hashref(
+			"select hmm_acc, hmm_len, trusted_cutoff, noise_cutoff, gathering_cutoff, hmm_com_name as com_name, "
+				. "gene_sym, ec_num, iso_type, trusted_cutoff2 "
+				. "from hmm3 "
+				. "where hmm_acc = ? and is_current = 1",
+			undef, $accession );
+		
+	## custom PFAM iso-type mapping provided by Dan Haft	
+	if($hmm3Result->{hmm_acc} =~ /^PF/) {
+		if($hmm3Result->{iso_type} =~ /^Domain$/) {
+			$hmm3Result->{iso_type} = 'domain';
+		}
+		elsif($hmm3Result->{iso_type} =~ /^Motif$/) {
+			$hmm3Result->{iso_type} = 'domain';
+		}
+		elsif($hmm3Result->{iso_type} =~ /^Family$/) {
+			$hmm3Result->{iso_type} = 'PFAM';
+		}		
+	}	
+			
+			
+	my $goResults = $self->{'db'}->selectall_arrayref(
+			"select go_term from hmm_go_link where hmm_acc = ? ",
+			undef, $accession );	
+	
+
+	if($goResults) {
+		$hmm3Result->{go} =$goResults;
+	}		
+	
+	printHmm($hmm3Result);
+	
+	return $hmm3Result;
+}
+
+sub printHmm() {
+	my ($hmm3) = @_;
+	
+	print "accession:\t".$hmm3->{hmm_acc}."\n";
+	print "common name:\t".$hmm3->{com_name}."\n";
+	
+	if(defined $hmm3->{gene_sym} ) {
+		print "gene symbol:\t".$hmm3->{gene_sym}."\n";
 	}
 
-	return 1;
-    }
-   
+	if(defined $hmm3->{ec}) {		
+		my $ec_num = $hmm3->{ec_num};
+
+		my @ec_numbers = split(' ',$ec_num);
+	 		
+		foreach my $ec(@ec_numbers) {
+		   print "ec:\t".$ec."\n";
+		}
+	}
+	if(defined $hmm3->{go}) {
+		my @go_ids = @{$hmm3->{go}};	    
+		foreach my $go(@go_ids) {	   
+		    print "go:\t".@{$go}[0]."\n";
+		}	
+	}	
 }
-
-sub _initialize_hmm_data {
-   
-    my %hmm_db; 
-    if (-e $hmm_db_file) {
-	
-        # ## the database already exists
-        #tie %hmm_db, 'MLDBM', $hmm_db_file, O_RDONLY, 0444
-        #  or die "Couldn't tie database file '$hmm_db_file': $!";
-        #$hmm_data = \%hmm_db;
-        print "Using $hmm_db_file for hmm data\n";
-        $hmm_data = new DBM::Deep(file => $hmm_db_file, locking => 0, autoflush => 0);
-
-    } else {
-
-	die "Could not find file $hmm_db_file\n";
-
-    }
-}
-
 1;

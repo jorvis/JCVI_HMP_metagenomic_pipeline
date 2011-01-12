@@ -1,5 +1,29 @@
 #!/usr/local/bin/perl
 
+##################################################################
+# Description: PredictedProtein.pm
+# This module is responsible for implemementing the annotation 
+# rules for CAMERA predicted proteins
+#
+# Input to the module is a PolypeptideSet containing Polypeptide
+# objects with associated AnnotationData::Polypeptide objects
+#
+# The attributes contained in the AnnotationData objects are expected
+# to have been already processed during the parsing of the source data,
+# so the attributes should not need cleanup of any kind.
+#
+# For example, all leading and trailing whitespace should have already 
+# been removed from all attributes; all GO ids should be in the form 
+# 'GO:#######'; all EC numbers should be in the form '#.#.#.#'; all 
+# multi-value attributes (eg: GO, EC) for a given annotation data type
+# should already have been split and should be present as single array
+# elements in the attribute arrays; all attempts at consistency of
+# capitalization (or other formatting) should have been (and should be) 
+# made in the parsing scripts.
+# --------------
+# Date:   Dec 21, 2010  
+##################################################################
+
 package CAMERA::AnnotationRules::PredictedProtein;
 
 use strict;
@@ -7,24 +31,23 @@ use warnings;
 use Carp;
 use CAMERA::AnnotationData::Polypeptide;
 use CAMERA::AnnotationRules::Util;
+use CAMERA::Parser::SynonymsDao;
 use CAMERA::AnnotationData::PolypeptideDataTypes;
 use Data::Dumper;
-#use var qw( );
-## This module is responsible for implemementing the annotation rules for CAMERA predicted proteins
-##
-## Input to the module is a PolypeptideSet containing Polypeptide objects with associated
-## AnnotationData::Polypeptide objects
-##
-## The attributes contained in the AnnotationData objects are expected to have been already processed
-## during the parsing of the source data, so the attributes should not need cleanup of any kind.
-##
-## For example, all leading and trailing whitespace should have already been removed from all attributes;
-## all GO ids should be in the form 'GO:#######'; all EC numbers should be in the form '#.#.#.#';
-## all multi-value attributes (eg: GO, EC) for a given annotation data type should already have been split
-## and should be present as single array elements in the attribute arrays; all attempts at consistency of
-## capitalization (or other formatting) should have been (and should be) made in the parsing scripts.
 
 {
+	
+    ## constructor             
+    sub new { 
+        my ($class, $synonyms) = @_;
+            
+        my $self = {
+       		_synonymsDao => new CAMERA::Parser::SynonymsDao($synonyms),
+   		};
+   		
+        return bless $self, $class;
+    }	
+	
     ## ordered array containing all or a subset of the annotation data types
     ## specified in CAMERA::AnnotationData::PolypeptideDataTypes
     ## order should be by order of annotation attribute assignment from 
@@ -38,69 +61,69 @@ use Data::Dumper;
                 ## equiv. pfam almost as good as equiv. tigrfam hits
                 ## exceptions are the absolute best hits
 
-                'TIGRFAM::FullLength::Exception|=|common_name gene_symbol GO EC TIGR_role',
-                'TIGRFAM::FullLength::Equivalog|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FullLength::Equivalog|=|common_name gene_symbol GO EC TIGR_role',
-                'TIGRFAM::FullLength::HypotheticalEquivalog|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FullLength::HypotheticalEquivalog|=|common_name gene_symbol GO EC TIGR_role',
+                'TIGRFAM::FullLength::Exception|=|common_name gene_symbol GO EC',
+                'TIGRFAM::FullLength::Equivalog|=|common_name gene_symbol GO EC',
+                'PFAM::FullLength::Equivalog|=|common_name gene_symbol GO EC',
+                'TIGRFAM::FullLength::HypotheticalEquivalog|=|common_name gene_symbol GO EC',
+                'PFAM::FullLength::HypotheticalEquivalog|=|common_name gene_symbol GO EC',
 
                 'TIGRFAM::FRAG::Exception|=|GO',
                 'TIGRFAM::FRAG::Equivalog|=|GO',
                 'TIGRFAM::FRAG::HypotheticalEquivalog|=|GO',
-                'PandaBLASTP::Characterized|=|GO',
+                
+                'UnirefBLASTP::Reviewed|=|GO EC CAZY TAXON',
+                
                 'TIGRFAM::FullLength::Domain|=|GO',
-
-                'PRIAM|=|GO EC',
                 
                 ## equivalog level hits vs tigrfam frag, only use equivalog level for TIGRFAM
-                'TIGRFAM::FRAG::Exception|=|common_name gene_symbol GO EC TIGR_role',
-                'TIGRFAM::FRAG::Equivalog|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FRAG::Equivalog|=|common_name gene_symbol GO EC TIGR_role',
-                'TIGRFAM::FRAG::HypotheticalEquivalog|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FRAG::HypotheticalEquivalog|=|common_name gene_symbol GO EC TIGR_role',
+                'TIGRFAM::FRAG::Exception|=|common_name gene_symbol GO EC',
+                'TIGRFAM::FRAG::Equivalog|=|common_name gene_symbol GO EC',
+                'PFAM::FRAG::Equivalog|=|common_name gene_symbol GO EC',
+                'TIGRFAM::FRAG::HypotheticalEquivalog|=|common_name gene_symbol GO EC',
+                'PFAM::FRAG::HypotheticalEquivalog|=|common_name gene_symbol GO EC',
                
                 ## characterized high confidence blast hit
-                'PandaBLASTP::Characterized|=|common_name gene_symbol',
+                'UnirefBLASTP::Reviewed|=|common_name gene_symbol',
                 
                 ## pfam and non-equivalog tigrfams - full length
-                'TIGRFAM::FullLength::Subfamily|=|common_name gene_symbol GO EC TIGR_role',
-                'TIGRFAM::FullLength::Superfamily|=|common_name gene_symbol GO EC TIGR_role',
-                'TIGRFAM::FullLength::EquivalogDomain|=|common_name gene_symbol GO EC TIGR_role',
-                'TIGRFAM::FullLength::HypotheticalEquivalogDomain|=|common_name gene_symbol GO EC TIGR_role',
-                'TIGRFAM::FullLength::SubfamilyDomain|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FullLength::Subfamily|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FullLength::Superfamily|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FullLength::EquivalogDomain|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FullLength::HypotheticalEquivalogDomain|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FullLength::SubfamilyDomain|=|common_name gene_symbol GO EC TIGR_role',
+                'TIGRFAM::FullLength::Subfamily|=|common_name gene_symbol GO EC',
+                'TIGRFAM::FullLength::Superfamily|=|common_name gene_symbol GO EC',
+                'TIGRFAM::FullLength::EquivalogDomain|=|common_name gene_symbol GO EC',
+                'TIGRFAM::FullLength::HypotheticalEquivalogDomain|=|common_name gene_symbol GO EC',
+                'TIGRFAM::FullLength::SubfamilyDomain|=|common_name gene_symbol GO EC',
+                'PFAM::FullLength::Subfamily|=|common_name gene_symbol GO EC',
+                'PFAM::FullLength::Superfamily|=|common_name gene_symbol GO EC',
+                'PFAM::FullLength::EquivalogDomain|=|common_name gene_symbol GO EC',
+                'PFAM::FullLength::HypotheticalEquivalogDomain|=|common_name gene_symbol GO EC',
+                'PFAM::FullLength::SubfamilyDomain|=|common_name gene_symbol GO EC',
                 
                 ## pfam - fragment models, use all
-                'PFAM::FRAG::Subfamily|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FRAG::Superfamily|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FRAG::EquivalogDomain|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FRAG::HypotheticalEquivalogDomain|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FRAG::SubfamilyDomain|=|common_name gene_symbol GO EC TIGR_role',
+                'PFAM::FRAG::Subfamily|=|common_name gene_symbol GO EC',
+                'PFAM::FRAG::Superfamily|=|common_name gene_symbol GO EC',
+                'PFAM::FRAG::EquivalogDomain|=|common_name gene_symbol GO EC',
+                'PFAM::FRAG::HypotheticalEquivalogDomain|=|common_name gene_symbol GO EC',
+                'PFAM::FRAG::SubfamilyDomain|=|common_name gene_symbol GO EC',
+				
+				## UniRef High Confidence
+                'UnirefBLASTP::HighConfidence|=|common_name gene_symbol EC CAZY TAXON',
 
-                ## other sources, plus pfam and tigrfam domains
-                'PublicSourceAnnotation|=|common_name gene_symbol EC TIGR_role',
+                'TIGRFAM::FullLength::Domain|=|common_name gene_symbol GO EC',
+                'PFAM::FullLength::Domain|=|common_name gene_symbol GO EC',
+                'PFAM::FullLength::Uncharacterized|=|common_name gene_symbol GO EC',
+                'PFAM::FRAG::Domain|=|common_name gene_symbol GO EC',
+                'PFAM::FRAG::Uncharacterized|=|common_name gene_symbol GO EC',
 
-                'PandaBLASTP::HighConfidence|=|common_name gene_symbol EC TIGR_role',
-
-                'TIGRFAM::FullLength::Domain|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FullLength::Domain|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FullLength::Uncharacterized|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FRAG::Domain|=|common_name gene_symbol GO EC TIGR_role',
-                'PFAM::FRAG::Uncharacterized|=|common_name gene_symbol GO EC TIGR_role',
-
-                'PandaBLASTP::Putative|=|common_name gene_symbol EC TIGR_role',
-
-                'PandaBLASTP::ConservedDomain|=|common_name gene_symbol EC TIGR_role',
+				## UniRef Medium Confidence
+                'UnirefBLASTP::Putative|=|common_name gene_symbol TAXON',
+                'UnirefBLASTP::ConservedDomain|=|common_name gene_symbol TAXON',
 
                 'TMHMM|=|common_name',
                 'LipoproteinMotif|=|common_name',
                 'Hypothetical|=|common_name',
-                'PRIAM|+|common_name',
-                           );
+                
+                ## UniRef Low Confidence
+                'UnirefBLASTP::LowConfidence|=|TAXON',
+                 );
    
     ## the handler hash defines which methods are responsible for doing the annotation operations
     ## current operations are '=' assign, '+' append, '-' overwrite, but other operations can
@@ -111,13 +134,7 @@ use Data::Dumper;
                     '-' =>  \&_overwrite,
                   );
 
-    ## constructor             
-    sub new {
-        
-        my ($class, %args) = @_;
-        
-        return bless {}, $class;
-    }
+
     
     ## annotate method annotates a polypeptide with associated AnnotationData objects
     ## passed as an argument
@@ -174,82 +191,86 @@ use Data::Dumper;
         ## rerun the parses, I put them here for now.  If this makes it into SVN
         ## feel free to delete it.
         _hack_this($final_annotation);
-        _hack_ec($final_annotation);
+               
+        #_hack_ec($final_annotation);
 
-	my $com_name_arr_ref = $final_annotation->get_attribute('common_name');
-	my @names = grep(/conserved hypothetical/, @{$com_name_arr_ref});
-	if( @names ) {
-		print Dumper( $final_annotation );
-		exit(11);
-	}
+		my $com_name_arr_ref = $final_annotation->get_attribute('common_name');
+		my @names = grep(/conserved hypothetical/, @{$com_name_arr_ref});
+		if( @names ) {
+			print Dumper( $final_annotation );
+			exit(11);
+		}
 
         ## set common_name to 'protein of unassigned function' if empty
         unless ($final_annotation->has_attribute('common_name')) {
             $final_annotation->add_attribute('common_name', 'protein of unassigned function');
         }
 
+		## run the Protein Naming Utility on the final names
+        _clean_common_names($self->{_synonymsDao},$final_annotation);
+
         ##########################################################
            
         ## output final annotation object to text table
-        _to_table($final_annotation,$outfh);
-        
+        _to_table($final_annotation,$outfh);       
     }
 
     sub _hack_this {
         my ($final_annotation) = @_;
-	my $names_arr_ref = $final_annotation->get_attribute('common_name');
-       foreach my $common_name( @{$names_arr_ref} ) {
-        unless( defined( $common_name ) ) {
-            _hack_make_hypo( $final_annotation );
-            return;
-        }
-
-        #If the name is less than three characters
-        if( length($common_name) < 3 ) {
-            _hack_make_hypo( $final_annotation );
-		last;
-        }
-
-        #If the name starts with a dash
-        if( $common_name =~ /^[^\w\d]/ ) {
-            _hack_make_hypo( $final_annotation );
-		last;
-        }
-
-        #If the common name is more than 75% numbers
-        my $no_space = $common_name;
-        $no_space =~ s/\s+//;
+		my $names_arr_ref = $final_annotation->get_attribute('common_name');
+       	
+       	foreach my $common_name( @{$names_arr_ref} ) {
         
-        my $full_length = length($no_space);
-        $no_space =~ s/\D//g;
-        
-        my $num_length = length($no_space);
-        my $num_percent = int(($num_length/$full_length)*100);
+	        unless( defined( $common_name ) ) {
+	            _hack_make_hypo( $final_annotation );
+	            return;
+	        }
+	
+	        #If the name is less than three characters
+	        if( length($common_name) < 3 ) {
+	            _hack_make_hypo( $final_annotation );
+				last;
+	        }
+	
+	        #If the name starts with a dash
+	        if( $common_name =~ /^[^\w\d]/ ) {
+	            _hack_make_hypo( $final_annotation );
+				last;
+	        }
+	
+	        #If the common name is more than 75% numbers
+	        my $no_space = $common_name;
+	        $no_space =~ s/\s+//;
+	        
+	        my $full_length = length($no_space);
+	        $no_space =~ s/\D//g;
+	        
+	        my $num_length = length($no_space);
+	        my $num_percent = int(($num_length/$full_length)*100);
+	
+	        if($num_percent > 60 ) {
+	            _hack_make_hypo( $final_annotation );
+				last;
+        	}
 
-        if($num_percent > 60 ) {
-            _hack_make_hypo( $final_annotation );
-		last;
-        }
+	        #Reverse hypo.  It happens...
+	        if( $common_name =~ /lacitehtopyh/ ) {
+	            _hack_make_hypo( $final_annotation );
+			last;
+	        } 
 
-        #Reverse hypo.  It happens...
-        if( $common_name =~ /lacitehtopyh/ ) {
-            _hack_make_hypo( $final_annotation );
-		last;
-        } 
-
-	#Conserved Hypothetical
-	if( $common_name =~ /conserved hypothetical/ ) {
-		_hack_make_hypo( $final_annotation );
-		last;
-	}  
-
-	#Common name is taxon:(\d+)
-	if( $common_name =~ /taxon\:\d+/ ) {
-		_hack_make_hypo( $final_annotation );
-		last;
-	}
-	}
-
+			#Conserved Hypothetical
+			if( $common_name =~ /conserved hypothetical/ ) {
+				_hack_make_hypo( $final_annotation );
+				last;
+			}  
+		
+			#Common name is taxon:(\d+)
+			if( $common_name =~ /taxon\:\d+/ ) {
+				_hack_make_hypo( $final_annotation );
+				last;
+			}
+		}
     }
 
     sub _hack_ec {
@@ -269,6 +290,23 @@ use Data::Dumper;
         unless( @lines ) {
             _hack_make_hypo($final_annotation);
         }
+    }
+    
+    sub _clean_common_names() {
+	    my ($pnu,$final_annotation) = @_;
+	    my @cleanNames = ();
+	    
+       	my $names_arr_ref = $final_annotation->get_attribute('common_name');
+        
+       	foreach my $common_name( @{$names_arr_ref} ) {
+       		## lower case any words that start with a capital letter followed
+       		## by a lower case letter
+       		$common_name =~ s/\b([A-Z][a-z])(\w+)\b/\l$1$2/g;
+       		
+			push(@cleanNames,$pnu->rename($common_name));        
+        }
+        
+        $final_annotation->replace_attribute('common_name', \@cleanNames);
     }
     
     ## Another hack subroutine
@@ -410,21 +448,6 @@ use Data::Dumper;
         my ($annotation,$out) = @_;
 
         my $row = $annotation->{'id'};
-
-        ##
-        ## N.B. Kevin, Jay, or whoever:
-        ##
-        ## Jeff wants this output changed to the following format:
-        ##
-        ## peptide_id\tattribute_type\tvalue\tsource
-        ## ...
-        ##
-        ## eg: unstack the multi-value attributes that are currently joined with ' || 's
-        ##     and have one attribute type per line
-        ##
-        ## JCVI_PEP_13141421542 common_name some_crappy_text_here   GI|141245154|
-        ## JCVI_PEP_13141421542 EC 1.-.-.-   GI|141245154|
-        ##
         
         foreach my $key(@CAMERA::AnnotationData::PolypeptideDataTypes::attribute_list) {
 		
@@ -439,9 +462,6 @@ use Data::Dumper;
 	## the filehandle was getting closed and throwing errors.
 	$row .= "\n";	
         print $row;
-
-        
     }
-   
 }
 1;

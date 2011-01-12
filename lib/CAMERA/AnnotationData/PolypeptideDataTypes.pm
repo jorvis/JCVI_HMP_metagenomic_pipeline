@@ -44,10 +44,15 @@ our @type_list = (
                 'PFAM::FRAG::SubfamilyDomain',
                 'PFAM::FRAG::Domain',
                 'PFAM::FRAG::Uncategorized',
-                'PandaBLASTP::Characterized',
-                'PandaBLASTP::HighConfidence',
-                'PandaBLASTP::Putative',
-                'PandaBLASTP::ConservedDomain',
+#                'PandaBLASTP::Characterized',
+#                'PandaBLASTP::HighConfidence',
+#                'PandaBLASTP::Putative',
+#                'PandaBLASTP::ConservedDomain',
+                'UnirefBLASTP::Reviewed',
+                'UnirefBLASTP::HighConfidence',
+                'UnirefBLASTP::Putative',
+                'UnirefBLASTP::ConservedDomain',    
+                'UnirefBLASTP::LowConfidence',                
                 'PublicSourceAnnotation',
                 'TMHMM',
                 'LipoproteinMotif',
@@ -60,7 +65,7 @@ our @attribute_list = (
                         'gene_symbol',
                         'GO',
                         'EC',
-                        'TIGR_role',
-                      );
-                    
+                        'CAZY',
+                        'TAXON'
+                      );                   
 1;
