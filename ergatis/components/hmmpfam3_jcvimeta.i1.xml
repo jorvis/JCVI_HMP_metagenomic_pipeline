@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<commandSetRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation='commandSet.xsd'>
+    <commandSet type="serial">
+        <name>hmmpfam3_jcvimeta compute</name>
+        <command>
+            <type>RunUnixCommand</type>
+            <name>hmmpfam</name>
+            <state>incomplete</state>
+            <executable>$;HMMPFAM3_EXEC$;</executable>
+            <arg>$;OTHER_OPTS$; $;DATABASE_PATH$; $;I_FILE_PATH$;</arg>
+            <param>  
+                <key>stdout</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.raw</value>
+            </param>
+        </command>
+        <command>
+            <type>RunUnixCommand</type>
+            <name>conversion to htab</name>
+            <state>incomplete</state>
+            <executable>/usr/local/bin/perl</executable>
+            <arg>-I /usr/local/projects/dacc/jcvi_metagenomic_autoannotate/bin /usr/local/projects/dacc/jcvi_metagenomic_autoannotate/bin/htab.pl -d $;HMM_INFO_FILE$;</arg>
+            <param>
+                <key>stdin</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.raw</value>
+            </param>
+            <param>
+                <key>stdout</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.htab</value>
+            </param>
+        </command>
+        <command>
+            <type>RunUnixCommand</type>
+            <name>parse the htab</name>
+            <state>incomplete</state>
+            <executable>/usr/local/bin/perl</executable>
+            <arg>-I /usr/local/projects/dacc/jcvi_metagenomic_autoannotate/lib /usr/local/projects/jorvis/metagenomic_annotation/SOM/bin/camera_parse_annotation_results_to_text_table.pl</arg>
+            <param>
+                <key>input_file</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.htab</value>
+            </param>
+            <param>
+                <key>input_type</key>
+                <value>HTAB</value>
+            </param>
+            <param>
+                <key>output_file</key>
+                <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.htab.parsed</value>
+            </param>
+            <param>
+                <key>work_dir</key>
+                <value>/usr/local/projects/dacc/jcvi_metagenomic_autoannotate/data/</value>
+            </param>
+        </command>
+    </commandSet>
+</commandSetRoot>
