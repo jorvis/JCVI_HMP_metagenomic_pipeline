@@ -18,8 +18,8 @@
             <type>RunUnixCommand</type>
             <name>conversion to htab</name>
             <state>incomplete</state>
-            <executable>/usr/local/bin/perl</executable>
-            <arg>-I /usr/local/projects/dacc/jcvi_metagenomic_autoannotate/bin /usr/local/projects/dacc/jcvi_metagenomic_autoannotate/bin/htab.pl -d $;HMM_INFO_FILE$;</arg>
+            <executable>/usr/local/projects/dacc/jcvi_metagenomic_autoannotate/bin/htab.pl</executable>
+            <arg>-d $;HMM_INFO_FILE$;</arg>
             <param>
                 <key>stdin</key>
                 <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.raw</value>
@@ -33,8 +33,7 @@
             <type>RunUnixCommand</type>
             <name>parse the htab</name>
             <state>incomplete</state>
-            <executable>/usr/local/bin/perl</executable>
-            <arg>-I /usr/local/projects/dacc/jcvi_metagenomic_autoannotate/lib /usr/local/projects/jorvis/metagenomic_annotation/SOM/bin/camera_parse_annotation_results_to_text_table.pl</arg>
+            <executable>/usr/local/projects/jorvis/metagenomic_annotation/SOM/bin/camera_parse_annotation_results_to_text_table.pl</executable>
             <param>
                 <key>input_file</key>
                 <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.htab</value>

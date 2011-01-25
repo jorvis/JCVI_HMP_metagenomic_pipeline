@@ -7,12 +7,13 @@ use Cwd;
 use Getopt::Std;
 use Cwd 'realpath';
 use File::Basename;
+use FindBin;
+use lib "$FindBin::Bin";
 
 require "hmm_lib.pl";
+our $defaultEgad = "$FindBin::Bin/egad.db";
 
-my $program = realpath($0);
-my $htabDir = dirname($program);
-our $defaultEgad = "$htabDir/egad.db";
+
 
 my $usage = <<_EOT_;
 NAME

@@ -12,6 +12,8 @@ use CAMERA::Parser::LipoproteinMotifBSML;
 use CAMERA::Parser::Hypothetical;
 use CAMERA::PolypeptideSet;
 use Getopt::Long;
+use FindBin;
+use lib "$FindBin::Bin/../lib";
 
 $| = 1;
 
@@ -24,7 +26,7 @@ my %supported_type = (
                         "TMHMMBSML" => 1,
                         "LipoproteinMotifBSML" => 1,
                         "Hypothetical" => 1,
-		        "FRAG_HTAB" => 1,
+                        "FRAG_HTAB" => 1,
                      );
 
 my %options = ();
