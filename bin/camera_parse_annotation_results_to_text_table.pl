@@ -4,6 +4,10 @@ use strict;
 use warnings;
 use Carp;
 
+use FindBin;
+use lib "$FindBin::Bin/../lib";
+use lib "/home/jorvis/lib";  ## not useful elsewhere, I just don't yet have a global DBM::Deep install
+
 use CAMERA::Parser::BTAB; 
 use CAMERA::Parser::HTAB; 
 use CAMERA::Parser::ECTable; 
@@ -12,8 +16,9 @@ use CAMERA::Parser::LipoproteinMotifBSML;
 use CAMERA::Parser::Hypothetical;
 use CAMERA::PolypeptideSet;
 use Getopt::Long;
-use FindBin;
-use lib "$FindBin::Bin/../lib";
+
+#print STDERR "INFO: using lib: $FindBin::Bin/../lib\n";
+#print STDERR "ARGS is: @ARGV\n";
 
 $| = 1;
 

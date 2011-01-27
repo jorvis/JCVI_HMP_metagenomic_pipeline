@@ -38,6 +38,7 @@ sub new {
     my $sqliteDB = "$args{'work_dir'}/hmm3.db";
 
 	## open sqlite database
+    print STDERR "INFO: connecting to database: $sqliteDB\n";
 	$self->{'db'} = DBI->connect( "dbi:SQLite:$sqliteDB", "", "", {PrintError=>1,RaiseError=>1,AutoCommit=>0} );
 	if ( !defined $self->{'db'} ) {
 		die "could not connect to sqlite database: $sqliteDB" . $DBI::errstr;

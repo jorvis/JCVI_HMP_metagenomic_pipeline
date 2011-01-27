@@ -33,21 +33,21 @@
             <type>RunUnixCommand</type>
             <name>parse the htab</name>
             <state>incomplete</state>
-            <executable>/usr/local/projects/jorvis/metagenomic_annotation/SOM/bin/camera_parse_annotation_results_to_text_table.pl</executable>
+            <executable>/usr/local/projects/dacc/jcvi_metagenomic_autoannotate/bin/camera_parse_annotation_results_to_text_table.pl</executable>
             <param>
-                <key>input_file</key>
+                <key>--input_file</key>
                 <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.htab</value>
             </param>
             <param>
-                <key>input_type</key>
+                <key>--input_type</key>
                 <value>HTAB</value>
             </param>
             <param>
-                <key>output_file</key>
+                <key>--output_file</key>
                 <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.htab.parsed</value>
             </param>
             <param>
-                <key>work_dir</key>
+                <key>--work_dir</key>
                 <value>/usr/local/projects/dacc/jcvi_metagenomic_autoannotate/data/</value>
             </param>
         </command>
