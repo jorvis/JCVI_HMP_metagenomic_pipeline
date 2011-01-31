@@ -48,7 +48,7 @@
             </param>
             <param>
                 <key>--work_dir</key>
-                <value>/usr/local/projects/dacc/jcvi_metagenomic_autoannotate/data/</value>
+                <value>$;WORK_DIR$;</value>
             </param>
         </command>
     </commandSet>

@@ -7,7 +7,7 @@
             <type>RunUnixCommand</type>
             <name>lipoprotein_motif_jcvimeta</name>
             <state>incomplete</state>
-            <executable>/usr/local/projects/jorvis/metagenomic_annotation/SOM/bin/lipoprotein_motif.pl</executable>
+            <executable>/usr/local/projects/dacc/jcvi_metagenomic_autoannotate/bin/lipoprotein_motif.pl</executable>
             <param>
                 <key>--input</key>
                 <value>$;I_FILE_PATH$;</value>
@@ -33,7 +33,7 @@
             <type>RunUnixCommand</type>
             <name>parse the lipoprotein motif results</name>
             <state>incomplete</state>
-            <executable>/usr/local/projects/jorvis/metagenomic_annotation/SOM/bin/camera_parse_annotation_results_to_text_table.pl</executable>
+            <executable>/usr/local/projects/dacc/jcvi_metagenomic_autoannotate/bin/camera_parse_annotation_results_to_text_table.pl</executable>
             <param>
                 <key>--input_file</key>
                 <value>$;OUTPUT_DIRECTORY$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;/$;I_FILE_BASE$;.$;COMPONENT_NAME$;.bsml</value>
@@ -48,7 +48,7 @@
             </param>
             <param>
                 <key>--work_dir</key>
-                <value>$;TMP_DIR$;/$;ITERATOR_NAME$;/g$;GROUP_NUMBER$;</value>
+                <value>$;WORK_DIR$;</value>
             </param>
         </command>        
     </commandSet>
