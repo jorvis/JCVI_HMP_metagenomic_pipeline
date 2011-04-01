@@ -38,7 +38,6 @@ sub new {
     my $sqliteDB = "$args{'work_dir'}/hmm3.db";
 
 	## open sqlite database
-    print STDERR "INFO: connecting to database: $sqliteDB\n";
 	$self->{'db'} = DBI->connect( "dbi:SQLite:$sqliteDB", "", "", {PrintError=>1,RaiseError=>1,AutoCommit=>0} );
 	if ( !defined $self->{'db'} ) {
 		die "could not connect to sqlite database: $sqliteDB" . $DBI::errstr;
@@ -114,11 +113,13 @@ sub parse {
     my $result = '';
     while (<$infh>) {
         chomp;
-	print "Reading htab line=$_\n";
+		print "Reading htab line=$_\n";
+        
         ## fix for concatenated output not from htab.pl -m
         if (/^No hits/ || /^No domain/) {
             next;
         }
+        
         my @t = split("\t", $_);
         my $hmm_id = $t[0];
         
@@ -126,7 +127,6 @@ sub parse {
         my $hmm3 = $self->get($hmm_id);
         
         my $pep_id = $t[5];
-        my $score = $t[11];
         
         unless ($pep_id) { 
             confess "failed parsing htab file";
@@ -143,24 +143,13 @@ sub parse {
         }
         
         my $hmm_type = _get_hmm_type($hmm3);
-   
-   		
+    		
         ## if we don't recognize the hmm_type then skip
         unless ($hmm_type) {
             next;
         }
-        
-        ## filter on trusted cutoffs
-        if ($has_trusted_cutoffs{$hmm_type}) {
-            my $cutoff = $hmm3->{trusted_cutoff};
 
-            unless ($score >= $cutoff) {
-				print "Skipping because score=$score is less than cutoff=$cutoff\n";
-                next;
-            }
-        }
-
-	print "Adding annotation for hmm_id=$hmm_id pep_id=$pep_id\n";
+		print "Adding annotation for hmm_id=$hmm_id pep_id=$pep_id\n";
         
         $result .= _add_annotation($pep, $hmm3, $hmm_type, $rank->{$pep_id});
    }
@@ -235,7 +224,7 @@ sub _get_hmm_type {
     }
     
     my $type = $hmm_lib.'::'.$hmm_length.'::';
-
+	
     if ($iso_type =~ /^(equivalog)$|^(PFAM_equivalog)$/) {
         $type .= 'Equivalog';
     } elsif ($iso_type =~ /^(hypoth_equivalog)$/) {
