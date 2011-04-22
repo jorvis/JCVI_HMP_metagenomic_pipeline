@@ -10,15 +10,6 @@
 # ################
 
 
- 
-eval 'exec /usr/bin/perl  -S $0 ${1+"$@"}'
-    if 0; # not running under some shell
-
-#BEGIN{foreach (@INC) {s/\/usr\/local\/packages/\/local\/platform/}};
-#use lib (@INC,$ENV{"PERL_MOD_DIR"});
-#no lib "$ENV{PERL_MOD_DIR}/i686-linux";
-#no lib ".";
-
 =head1 NAME
 
 mblastp2btab.pl - convert an mBlastP tab-delimited output file to BTAB format.
@@ -40,6 +31,9 @@ B<--input,-i>
 B<--output,-o>
     The file to which the parsed output will be written.
 
+B<--reference_fasta,-r> 
+    The FASTA file used as the reference in the BLAST searches.
+
 B<--debug,-d> 
     Debug level.  Use a large number to turn on verbose debugging. 
 
@@ -58,6 +52,11 @@ btab format.
 
 The input to this sequence is defined using the --input option.  This should point
 to the  mblastp tab-delimited output file.
+
+The --reference_fasta refers to the FASTA file your queries were searched against.  This is
+necessary because mBlastP doesn't carry over any annotation in the FASTA descriptors so it is
+indexed by this script.  The headers will be hashed in memory so it's better to run this script
+on large, concatenated result files.
 
 =head1  OUTPUT
 
@@ -86,6 +85,14 @@ composed of the following columns.
     20  e_value
     21  p_value
 
+=head1 TESTING
+
+cd /usr/local/projects/dacc/jcvi_metagenomic_autoannotate/output/PGA/SRS011140
+
+perl -I ~/svn/ergatis/lib/ /home/jorvis/git/JCVI_HMP_metagenomic_pipeline/bin/mblastp2btab.pl -i SRS011140.mblastp.custom2.out -o SRS011140.mblastp.custom2.btab -r /usr/local/projects/dacc/jcvi_metagenomic_autoannotate/data/uniref100.fasta
+
+/usr/local/projects/dacc/jcvi_metagenomic_autoannotate/bin/camera_parse_annotation_results_to_text_table.pl --input_file=SRS011140.mblastp.custom2.btab --input_type=BTAB --output_file=SRS011140.mblastp.custom2.btab.parsed --work_dir=/usr/local/projects/dacc/jcvi_metagenomic_autoannotate/data/ 
+
 =head1  CONTACT
 
     Kemi Abolude
@@ -98,15 +105,14 @@ use strict;
 use Getopt::Long qw(:config no_ignore_case no_auto_abbrev pass_through);
 use Pod::Usage;
 use bigint;
-BEGIN {
 use Ergatis::Logger;
-}
 use Bio::SearchIO;
 
 my %options = ();
 my $results = GetOptions (\%options, 
                           'input|i=s',
                           'output|o=s',
+                          'reference_fasta|r=s',
                           'log|l=s',
                           'debug|d=s',
                           'help|h') || pod2usage();
@@ -124,7 +130,18 @@ if( $options{'help'} ){
 ## make sure everything passed was peachy
 &check_parameters(\%options);
 
-## parse datadase name
+## holds the identifiers from the reference FASTA file as keys and the rest of each
+#   header line as the vlue.
+my %annotations = ();
+
+open(my $fasta_fh, $options{reference_fasta}) || die "failed to read reference FASTA file: $!";
+
+while (<$fasta_fh>) {
+    $annotations{$1} = $2 if ( /\>(\S+) (.+)/ );
+}
+
+
+## parse database name
 my $database_name = "";
 # open the input file for database name
 open(IN, "<$options{input}") || $logger->logdie("can't read the input sequence: $!");
@@ -146,6 +163,8 @@ open (OUT, ">$options{output}") || $logger->logdie("can't create output file for
 
    # parse each line:
    while( <IN> ) {
+      
+       chomp;
       
        #skip mblastp header or footer
        next if ( /^Query Id\s+Reference Id/i ||
@@ -215,7 +234,7 @@ open (OUT, ">$options{output}") || $logger->logdie("can't create output file for
        #15: NULL
        
        #16: hit_description
-       $x[15] = $cols[1];
+       $x[15] = $annotations{$cols[1]};
        
        #17: blast_frame
        $x[16] = $cols[7];
@@ -276,8 +295,9 @@ sub check_parameters {
         exit(1);
     }
     
-    if(0){
-        pod2usage({-exitval => 2,  -message => "error message", -verbose => 1, -output => \*STDERR});    
+    unless (defined $options{reference_fasta}) {
+        $logger->logdie("reference_fasta option not passed");
+        exit(1);
     }
 }
 
